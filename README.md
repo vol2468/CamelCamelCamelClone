@@ -39,17 +39,18 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 - Search for a user by name or email
 - Enable/disable the user account
 
-
 ## Milestones 2: Client-side experience
 
-### Layout Document 
-- Screenshot of Layout Document from Figma 
+### Layout Document
 
-### Organization of Pages 
+- Screenshot of Layout Document from Figma
+
+### Organization of Pages
+
 - Screenshot of DFDs from Figma
 
-### Logic Process 
+### Logic Process
+
 - Some user stories
 
 ### Design and Style Description
-
