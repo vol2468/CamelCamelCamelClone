@@ -14,9 +14,10 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 
 ### List of Requirements
 
-#### Unregistered Use
+#### Unregistered User
 
-- Create an account
+- Create an account with their name, email and image
+- Edit their account settings/profile
 - Search for items by keyword, categories or manufacturer
 - Order search results by price (ascending/descending), relevance and average customer rating on Amazon
 - Filter search results by attributes
