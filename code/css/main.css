@@ -15,8 +15,7 @@ p, body {
 /* header */
 
 /* sidebar */
-#sidebar {
-    margin: 2em;
+#popular {
     width: 300px;
     height: 500px;
     float: left;
