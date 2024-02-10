@@ -1,0 +1,31 @@
+/* font-family, font size */
+h1 {
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 2em;
+}
+h2 {
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+p, body {
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+/* header */
+
+/* sidebar */
+#sidebar {
+    margin: 2em;
+    width: 300px;
+    height: 500px;
+    float: left;
+}
+
+/* main */
+#main {
+    margin: 2em;
+}
+
+/* footer */
+
