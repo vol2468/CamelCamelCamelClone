@@ -21,6 +21,8 @@ body {
 header {
     background-color: aquamarine;
     margin-bottom: 1em;
+    display: flex;
+    align-items: center;
 }
 
 /* main */
