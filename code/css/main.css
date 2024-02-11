@@ -17,23 +17,12 @@ body {
     margin: 0em 2em 0em 2em;
 }
 
-/* header */
-header {
-    background-color: aquamarine;
-    margin-bottom: 1em;
-    display: flex;
-    align-items: center;
-}
-
 /* main */
 #main {
     margin: 2em;
     display: flex;
     gap: 1em;
 }
-
-/* footer */
-
 
 /* popular */
 #popular {
