@@ -4,9 +4,9 @@
 
 ### Team members
 
-Adams Chen 50905454 <br>
-Taii Hirano 44551257 <br>
-Yuki Isomura 11888757 <br>
+Adams Chen 50905454  
+Taii Hirano 44551257  
+Yuki Isomura 11888757  
 
 ### Project Description and Details: Camelcamelcamel Clone
 
@@ -47,10 +47,20 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 
 ### Organization of Pages
 
-- Screenshot of DFDs from Figma
+![site map](images/site_map.png)
 
 ### Logic Process
 
 - Some user stories
 
 ### Design and Style Description
+
+On our website, we’ve structured the layout with a header footer, and navigation bar for consistency across all pages. To optimize user experience, we’ve decided to place the navigation links at the top, ensuring easy access for seamless navigation between pages.
+
+On the main page, users will encounter tailored components based on their registration status. For Non-Registered Users, a curated list of popular products will be showcased, featuring product images and highlighting top price drop products. This section aims to engage non-registered users with compelling offers and discounts, encouraging them to explore further and potentially sign up.
+
+For Registered Users, in addition to a list of popular products, a prominent feature is the “Price Alert” button placed at the top of the page. This button serves as a direct link to a list of products within the user’s watch list where prices have dropped. This feature is designed to empower registered users by keeping them updated on price changes for products they are interested in.
+
+Additionally, when users conduct a product search, the results will display a list of products accompanied by clear and visible product images on the left. This presentation enhances the visibility and attractiveness of the listed products, aiding users in making informed decisions.
+
+By implementing these features, we aim to provide a user-friendly experience for both registered and non-registered users, catering to their specific needs and preferences.
