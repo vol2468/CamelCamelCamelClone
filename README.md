@@ -51,7 +51,55 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 
 ### Logic Process
 
-- Some user stories
+#### For Users
+
+- Registration/Login:  
+Users can register for a new account by providing necessary information like name, email, and password. Alternatively, they can log in if they already have an account.
+
+- Search for Products:  
+Users can search for products by name, category, or manufacturer.
+
+- View Product Details:  
+Upon finding a product, users can view its details including current price, price history with graphical representations, seller information, product review, and so on.
+
+- Create Price Watch List:  
+Users have the option to set price alerts for specific products and add them to a price watch list. They define a target price and monitor price changes over time. When the product’s price drops below that threshold, they receive notifications.
+- Explore Deals and Trends:  
+Users can explore deals, top price drops, and trending products on the site’s main page.
+
+- Receive Notifications:  
+Users receive notifications via email or on-site alerts when there are significant price changes or when price alerts are triggered.
+
+- Manage Price Watch List:  
+Users can manage their price watch list by adding new products, removing existing ones, or modifying price alert settings.
+
+- Account Settings:  
+Users can manage their account settings, update personal information, and change passwords.
+
+- Provide Feedback:  
+Users have the option to provide feedback, report issues, or suggest improvements through a feedback form or contact page.
+
+- Logout:  
+Users can securely log out of their accounts to protect their privacy.
+
+#### For Administrators
+
+Note: The administrator possesses the same functionality and access as users, with additional capabilities to engage with the site.
+
+- Admin Dashboard:  
+Administrators have access to a dashboard where they can monitor site traffic and user statistics, and perform administrative tasks.
+
+- User Management:  
+Administrators can manage user accounts, including searching for a user by name or email and deactivating accounts if necessary.
+
+- Content Management:  
+Administrators oversee content management ensuring that appropriate comment is written and managing product reviews by removing them if necessary.
+
+- Product Analytics:  
+Administrators can access product analytics and reporting tools to track user engagement, and product popularity and delete products if necessary.
+
+- Customer Support:  
+Administrators handle customer support requests, providing assistance to users and resolving any issues or complaints.
 
 ### Design and Style Description
 
