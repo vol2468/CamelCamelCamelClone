@@ -1,5 +1,37 @@
-body{
+h1 {
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 2em;
+}
+h2 {
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+body {
+    margin: 0em 2em 0em 2em;
+}
+main {
     margin: 0em 2em 0em 2em;
 }
 
+form{
+    margin: 0.5em 0em 0.5em 0em;
+    border: solid black;
+    border-width: 0.15em;
+    width: fit-content;
+    padding: 0.25em;
+    background-color: antiquewhite;
+
+}
+
+form input[type="email"], form input[type="password"] {
+    margin: 0em 0em 0em 2em;
+    float: right;
+}
+
+form input[type="submit"]{
+    text-align: center;
+    display: block;
+    margin: auto;
+}
 

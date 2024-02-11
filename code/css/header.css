@@ -15,3 +15,18 @@ h2 {
     font-size: 1.5em;
 }
 
+#navigation_menu {
+    display: flex;
+    align-items: center; 
+    gap: 1em;
+}
+
+#navigation_menu:last-child{
+    margin-left: auto !important; /* Doesn't work */
+}
+
+#account_image {
+    width: 2em;
+    padding: 0em 1em 0em 2em;
+}
+

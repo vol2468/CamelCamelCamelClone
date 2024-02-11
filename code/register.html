@@ -3,6 +3,8 @@
     <head lang="en">
         <meta charset="utf-8">
         <title>Register</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/register.css"/>
     </head>
     <body>
 
@@ -16,6 +18,10 @@
             </h1>
             <form method="post" action="#">
                 <p>
+                    <label>Username: </label>
+                    <input type="text" name="username"/>
+                </p>
+                <p>
                     <label>Email Address: </label>
                     <input type="email" name="email"/>
                 </p>
@@ -23,7 +29,7 @@
                     <label>Password: </label>
                     <input type="password" name="password"/>
                 </p>
-                <input type="submit"/>
+                <input type="submit" value="Create an Account"/>
             </form>
         </main>
 
