@@ -1,31 +1,44 @@
 <!DOCTYPE html>
+
+
 <html>
     <head lang="en">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Login</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/login.css"/>
+        
     </head>
     <body>
-        <script src="header.js"></script>
-        
+        <header>
+            <script src="js/header.js"></script>
+        </header>
 
-        <h1>
-            Log in to your account
-        </h1>
-        <form method="post" action="#">
-            <p>
-                <label>Username or Email Address: </label>
-                <input type="email" name="email"/>
-            </p>
-            <p>
-                <label>Password: </label>
-                <input type="password" name="password"/>
-            </p>
-            <input type="submit"/>
-        </form>
-        <button type="button">Create Free Account</button>
+
+        <main>
+            <h1>
+                Log in to your account
+            </h1>
+            <form method="post" action="#">
+                <p>
+                    <label>Username or Email Address: </label>
+                    <input type="email" name="email"/>
+                </p>
+                <p>
+                    <label>Password: </label>
+                    <input type="password" name="password"/>
+                </p>
+                <input type="submit"/>
+            </form>
+            <button type="button">Create Free Account</button>
+        </main>
+
+        <footer>
+            <script src="js/footer.js"></script>
+        </footer>
     </body>
 
-    <footer>
-        <p>&copy; Copyright 2024 ATY</p>
-    </footer>
+    
 </html>
