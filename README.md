@@ -41,9 +41,16 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 
 ## Milestones 2: Client-side experience
 
-### Layout Document
+### Layout
 
-- Screenshot of Layout Document from Figma
+<img src="images/login.png" width=300px>
+<img src="images/main.png" width=300px>
+<img src="images/search.png" width=300px>
+<img src="images/account_settings.png" width=300px>
+<img src="images/price_watch_list.png" width=300px>
+<img src="images/admin_dashboard.png" width=300px>
+<img src="images/admin_user.png" width=300px>
+<img src="images/contact.png" width=300px>
 
 ### Organization of Pages
 
