@@ -43,6 +43,7 @@ We are developing a website, Camelcamelcamel Clone, designed to offer users a co
 
 ### Layout
 
+<img src="images/sign_up.png" width=300px>
 <img src="images/login.png" width=300px>
 <img src="images/main.png" width=300px>
 <img src="images/search.png" width=300px>
