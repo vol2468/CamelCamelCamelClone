@@ -1,5 +1,5 @@
 #site_logo {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin-bottom: 1em;
     display: flex;
     align-items: center;
@@ -16,6 +16,9 @@ h2 {
 }
 
 #navigation_menu {
+    position: absolute;
+    right: 20px;
+    top: 40px;
     display: flex;
     align-items: center; 
     gap: 1em;
