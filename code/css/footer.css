@@ -1,0 +1,42 @@
+body {
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1.2em;
+}
+
+#contact-us a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+#contact-us a img {
+    margin: 0.3em;
+}
+
+#site-logo {
+    margin: 0 10em 0 10em;
+}
+
+#contact-us {
+    margin: 0 5em 0 5em;
+}
+
+#copyright {
+    margin: 0 10em 0 10em;
+}
