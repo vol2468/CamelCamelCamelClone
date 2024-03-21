@@ -1,35 +1,69 @@
-#site_logo {
+body {
+    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+#site-logo {
     /* background-color: aquamarine; */
     margin-bottom: 1em;
     display: flex;
     align-items: center;
 }
 
-h1 {
-    font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 2em;
+#site-logo img {
+    width: 150px;
+    margin-left: 8em;
 }
 
-h2 {
-    font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 1.5em;
+#site-logo h1 {
+    padding: 0 2em 0 2em;
 }
 
-#navigation_menu {
+#navigation-menu {
     position: absolute;
     right: 20px;
-    top: 40px;
+    top: 60px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 1em;
 }
 
-#navigation_menu:last-child{
+#navigation-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+#navigation-menu:last-child{
     margin-left: auto !important; /* Doesn't work */
 }
 
-#account_image {
+#account-image {
     width: 2em;
-    padding: 0em 1em 0em 2em;
+    padding: 0em 0.5em 0em 0.5em;
+}
+
+#search {
+    border: solid 1px #F0F0F0;
+    border-radius: 30px;
+    width: 600px;
+    height: 50px;
+    margin: 0 2em 0 2em;
+    text-indent: 15px;
+    background-image: url("../images/search.png");
+    background-size: 47px;
+    background-repeat: no-repeat;
+    background-color: #F0F0F0;
+}
+
+#search:focus { 
+    background-image: none; 
 }
 
