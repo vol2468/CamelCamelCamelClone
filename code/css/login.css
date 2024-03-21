@@ -15,24 +15,62 @@ main {
     margin: 0em 2em 0em 2em;
 }
 
-form{
-    margin: 0.5em 0em 0.5em 0em;
-    border: solid black;
+.welcome {
+    display: flex;
+    justify-content: center;
+}
+
+p.welcome {
+    color: gray;
+}
+ 
+#wrap {
+    border: solid black 1px;
+    border-radius: 1.5em;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    padding: 7em 2em 7em 2em;
+}
+
+#signin-info {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-width: 0.15em;
-    width: fit-content;
     padding: 0.25em;
-    background-color: antiquewhite;
-
 }
 
-form input[type="email"], form input[type="password"] {
-    margin: 0em 0em 0em 2em;
-    float: right;
+form input {
+    margin: 0.7em 0em 0.7em 0em;
+    border: solid black 1px;
+    padding: 1em;
+    border-radius: 1em;
+    width: 400px;
+    height: 50px;
 }
 
-form input[type="submit"]{
-    text-align: center;
+#submit {
+    color: white;
+    background-color: black;
+}
+
+.input {
+    margin: 0.8em 0 0.8em 0;
+}
+
+.input label {
     display: block;
-    margin: auto;
 }
 
+#sig {
+    text-decoration: none;
+    color: #38AB38;
+}

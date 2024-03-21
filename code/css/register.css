@@ -41,7 +41,6 @@ p.welcome {
 }
 
 form {
-    /* margin: 0.5em 0em 0.5em 0em; */
     display: flex;
     flex-direction: column;
     align-items: center;
