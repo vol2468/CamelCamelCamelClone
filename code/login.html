@@ -18,24 +18,27 @@
         </header>
 
         <main>
-            <h1>
-                Log in to your account
-            </h1>
-            <form method="post" action="#">
-                <p>
-                    <label>Username or Email Address: </label>
-                    <input type="email" name="email"/>
-                </p>
-                <p>
-                    <label>Password: </label>
-                    <input type="password" name="password"/>
-                </p>
-                <input type="submit" class="button" value="Log in"/>
-            </form>
-            You don't have an account yet?<br>
-            <a href="register.html">
-                <button type="button" class="button">Create Free Account</button>
-            </a>
+            <div id="wrap">
+                <h1 class="welcome">WELCOME BACK!</h1>
+                <p class="welcome">Please enter your login details.</p>
+                <div id="signin-info">
+                    <form method="post" action="#">
+                        <div class="input">
+                            <label for="email">Email Address: </label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email"/>
+                        </div>
+                        <div class="input">
+                            <label for="password">Password: </label>
+                            <input type="password" name="password"/>
+                        </div>
+                        <br>
+                        <div class="input">
+                            <input type="submit" id="submit" value="Sign in"/>
+                        </div>
+                        <p>Don't have an account? <span><a id="sig" href="">Sign up for free!</a></span></p>
+                    </form>
+                </div>
+            </div>
         </main>
 
         <footer>
