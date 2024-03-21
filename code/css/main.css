@@ -1,15 +1,15 @@
 /* font-family, font size */
+body {
+  font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+  font-size: 1em;
+}
+
 h1 {
-    font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 2em;
+  font-size: 2em;
 }
+
 h2 {
-    font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 1.5em;
-}
-p, body {
-    font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 1em;
+  font-size: 1.5em;
 }
 
 /* body */
