@@ -20,7 +20,7 @@ body {
 }
 
 /* main */
-#main {
+main {
     margin: 2em;
     display: flex;
     gap: 1em;
