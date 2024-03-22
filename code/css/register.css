@@ -1,9 +1,11 @@
-body {
-    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+p, body {
+    font-family: "DM Sans" !important;
     font-size: 1em;
 }
 
 h1 {
+    font-family: "Alata";
+    font-weight: normal;
     font-size: 2em;
 }
 

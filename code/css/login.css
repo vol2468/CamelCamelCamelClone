@@ -1,9 +1,11 @@
 p, body {
-    font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+    font-family: "DM Sans" !important;
     font-size: 1em;
 }
 
 h1 {
+    font-family: "Alata";
+    font-weight: normal;
     font-size: 2em;
 }
 
@@ -62,12 +64,31 @@ form input {
     background-color: black;
 }
 
+#google {
+    background-color: white;
+    background-image: url("../images/google.png");
+    background-size: 140px;
+    background-repeat: no-repeat;
+}
+
 .input {
     margin: 0.8em 0 0.8em 0;
 }
 
 .input label {
     display: block;
+}
+
+#forgot {
+    position: relative;
+    bottom: 12px;
+    margin: 0 0 0 auto;
+    margin-left: auto;
+}
+
+#forgot a {
+    text-decoration: none;
+    color: #38AB38;
 }
 
 #sig {
