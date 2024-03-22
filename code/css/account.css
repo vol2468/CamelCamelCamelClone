@@ -1,0 +1,130 @@
+/* font-family, font size */
+p, body {
+    font-family: "DM Sans";
+    font-size: 1em;
+}
+
+h1 {
+    font-family: "Alata";
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5em !important;
+}
+
+h2 {
+    font-family: "Alata";
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #D8DEE4;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+}
+
+#menu-bar {
+    width: 200px;
+    height: 700px;
+    float: left;
+    margin: 0 3em 0 0;
+}
+
+#menu-bar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+a#logout {
+    color: #BA1E14;
+}
+
+hr {
+    border-top: 1px solid gray;
+}
+
+#account-profile {
+    margin-left: 240px;
+}
+
+#account-info {
+    left: 500px;
+    width: 750px;
+}
+
+#profile-pic {
+    position: absolute;
+    top: 340px;
+    right: 100px;
+}
+
+#pic-form input {
+    width: 200px;
+    border: none;
+}
+
+#profile-pic p {
+    margin: 0;
+}
+
+#pic {
+    border: 1px solid #D0D7DE;
+    border-radius: 90%;
+    width: 200px;
+}
+
+#change-pic {
+    background-color: white;
+    padding: 0.3em;
+    margin: 0;
+}
+
+#acount-info {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-width: 0.15em;
+    padding: 0.25em;
+}
+
+form input {
+    margin: 0.7em 0em 0.7em 0em;
+    border: 1px solid #D0D7DE;
+    background-color: #F6F8FA;
+    padding: 1em;
+    border-radius: 1em;
+    width: 750px;
+    height: 50px;
+}
+
+form label {
+    width: 750px;
+    display: block;
+}
+
+#password {
+    display: block;
+}
+
+#curr-pass, #new-pass, #con-pass {
+    width: 350px;
+}
+
+#confirm {
+    position: relative;
+    bottom: 96px;
+    left: 400px;
+}
+
+#save {
+    background-color: #38AB38;
+    color: white;
+    border: none;
+    width: 150px;
+}
