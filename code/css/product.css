@@ -1,0 +1,100 @@
+/* font-family, font size */
+p, body {
+    font-family: "Actor";
+    font-size: 1em;
+}
+
+h1 {
+  font-family: "Alata";
+  font-size: 2em;
+}
+
+h2 {
+  font-family: "Alata";
+  font-size: 1.5em;
+}
+
+h3 {
+  font-family: "Actor";
+}
+
+main {
+    margin: 0em 2em 0em 2em;
+}
+
+#pimg {
+  margin: 0 1em 0 2em;
+  width: 500px;
+  float: left;
+}
+
+#prod-info {
+  margin-left: 600px;
+  width: 700px;
+  height: 500px;
+}
+
+#rate {
+  font-family: "Actor";
+}
+
+#rate span {
+  color: gray;
+}
+
+#deal {
+  width: 130px;
+  padding: 0.5em;
+  margin: 1em 0 1em 0;
+  text-align: center;
+  border: 1px solid #DDFFDD;
+  border-radius: 1.2em;
+  background-color: #DDFFDD;
+  color: gray;
+}
+
+#amapra {
+  margin: 0;
+}
+  
+#view-amazon {
+  padding: 0.5em;
+  margin-top: 1em;
+  width: 500px;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 2em;
+}
+
+#details-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#details, #reviews {
+  text-align: center;
+  margin: 0 2em 3em 2em;
+}
+
+#details table {
+  margin: auto;
+  width: 600px;
+}
+
+#details table td, #details table th{
+  text-align: left;
+}
+
+.gray {
+  background-color: #F6F6F6;
+}
+
+#reviews {
+  width: 600px;
+}
+
+.radio-buttons {
+  display: inline-block;
+}
+
