@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'atyrootpw'  # Set MySQL root user password
+      MYSQL_DATABASE: 'testdb'          # name of database
+      MYSQL_USER: 'testuser'            # username
+      MYSQL_PASSWORD: 'atytestpw'       # user password
+    ports:
+      - "3306:3306" 
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d
+
+# If your project is located on XAMPP, Docker initially does not have an access to ddl files. 
+# Go to Docker -> Preference from right top -> Resources -> File Sharing -> add path to this project. 
