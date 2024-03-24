@@ -5,17 +5,17 @@ p, body {
 }
 
 h1 {
-  font-family: "Alata";
-  font-size: 2em;
+	font-family: "Alata";
+	font-size: 2em;
 }
 
 h2 {
-  font-family: "Alata";
-  font-size: 1.5em;
+	font-family: "Alata";
+	font-size: 1.5em;
 }
 
 h3 {
-  font-family: "Actor";
+  	font-family: "Actor";
 }
 
 main {
@@ -23,78 +23,82 @@ main {
 }
 
 #pimg {
-  margin: 0 1em 0 2em;
-  width: 500px;
-  float: left;
+	margin: 0 1em 0 2em;
+	width: 500px;
+	float: left;
 }
 
 #prod-info {
-  margin-left: 600px;
-  width: 700px;
-  height: 500px;
+	margin-left: 600px;
+	width: 700px;
+	height: 500px;
 }
 
 #rate {
-  font-family: "Actor";
+  	font-family: "Actor";
 }
 
 #rate span {
-  color: gray;
+  	color: gray;
 }
 
 #deal {
-  width: 130px;
-  padding: 0.5em;
-  margin: 1em 0 1em 0;
-  text-align: center;
-  border: 1px solid #DDFFDD;
-  border-radius: 1.2em;
-  background-color: #DDFFDD;
-  color: gray;
+	width: 130px;
+	padding: 0.5em;
+	margin: 1em 0 1em 0;
+	text-align: center;
+	border: 1px solid #DDFFDD;
+	border-radius: 1.2em;
+	background-color: #DDFFDD;
+	color: gray;
 }
 
 #amapra {
-  margin: 0;
+  	margin: 0;
 }
   
 #view-amazon {
-  padding: 0.5em;
-  margin-top: 1em;
-  width: 500px;
-  color: white;
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 2em;
+	padding: 0.5em;
+	margin-top: 1em;
+	width: 500px;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 2em;
+}
+
+#view-amazon a {
+	color: white;
+	text-decoration: none;
 }
 
 #details-reviews {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 #details, #reviews {
-  text-align: center;
-  margin: 0 2em 3em 2em;
+	text-align: center;
+	margin: 0 2em 3em 2em;
 }
 
 #details table {
-  margin: auto;
-  width: 600px;
+	margin: auto;
+	width: 600px;
 }
 
 #details table td, #details table th{
-  text-align: left;
+  	text-align: left;
 }
 
 .gray {
-  background-color: #F6F6F6;
+  	background-color: #F6F6F6;
 }
 
 #reviews {
-  width: 600px;
+  	width: 600px;
 }
 
 .radio-buttons {
-  display: inline-block;
+  	display: inline-block;
 }
 

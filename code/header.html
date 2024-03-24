@@ -24,7 +24,19 @@
         <div id="navigation-menu">
             <a href="#">Popular Products</a> 
             <a href="#">Top Price Drops</a>
-            <input id="search" type="text" placeholder="      Search for products...">
+            <form class=form-fm method="get" action="listprod.jsp">
+                <select size="1" name="categoryName">
+                <option>All</option>
+                <option>Sushi</option>
+                <option>Seafood</option>
+                <option>Set Menu</option>
+                <option>Donburi</option>
+                <option>Noodle</option>
+                <option>Hot Pot</option>
+                <option>Skewer</option>
+                <input id="search" type="text" placeholder="      Search for products...">
+                </select><input type="submit" value="Submit">
+            </form>
             <figure>
                 <a href="login.html" target="_top"><img src="images/account.png" alt="account" id="account-image"/></a>
                 <figcaption><a href="login.html">sign in<a></figcaption>
