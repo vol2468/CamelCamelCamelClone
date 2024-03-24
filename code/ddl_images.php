@@ -53,7 +53,7 @@ try {
             $filePath = "uploads/product_img/P".$i.".jpg";
             $imagedata = file_get_contents($filePath);
 
-            $sql = "INSERT INTO image (file) VALUES (?)";
+            $sql = "INSERT INTO image (fileType, file) VALUES ('jpg', ?)";
             $stmt = mysqli_stmt_init($connection);		 //init prepared statement object
             mysqli_stmt_prepare($stmt, $sql);			 // register the query
             $null = NULL;
