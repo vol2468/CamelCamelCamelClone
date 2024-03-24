@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/reset.css"/>
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
     <link rel="stylesheet" href="css/header.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/header.js"></script>
 </head>
 
 <body>
@@ -25,15 +28,7 @@
             <a href="#">Popular Products</a> 
             <a href="#">Top Price Drops</a>
             <form class=form-fm method="get" action="listprod.jsp">
-                <select size="1" name="categoryName">
-                <option>All</option>
-                <option>Sushi</option>
-                <option>Seafood</option>
-                <option>Set Menu</option>
-                <option>Donburi</option>
-                <option>Noodle</option>
-                <option>Hot Pot</option>
-                <option>Skewer</option>
+                <select size="1" name="categoryName" id="category-dropdown">
                 <input id="search" type="text" placeholder="      Search for products...">
                 </select><input type="submit" value="Submit">
             </form>
