@@ -1,34 +1,41 @@
 /* font-family, font size */
 body {
-  font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
-  font-size: 1em;
+	font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+	font-size: 1em;
 }
 
 h1 {
-  font-family: "Alata";
-  font-size: 2em;
+	font-family: "Alata";
+	font-size: 2em;
 }
 
 h2 {
-  font-family: "Alata";
-  font-size: 1.5em;
+	font-family: "Alata";
+	font-size: 1.5em;
+	margin-bottom: 1em;
 }
 
-/* body */
-body {
+main {
     margin: 0em 2em 0em 2em;
 }
 
-/* main */
-main {
-    margin: 2em;
-    display: flex;
-    gap: 1em;
+#popular-drop {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
-/* popular */
-#popular {
-    margin-left: 5em;
+#popular, #drop {
+	text-align: center;
+	align-items: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+button a {
+	text-decoration: none;
+	color: white;
 }
 
 
@@ -38,30 +45,25 @@ main {
     max-width: 300px;
     text-align: center;
     margin-bottom: 1em;
-  }
+}
   
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
+.price {
+	color: grey;
+	font-size: 22px;
+}
   
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
+.card button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+}
   
-  .card button:hover {
-    opacity: 0.7;
-  }
-
-  /* h2 */
-  h2 {
-    margin-bottom: 1em;
-  }
+.card button:hover {
+	opacity: 0.7;
+}
