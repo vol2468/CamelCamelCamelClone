@@ -45,6 +45,7 @@ CREATE TABLE category (
 
 CREATE TABLE image (
     imgid       INT AUTO_INCREMENT, 
+    fileType    VARCHAR(30), 
     file        LONGBLOB,
     PRIMARY KEY (imgid)
 );
@@ -141,8 +142,8 @@ INSERT INTO category(cname)
 
 INSERT INTO user (uname, email, password, imgid, usertype)
     VALUES 
-    ('Yuki Isomura', 'yukiiso@student.ubc.ca', 'p@55w0rd', 1, 1), 
-    ('Taii Hirano', 'taiihirano@student.ubc.ca', 'p@55w0rd', 2, 1), 
+    ('Taii Hirano', 'taiihirano@student.ubc.ca', 'p@55w0rd', 1, 1), 
+    ('Yuki Isomura', 'yukiiso@student.ubc.ca', 'p@55w0rd', 2, 1), 
     ('Adams Chen', 'adamschen@student.ubc.ca', 'p@55w0rd', 3, 1), 
     ('Arnold Anderson', 'a.anderson@gmail.com', '360Arnold!', 4, 0), 
     ('Emily Johnson', 'emily.johnson@example.com', '360Emily!', 5, 0), 
