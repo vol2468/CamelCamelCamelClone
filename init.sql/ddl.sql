@@ -138,11 +138,6 @@ INSERT INTO category(cname)
     ('Arts & Crafts');
 
 -- INSERT INTO image needed to be done mannually on database on server. 
-INSERT INTO image (file)
-    VALUES 
-    (LOAD_FILE('/Users/yukiiso/Downloads/userImg/U1.jpeg')); 
-
-LOAD DATA INFILE '/Users/yukiiso/Downloads/userImg/U1.jpeg' INTO TABLE image (file);
 
 INSERT INTO user (uname, email, password, imgid, usertype)
     VALUES 
