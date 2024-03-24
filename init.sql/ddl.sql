@@ -45,7 +45,7 @@ CREATE TABLE category (
 
 CREATE TABLE image (
     imgid       INT AUTO_INCREMENT, 
-    file        BLOB,
+    file        LONGBLOB,
     PRIMARY KEY (imgid)
 );
 
@@ -138,6 +138,11 @@ INSERT INTO category(cname)
     ('Arts & Crafts');
 
 -- INSERT INTO image needed to be done mannually on database on server. 
+INSERT INTO image (file)
+    VALUES 
+    (LOAD_FILE('/Users/yukiiso/Downloads/userImg/U1.jpeg')); 
+
+LOAD DATA INFILE '/Users/yukiiso/Downloads/userImg/U1.jpeg' INTO TABLE image (file);
 
 INSERT INTO user (uname, email, password, imgid, usertype)
     VALUES 
@@ -372,7 +377,7 @@ INSERT INTO priceHistory (pid, date, price)
     (1, '2024-02-21 08:55:00', 18.90), 
     (1, '2024-02-24 13:25:00', 21.75), 
     (1, '2024-02-27 15:50:00', 19.98), 
-    (1, '2024-03-01 10:00:00', 17.60); 
+    (1, '2024-03-01 10:00:00', 17.60), 
     (1, '2024-03-03 10:00:00', 19.98); 
 
 INSERT INTO  visitHistory (uid, pid, date)
@@ -409,7 +414,7 @@ INSERT INTO  visitHistory (uid, pid, date)
     (10, 18, '2024-03-18'),
     (4, 9, '2024-02-01'),
     (9, 42, '2024-02-06'),
-    (6, 76, '2024-02-11'),
+    (6, 75, '2024-02-11'),
     (5, 25, '2024-02-16'),
     (8, 57, '2024-02-21'),
     (7, 14, '2024-02-26'),
