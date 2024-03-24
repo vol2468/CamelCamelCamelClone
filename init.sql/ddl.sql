@@ -50,6 +50,8 @@ CREATE TABLE image (
     PRIMARY KEY (imgid)
 );
 
+-- Load ddl_images.php here.
+
 CREATE TABLE user (
     uid         INT AUTO_INCREMENT,
     uname       VARCHAR(40) NOT NULL,
