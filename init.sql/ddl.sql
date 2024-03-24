@@ -45,6 +45,7 @@ CREATE TABLE category (
 
 CREATE TABLE image (
     imgid       INT AUTO_INCREMENT, 
+    fileType    VARCHAR(30), 
     file        LONGBLOB,
     PRIMARY KEY (imgid)
 );
