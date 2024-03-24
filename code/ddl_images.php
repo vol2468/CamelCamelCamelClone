@@ -40,7 +40,7 @@ try {
             $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
                             // run the statement
             if ($result) {
-                echo "Image inserted successfully";
+                echo "Image inserted successfully for U".$i.".jpg<br>";
                 $imgid = mysqli_insert_id($connection);
             } else {
                 echo "Failed to insert image: " . mysqli_error($connection);
@@ -68,7 +68,7 @@ try {
             $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
                             // run the statement
             if ($result) {
-                echo "Image inserted successfully";
+                echo "Image inserted successfully for P".$i.".jpg<br>";
                 $imgid = mysqli_insert_id($connection);
             } else {
                 echo "Failed to insert image: " . mysqli_error($connection);
