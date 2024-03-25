@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 
+<?php
+session_start();
+
+if (isset($_SESSION["uid"])) {
+    header("Location: main.html");
+    exit();
+}
+
+if (isset($_SESSION["error"])) {
+    $error = $_SESSION["error"];
+}
+?>
 
 <html>
     <head lang="en">
@@ -12,9 +24,10 @@
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="js/login.js"></script>
+        <!-- <script src="js/login.js"></script> -->
+        <script src="js/validatelogin.js"></script>
+
 
 </head>
     </head>
@@ -29,7 +42,8 @@
                 <h1 class="welcome">WELCOME BACK!</h1>
                 <p class="welcome">Please enter your login details.</p>
                 <div id="signin-info">
-                    <form method="post" action="#" id="signin-form">
+                    <form method="post" action="processlogin.php" id="signin-form">
+                        <p class="error" style="color:red"><?php echo $error; $_SESSION["error"] = null; ?></p>
                         <div class="input">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
@@ -44,9 +58,9 @@
                         <div class="input">
                             <input type="submit" id="submit" value="Sign in"/>
                         </div>
-                        <div class="input">
+                        <!-- <div class="input">
                             <input id="google" type="submit" id="submit" value="Sign in with Google"/>
-                        </div>
+                        </div> -->
                         <p>Don't have an account? <span><a id="sig" href="register.html">Sign up for free!</a></span></p>
                     </form>
                 </div>
