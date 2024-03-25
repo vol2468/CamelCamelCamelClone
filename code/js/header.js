@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function populateDropdown() {
     $.ajax({
-        url: 'php/fetch_categories.php',
+        url: 'fetch_categories.php',
         type: 'GET',
         dataType: 'json', // Expecting JSON response
         success: function(categories) {
@@ -25,7 +25,7 @@ function populateDropdown() {
 
 function checkForUpdates() {
     $.ajax({
-        url: 'php/check_for_updates.php',
+        url: 'check_for_updates.php',
         type: 'GET',
         success: function(needsUpdate) {
             if (needsUpdate) {
