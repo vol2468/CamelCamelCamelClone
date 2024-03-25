@@ -14,16 +14,18 @@ if (!isset($_SESSION["uid"])) {
     <head lang="en">
         <meta charset="utf-8">
         <title>Your Account</title>
-        <link rel="stylesheet" href="css/reset.css"/>
-        <link rel="stylesheet" href="css/account.css"/>
+        <link rel="stylesheet" href="../css/reset.css"/>
+        <link rel="stylesheet" href="../css/account.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="js/validatepassword.js"></script>
+        <script src="../js/validatepassword.js"></script>
     </head>
     <body>
         <header>
-            <script src="js/header.js"></script>
+            <?php
+                include_once("header.php");
+            ?>
         </header>
 
         <main>
@@ -135,7 +137,9 @@ if (!isset($_SESSION["uid"])) {
         </main>
 
         <footer>
-            <script src="js/footer.js"></script>
+            <?php
+
+            ?>
         </footer>
 
     </body>

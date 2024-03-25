@@ -9,19 +9,19 @@
 <head lang="en">
     <meta charset="utf-8">
     <title>Header</title>
-    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="../css/reset.css"/>
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
-    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="../css/header.css"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/header.js"></script>
+    <script src="../js/header.js"></script>
 </head>
 
 <body>
     <header>
         <div id="site-logo">
             <figure>
-                <a href="main.html" target="_top"><img src="images/logo_white.png" alt="logo" width="100px"/></a>
+                <a href="main.php" target="_top"><img src="../images/logo_white.png" alt="logo" width="100px"/></a>
             </figure>
         </div>
         <div id="navigation-menu">
@@ -33,8 +33,8 @@
                 </select><input type="submit" value="Submit">
             </form>
             <figure>
-                <a href="login.html" target="_top"><img src="images/account.png" alt="account" id="account-image"/></a>
-                <figcaption><a href="login.html">sign in<a></figcaption>
+                <a href="login.php" target="_top"><img src="../images/account.png" alt="account" id="account-image"/></a>
+                <figcaption><a href="login.php">sign in<a></figcaption>
             </figure>
             <a href="#">Need help?</a>
         </div>
