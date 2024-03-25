@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+
+// redirect to home.php if the user already logged in
+if (isset($_SESSION["uid"])) {
+    header("Location: main.php");
+    exit();
+}
+
+if (isset($_SESSION["exist"])) {
+    $exist = $_SESSION["exist"];
+}
+
+?>
 <html>
     <head lang="en">
         <meta charset="utf-8">
@@ -11,7 +26,7 @@
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="js/validateregister.js"></script>
+        <script src="../js/validateregister.js"></script>
 
     </head>
     <body>
@@ -23,6 +38,7 @@
             <div id="wrap">
                 <h1 class="welcome">WELCOME!</h1>
                 <p class="welcome">First create your account.</p>
+                <p class="error" style="color:red"><?php echo $exist; $_SESSION["exist"] = null; ?></p>
                 <div id="regis-info">
                     <form enctype="multipart/form-data" method="post" action="processregister.php" id="register-form">
                         <div class="input">
@@ -53,7 +69,7 @@
                         <div class="input">
                             <input type="submit" id="submit" value="Sign up"/>
                         </div>
-                        <p>Already have an account? <span><a id="log" href="">Login!</a></span></p>
+                        <p>Already have an account? <span><a id="log" href="login.php">Login!</a></span></p>
                     </form>
                 </div>
             </div>

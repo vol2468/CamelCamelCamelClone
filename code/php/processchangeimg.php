@@ -2,14 +2,13 @@
 <html>
 
 <?php
+session_start();
 
-$_SESSION["uid"] = 2;
 if (!isset($_SESSION["uid"])) {
     header("Location: login.php");
     exit();
 } else {
-    // $uid = $_SESSION["uid"];
-    $uid = 2;
+    $uid = $_SESSION["uid"];
 }
 
 function checkValidExtention($validExt, $validMime, $fileArray) {
@@ -29,14 +28,7 @@ try {
 	// validate and obtain data passed through POST request
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // database connection
-        $host = "localhost";
-        $database = "project";
-        $user = "root";
-        $password = "";
-        
-        $connection = mysqli_connect($host, $user, $password, $database);
-        
-        $error = mysqli_connect_error();
+        include "connect.php";
         
         if($error != null) {
             $output = "<p>Unable to connect to database!</p>";
@@ -55,7 +47,7 @@ try {
                     $validSize = checkFileSize($maxFileSize, $fileArray);
 
                     if ($validType && $validSize) {	// move file
-                        $targetDir = "../uploads/";
+                        $targetDir = "../uploads/user_img/";
                         $fileToMove = $fileArray["tmp_name"];
                         $destination = $targetDir.$fileArray["name"];
 
@@ -63,11 +55,15 @@ try {
                             echo "<p>File successfully moved</p>";
                         
                         } else {
-                            echo "<p>Failed moving file</p>";
+                            $_SESSION["chpic"] = "Failed moving file";
+                            header("Location: account.php");
+                            exit();
                         }
 
                     } else {
-                        echo "<p>Invalid file type/size</p>";
+                        $_SESSION["chpic"] = "Invalid file type/size";
+                        header("Location: account.php");
+                        exit();
                     }
 
                 } else { // error
@@ -93,7 +89,7 @@ try {
             }
 
             // insert image into the database
-            $filePath = "../uploads/".$_FILES["change-pic"]["name"];	// obtain the image from the uploads directory
+            $filePath = "../uploads/user_img/".$_FILES["change-pic"]["name"];	// obtain the image from the uploads directory
             $imagedata = file_get_contents($filePath);
                             //store the contents of the files in memory in preparation for upload
             $sql = "UPDATE image SET file = ? WHERE imgid = ?";
@@ -113,9 +109,13 @@ try {
                             // run the statement
             if ($result) {
                 echo "Image changed successfully";
-                $imgid = mysqli_insert_id($connection);
+                header("Location: account.php");
+                exit();
             } else {
-                echo "Failed to change image: ".mysqli_error($connection);
+                // echo "Failed to change image: ".mysqli_error($connection);
+                $_SESSION["chpic"] = "Failed to change image";
+                header("Location: account.php");
+                exit();
             }
             mysqli_stmt_close($stmt); 					// and dispose of the statement.
 

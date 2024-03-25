@@ -3,13 +3,13 @@
 
 <?php
 
-$_SESSION["uid"] = 2;
+session_start();
+
 if (!isset($_SESSION["uid"])) {
     header("Location: login.php");
     exit();
 } else {
-    // $uid = $_SESSION["uid"];
-    $uid = 2;
+    $uid = $_SESSION["uid"];
 }
 
 // using try catch statement to handle any error
@@ -20,14 +20,8 @@ try {
             $passwd = $_POST["curr-pass"];
             $newpassword = $_POST["new-pass"];
 
-            $host = "localhost";
-            $database = "project";
-            $user = "root";
-            $password = "";
-            
-            $connection = mysqli_connect($host, $user, $password, $database);
-            
-            $error = mysqli_connect_error();
+            // database connection
+            include "connect.php";
 
             if($error != null) {
                 $output = "<p>Unable to connect to database!</p>";
@@ -50,9 +44,12 @@ try {
                             mysqli_stmt_bind_param($statement, "si", $newpassword, $uid);
                             mysqli_stmt_execute($statement);
 
-                            if (mysqli_stmt_affected_rows($statement) > 0)
-                                echo "User’s password has been updated.";
-                            else
+                            if (mysqli_stmt_affected_rows($statement) > 0) {
+                                // echo "User’s password has been updated.";
+                                $_SESSION["status"] = "User’s password has been updated";
+                                header("Location: account.php");
+                                exit();
+                            } else
                                 echo "Failed to change";
                         }
                     }

@@ -4,13 +4,14 @@
 session_start();
 
 if (isset($_SESSION["uid"])) {
-    header("Location: main.html");
+    header("Location: main.php");
     exit();
 }
 
 if (isset($_SESSION["error"])) {
     $error = $_SESSION["error"];
 }
+
 ?>
 
 <html>
@@ -27,7 +28,7 @@ if (isset($_SESSION["error"])) {
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="js/validatelogin.js"></script>
+        <script src="../js/validatelogin.js"></script>
 
 </head>
     </head>
@@ -61,7 +62,7 @@ if (isset($_SESSION["error"])) {
                         <!-- <div class="input">
                             <input id="google" type="submit" id="submit" value="Sign in with Google"/>
                         </div> -->
-                        <p>Don't have an account? <span><a id="sig" href="register.html">Sign up for free!</a></span></p>
+                        <p>Don't have an account? <span><a id="sig" href="register.php">Sign up for free!</a></span></p>
                     </form>
                 </div>
             </div>

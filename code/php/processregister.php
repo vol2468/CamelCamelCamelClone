@@ -3,8 +3,15 @@
 
 <?php
 
+session_start();
+
+// redirect to main.php if the user already logged in
+if (isset($_SESSION["uid"])) {
+    header("Location: main.php");
+    exit();
+}
+
 function checkValidExtention($validExt, $validMime, $fileArray) {
-	// get the extention of the filename e.g. user.jpg → jpg
 	$extention = end(explode(".", $fileArray["name"]));
 	$imageFileType = $fileArray["type"];
 	return in_array($extention, $validExt) && in_array($imageFileType, $validMime);
@@ -27,14 +34,7 @@ try {
             $usertype = 0;
 
 			// database connection
-            $host = "localhost";
-            $database = "project";
-            $user = "root";
-            $password = "";
-            
-            $connection = mysqli_connect($host, $user, $password, $database);
-            
-            $error = mysqli_connect_error();
+            include "connect.php";
 			
 			if($error != null) {
 				$output = "<p>Unable to connect to database!</p>";
@@ -53,20 +53,24 @@ try {
 						$validSize = checkFileSize($maxFileSize, $fileArray);
 
 						if ($validType && $validSize) {	// move file
-							$targetDir = "../uploads/";
+							$targetDir = "../uploads/user_img/";
 							$fileToMove = $fileArray["tmp_name"];
 							$destination = $targetDir.$fileArray["name"];
 
 							if (move_uploaded_file($fileToMove, $destination)) { // successfully moved
 								echo "<p>File successfully moved</p>";
 							
-                            
                             } else {
-								echo "<p>Failed moving file</p>";
+								// echo "<p>Failed moving file</p>";
+								$_SESSION["exist"] = "Failed moving file. Please check your permission.";
+								header("Location: register.php");
+								exit();
 							}
 
 						} else {
-							echo "<p>Invalid file type/size</p>";
+							$_SESSION["exist"] = "Invalid file type/size.";
+							header("Location: register.php");
+							exit();
 						}
 
 					} else { // error
@@ -83,12 +87,14 @@ try {
 					mysqli_stmt_store_result($statement);
 
 					if (mysqli_stmt_num_rows($statement) > 0) {
-                        echo "<p>User already exists with this name and/or email<p>";
-                        echo "<a href='register.html'>Return to registration</a>";
-
+                        // echo "<p>User already exists with this name and/or email<p>";
+                        // echo "<a href='register.html'>Return to registration</a>";
+						$_SESSION["exist"] = "User already exists with this name and/or email.";
+						header("Location: register.php");
+						exit();
 					} else {
                         // insert image into the database
-						$filePath = "../uploads/".$_FILES["profile-pic"]["name"];	// obtain the image from the uploads directory
+						$filePath = "../uploads/user_img/".$_FILES["profile-pic"]["name"];	// obtain the image from the uploads directory
 						$imagedata = file_get_contents($filePath);
 										//store the contents of the files in memory in preparation for upload
 						$sql = "INSERT INTO image (file) VALUES (?)";
@@ -126,14 +132,21 @@ try {
 								$uid = mysqli_insert_id($connection);
 								echo "<p>An account for the user $uname has been created</p>";
                                 $_SESSION["uid"] = $uid;
-                                header("Location: main.html");
+                                header("Location: main.php");
                                 exit();
-							} else
-								echo "<p>Failed to create an account</p>";
+							} else {
+								// echo "<p>Failed to create an account</p>";
+								$_SESSION["exist"] = "Failed to create an account.";
+                                header("Location: register.php");
+                                exit();
+							}
 						}
 					}
 				} else {
-					echo "<p>Failed to prepare statement</p>";
+					// echo "<p>Failed to prepare statement.</p>";
+					$_SESSION["exist"] = "Failed to prepare statement.";
+					header("Location: register.php");
+					exit();
 				}
 
 				// close the statement and connection
@@ -142,10 +155,16 @@ try {
 			}
 
 		} else {
-			echo "<p>Empty fields exist. Please try again.<p>";
+			// echo "<p>Empty fields exist. Please try again.<p>";
+			$_SESSION["exist"] = "Empty fields exist. Please try again.";
+			header("Location: register.php");
+			exit();
 		}
 	} else {
-		echo "<p>The request method should be POST. Cannnot process the data.<p>";
+		echo "<p>The request method should be POST. Cannnot process the data<p>";
+		$_SESSION["exist"] = "The request method should be POST. Cannnot process the data.";
+		header("Location: register.php");
+		exit();
 	}
 
 } catch (Exception $e) {

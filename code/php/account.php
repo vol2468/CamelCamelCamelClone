@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 
 <?php
-$_SESSION["uid"] = 2;
+session_start();
+
 if (!isset($_SESSION["uid"])) {
     header("Location: login.php");
     exit();
 } else {
     $uid = $_SESSION["uid"];
 }
+
+if (isset($_SESSION["status"])) {
+    $status = $_SESSION["status"];
+}
+
+if (isset($_SESSION["chpic"])) {
+    $chpic = $_SESSION["chpic"];
+}
+
 ?>
 
 <html>
@@ -35,14 +45,7 @@ if (!isset($_SESSION["uid"])) {
             // using try catch statement to handle any error
             try {        
                 // database connection
-                $host = "localhost";
-                $database = "project";
-                $user = "root";
-                $password = "";
-                
-                $connection = mysqli_connect($host, $user, $password, $database);
-                
-                $error = mysqli_connect_error();
+                include "connect.php";
                     
                 if($error != null) {
                     $output = "<p>Unable to connect to database!</p>";
@@ -121,6 +124,7 @@ if (!isset($_SESSION["uid"])) {
                                 <input type="password" id="con-pass" name="con-pass" class="required">
                             </div>
                         </div>
+                        <p class="status" style="color:#38AB38"><?php echo $status; $_SESSION["status"] = null; ?></p>
                         <input type="submit" id="save" name="save" value="Change password">
                     </form>
                     <div id="profile-pic">
@@ -130,6 +134,7 @@ if (!isset($_SESSION["uid"])) {
                             <input type="file" id="change-pic" name="change-pic">
                             <input type="submit" id="ch-pic" value="Change picture">
                         </form>
+                        <p class="error" style="color:red"><?php echo $chpic; $_SESSION["chpic"] = null; ?></p>
                     </div>
                 </div>
             </div>

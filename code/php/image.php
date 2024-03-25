@@ -11,6 +11,6 @@
     <input type="file" id="userImage" name="userImage" accept="image/jpeg, image/png, image/gif">
     <br>
     
-    <input type="submit" value="Create New User">
+    <input type="submit" value="Insert image">
 </form>
 </body>
