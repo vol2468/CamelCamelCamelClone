@@ -94,6 +94,10 @@ if (isset($_SESSION["uid"])) {
             </figure>
         </div>
         <div id="navigation-menu">
+            <?php
+                if (isset($_SESSION["uid"]))
+                    echo "<a href='#'>Your Price Watches</a>";
+            ?>
             <a href="#">Popular Products</a> 
             <a href="#">Top Price Drops</a>
             <form class=form-fm method="get" action="listprod.jsp">
@@ -106,9 +110,10 @@ if (isset($_SESSION["uid"])) {
                     if (!isset($_SESSION["uid"])) {
                         echo "<a href='login.php' target='_top'><img src='../images/account.png' alt='account' id='account-image'/></a>";
                         echo "<figcaption><a href='login.php'>sign in<a></figcaption>";
-                    } else
+                    } else {
                         echo "<a href='account.php' target='_top'><img style='width:70px' alt='account' id='account-image' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
-                        // echo "<a href='account.php' target='_top'><img src='../images/account.png' alt='account' id='account-image'/></a>";
+                        echo "<figcaption><a href='logout.php'>sign out<a></figcaption>";
+                    }
                 ?>
             </figure>
             <a href="#">Need help?</a>
