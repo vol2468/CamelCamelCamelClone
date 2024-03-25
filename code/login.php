@@ -34,7 +34,7 @@ if (isset($_SESSION["error"])) {
     <body>
 
         <header>
-            <script src="js/header.js"></script>
+            <script src="js/displayHeader.js"></script>
         </header>
 
         <main>
@@ -68,7 +68,7 @@ if (isset($_SESSION["error"])) {
         </main>
 
         <footer>
-            <script src="js/footer.js"></script>
+            <script src="js/displayFooter.js"></script>
         </footer>
 
     </body>
