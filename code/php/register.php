@@ -3,20 +3,20 @@
     <head lang="en">
         <meta charset="utf-8">
         <title>Register</title>
-        <link rel="stylesheet" href="css/reset.css"/>
-        <link rel="stylesheet" href="css/register.css"/>
+        <link rel="stylesheet" href="../css/reset.css"/>
+        <link rel="stylesheet" href="../css/register.css"/>
+        <link rel="stylesheet" href="../css/header.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <!-- <script src="js/register.js"></script> -->
         <script src="js/validateregister.js"></script>
 
     </head>
     <body>
-
         <header>
-            <script src="js/displayHeader.js"></script>
+            <?php include_once("header.php"); ?>
         </header>
 
         <main>
@@ -60,7 +60,7 @@
         </main>
 
         <footer>
-            <script src="js/displayFooter.js"></script>
+            <?php include_once("footer.php"); ?>
         </footer>
 
     </body>
