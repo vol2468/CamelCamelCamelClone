@@ -138,7 +138,7 @@ if (!isset($_SESSION["uid"])) {
 
         <footer>
             <?php
-
+                include_once("footer.php");
             ?>
         </footer>
 
