@@ -94,11 +94,44 @@ main {
   	background-color: #F6F6F6;
 }
 
-#reviews {
-  	width: 600px;
+/* styling for reviews */
+#reviews-container { 
+    margin-top: 20px;
 }
 
-.radio-buttons {
-  	display: inline-block;
+.review {
+    border: 1px solid #ddd; 
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px; /* Add rounded corners for a box effect */
 }
 
+.review strong {
+    font-weight: bold;
+}
+
+.review p {
+    margin-top: 5px;
+}
+
+.star {
+	display: inline-block;
+    margin-top: 5px;
+    color: #f0ad4e; /* Example color for stars */
+    unicode-bidi: bidi-override;
+    direction: ltr; /* Technique to display stars */
+    font-size: 13px; 
+}
+
+.review-column { 
+	size: 100%;
+    display: flex;         /* Enable Flexbox */
+    flex-flow: row wrap;       /* Allow items to wrap to multiple lines */
+	/* align-items: stretch */
+}
+
+.review {
+    flex: 50%;         /* Make each review occupy 50% width */
+    margin-bottom: 15px;   /* Keep spacing between reviews */
+	box-sizing: border-box;
+}
