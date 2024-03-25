@@ -7,7 +7,7 @@ session_start();
 
 // redirect to home.php if the user already logged in
 if (isset($_SESSION["uid"])) {
-    header("Location: main.html");
+    header("Location: main.php");
     exit();
 }
 
@@ -48,7 +48,7 @@ try {
                         // create new session superglobal for username and redirect to main.
                         if (mysqli_stmt_fetch($statement)) {
                             $_SESSION["uid"] = $uid;
-                            header("Location: main.html");
+                            header("Location: main.php");
                         }
                     } else {    // invalid credential
                         $_SESSION["error"] = "Email/Password is wrong";

@@ -3,8 +3,10 @@
     <head lang="en">
         <meta charset="utf-8">
         <title>Product</title>
-        <link rel="stylesheet" href="css/reset.css"/>
-        <link rel="stylesheet" href="css/product.css"/>
+        <link rel="stylesheet" href="../css/reset.css"/>
+        <link rel="stylesheet" href="../css/product.css"/>
+        <link rel="stylesheet" href="../css/header.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
@@ -12,7 +14,7 @@
     </head>
     <body>
         <header>
-            <script src="js/header.js"></script>
+            <?php include_once("header.php"); ?>
         </header>
 
         <main>
@@ -176,7 +178,7 @@
         </main>
 
         <footer>
-            <script src="js/footer.js"></script>
+            <?php include_once("footer.php"); ?>
         </footer>
 
     </body>

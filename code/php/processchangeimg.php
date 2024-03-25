@@ -55,7 +55,7 @@ try {
                     $validSize = checkFileSize($maxFileSize, $fileArray);
 
                     if ($validType && $validSize) {	// move file
-                        $targetDir = "uploads/";
+                        $targetDir = "../uploads/";
                         $fileToMove = $fileArray["tmp_name"];
                         $destination = $targetDir.$fileArray["name"];
 
@@ -93,7 +93,7 @@ try {
             }
 
             // insert image into the database
-            $filePath = "uploads/".$_FILES["change-pic"]["name"];	// obtain the image from the uploads directory
+            $filePath = "../uploads/".$_FILES["change-pic"]["name"];	// obtain the image from the uploads directory
             $imagedata = file_get_contents($filePath);
                             //store the contents of the files in memory in preparation for upload
             $sql = "UPDATE image SET file = ? WHERE imgid = ?";
