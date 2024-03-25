@@ -22,7 +22,7 @@ try {
         
         // Insert user images
         for ($i=1; $i <= 10; $i++) { 
-            $filePath = "uploads/user_img/U".$i.".jpg";
+            $filePath = "../uploads/user_img/U".$i.".jpg";
             $imagedata = file_get_contents($filePath);
 
             $sql = "INSERT INTO image (fileType, file) VALUES ('jpg', ?)";
@@ -50,7 +50,7 @@ try {
         
         // Insert product images
         for ($i=1; $i <= 75; $i++) { 
-            $filePath = "uploads/product_img/P".$i.".jpg";
+            $filePath = "../uploads/product_img/P".$i.".jpg";
             $imagedata = file_get_contents($filePath);
 
             $sql = "INSERT INTO image (fileType, file) VALUES ('jpg', ?)";
