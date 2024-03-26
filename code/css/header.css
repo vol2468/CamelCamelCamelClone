@@ -1,60 +1,76 @@
-body {
+header body {
     font-family: "Actor";
     font-size: 1em;
 }
 
-h1 {
+header h1 {
     font-size: 2em;
 }
 
-h2 {
+header h2 {
     font-size: 1.5em;
 }
 
-#site-logo {
+header #site-logo {
     margin-bottom: 1em;
     display: flex;
     align-items: center;
 }
 
-#site-logo img {
+header #site-logo img {
     width: 150px;
-    margin-left: 8em;
+    margin-left: 1em;
 }
 
-#site-logo h1 {
+header #site-logo h1 {
     padding: 0 2em 0 2em;
 }
 
-#navigation-menu {
+header #navigation-menu {
     position: absolute;
     right: 20px;
-    top: 60px;
+    top: 30px;
+    font-family: "Actor";
     display: flex;
     align-items: center;
     gap: 1em;
 }
 
-#navigation-menu a {
+header #navigation-menu a {
     text-decoration: none;
     color: black;
 }
 
-#navigation-menu:last-child{
+header #navigation-menu:last-child{
     margin-left: auto !important; /* Doesn't work */
 }
 
-#account-image {
+header #account-image {
     width: 2em;
-    padding: 0em 0.5em 0em 0.5em;
+    border: 2px solid #D0D7DE;
+    border-radius: 10em;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
 }
 
-#search {
+header figure figcaption {
+    text-align: center;
+}
+
+header #category-dropdown {
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+    height: 3.5em;
+    font-size: small;
+}
+
+header #search {
     border: solid 1px #F0F0F0;
     border-radius: 30px;
     width: 400px;
     height: 50px;
-    margin: 0 2em 0 2em;
+    margin: 0 0.2em 0 0.3em;
     text-indent: 15px;
     background-image: url("../images/search.png");
     background-size: 47px;
@@ -62,11 +78,19 @@ h2 {
     background-color: #F0F0F0;
 }
 
-#search::placeholder {
+header #search::placeholder {
     font-family: "Actor";
   }
 
-#search:focus { 
+header #search:focus { 
     background-image: none; 
+}
+
+header #srcbtn {
+    background-color: #DEF8FF;
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+    height: 3.5em;
+    font-size: small;
 }
 

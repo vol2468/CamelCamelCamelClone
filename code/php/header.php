@@ -1,8 +1,3 @@
-<!-- CAUTION: After you update this file, 
-    make sure to adjust the height value on header.js 
-    so that all contents in this file is displayed correctly. 
--->
-
 <!DOCTYPE html>
 
 <?php
@@ -98,12 +93,12 @@ if (isset($_SESSION["uid"])) {
                 if (isset($_SESSION["uid"]))
                     echo "<a href='#'>Your Price Watches</a>";
             ?>
-            <a href="#">Popular Products</a> 
-            <a href="#">Top Price Drops</a>
-            <form class=form-fm method="get" action="listprod.jsp">
+            <a href="popular.php">Popular Products</a> 
+            <a href="topdrop.php">Top Price Drops</a>
+            <form method="post" action="#">
                 <select size="1" name="categoryName" id="category-dropdown">
                 <input id="search" type="text" placeholder="      Search for products...">
-                </select><input type="submit" value="Search">
+                </select><input type="submit" value="Search" id="srcbtn">
             </form>
             <figure>
                 <?php
@@ -111,7 +106,7 @@ if (isset($_SESSION["uid"])) {
                         echo "<a href='login.php' target='_top'><img src='../images/account.png' alt='account' id='account-image'/></a>";
                         echo "<figcaption><a href='login.php'>sign in<a></figcaption>";
                     } else {
-                        echo "<a href='account.php' target='_top'><img style='width:70px' alt='account' id='account-image' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
+                        echo "<a href='account.php' target='_top'><img alt='account' id='account-image' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
                         echo "<figcaption><a href='logout.php'>sign out<a></figcaption>";
                     }
                 ?>

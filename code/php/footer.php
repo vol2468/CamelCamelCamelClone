@@ -1,8 +1,3 @@
-<!-- CAUTION: After you update this file, 
-    make sure to adjust the height value on footer.js 
-    so that all contents in this file is displayed correctly. 
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +14,7 @@
         <br>
         <div id="site-logo">
             <figure>
-                <a href="main.php" target="_top"><img src="../images/logo_black.png" alt="logo" width="100px"/></a>
+                <a href="main.php" target="_top"><img src="../images/logo_black.png" alt="logo" width="150px"/></a>
             </figure>
         </div>
         <div id="contact-us">
