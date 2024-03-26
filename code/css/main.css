@@ -1,30 +1,37 @@
 /* font-family, font size */
-body {
-	font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans","Tahoma,sans-serif";
+main body {
+	font-family: "Actor";
 	font-size: 1em;
 }
 
-h1 {
+main h1 {
 	font-family: "Alata";
 	font-size: 2em;
-}
-
-h2 {
-	font-family: "Alata";
-	font-size: 1.5em;
 	margin-bottom: 1em;
 }
 
-main {
+main h2 {
+	font-family: "Alata";
+	font-size: 1.5em;
+}
+
+main h3 {
+	font-family: "Actor";
+	font-size: 1em;
+	margin: 0.5em 0 0 0;
+	padding: 0.7em 1.2em 0.7em 1.2em;
+}
+
+main main {
     margin: 0em 2em 0em 2em;
 }
 
-#popular-drop {
+main #popular-drop {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-#popular, #drop {
+main #popular, #drop {
 	text-align: center;
 	align-items: center;
 	display: flex;
@@ -33,26 +40,28 @@ main {
     justify-items: center;
 }
 
-button a {
+main button a {
 	text-decoration: none;
 	color: white;
 }
 
 
 /* prodcut cards */
-.card {
+main .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     text-align: center;
     margin-bottom: 1em;
 }
   
-.price {
-	color: grey;
-	font-size: 22px;
+main .price {
+	font-size: 35px;
+	font-family: "Actor";
+	background-color: #F5F5F5;
+	padding: 0.4em 0 0.4em 0;
 }
   
-.card button {
+main .card button {
 	border: none;
 	outline: 0;
 	padding: 12px;
@@ -64,6 +73,23 @@ button a {
 	font-size: 18px;
 }
   
-.card button:hover {
+main .card button:hover {
 	opacity: 0.7;
+}
+
+main .card button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+	font-family: "Actor";
+}
+
+main .card img {
+	padding: 1.2em;
 }

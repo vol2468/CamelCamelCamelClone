@@ -5,14 +5,15 @@
         <title>Camelcamelcamel Clone</title>
         <link rel="stylesheet" href="../css/reset.css"/>
         <link rel="stylesheet" href="../css/main.css"/>
-        <link rel="stylesheet" href="../css/header.css"/>
-        <link rel="stylesheet" href="../css/footer.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
         <header>
-            <?php include_once("header.php"); ?>
+            <?php 
+                include_once("header.php"); 
+            ?>
         </header>
 
         <main>
@@ -101,9 +102,6 @@
                             echo "No recent visit history. ";
                         }
 
-
-                        
-
                         // Retrieve price dropped items in past twenty days
                         // Compare the current price with the maximum price within last 20 days. 
                         $pidList = array(); 
@@ -190,7 +188,7 @@
             ?>
             <div id="popular-drop">
                 <div id="popular">
-                    <h2>Popular Products</h2>
+                    <h1>Popular Products</h1>
                     <div class="products">
                         <?php
                             // printout popular item cards
@@ -199,7 +197,7 @@
                                 echo '<img src="data:image/jpg;base64,'.base64_encode($popularItemImages[$i]).'" style="width: 100%;"/>';
                                 echo '<h3>'.$popularItemNames[$i].'</h3>';
                                 echo '<p class="price">$'.$popularItemPrices[$i].'</p>';
-                                echo '<p><button><a href="product.html">See Product Detail</a></button></p>';
+                                echo '<p><button><a href="product.php">See Product Detail</a></button></p>';
                                 // TODO: It needs to add pid to session if this button is pressed. 
                                 // pid is $popularItems[$i]
                                 echo '</div>';
@@ -208,7 +206,7 @@
                     </div>
                 </div>
                 <div id="drop">
-                    <h2>Top Price Drops</h2>
+                    <h1>Top Price Drops</h1>
                     <div class="products">
                         <?php
                             // printout top price dropped item cards
@@ -218,7 +216,7 @@
                                 echo '<h3>'.$priceDropNames[$i].'</h3>';
                                 echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
                                 echo 'Price drop: <p class="price">$'.$priceDropDifferences[$i].'</p>';
-                                echo '<p><button><a href="product.html">See Product Detail</a></button></p>';
+                                echo '<p><button><a href="product.php">See Product Detail</a></button></p>';
                                 // TODO: It needs to add pid to session if this button is pressed. 
                                 // pid is $priceDropItems[$i]
                                 echo '</div>';
@@ -230,7 +228,9 @@
         </main>
 
         <footer>
-            <?php include_once("footer.php"); ?>
+            <?php
+                include_once("footer.php"); 
+            ?>
         </footer>
 
     </body>
