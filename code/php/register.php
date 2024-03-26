@@ -37,7 +37,7 @@ if (isset($_SESSION["exist"])) {
         <main>
             <div id="wrap">
                 <h1 class="welcome">WELCOME!</h1>
-                <p class="welcome">First create your account with the profile picture.</p>
+                <p class="welcome">First create your account with a profile picture.</p>
                 <p class="error" style="color:red"><?php echo $exist; $_SESSION["exist"] = null; ?></p>
                 <div id="regis-info">
                     <form enctype="multipart/form-data" method="post" action="processregister.php" id="register-form">
