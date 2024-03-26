@@ -1,48 +1,51 @@
 /* font-family, font size */
-p, body {
-    font-family: "Actor";
+main p, body {
+    font-family: "Actor" !important;
     font-size: 1em;
 }
 
-h1 {
+main h1 {
 	font-family: "Alata";
 	font-size: 2em;
+	margin-bottom: 1em;
 }
 
-h2 {
+main h2 {
 	font-family: "Alata";
 	font-size: 1.5em;
 }
 
-h3 {
-  	font-family: "Actor";
+main h3 {
+  	font-family: "Alata";
+	font-size: 1.2em;
+	margin-bottom: 1em;
 }
 
 main {
     margin: 0em 2em 0em 2em;
 }
 
-#pimg {
-	margin: 0 1em 0 2em;
+main #pimg {
+	margin: 0 1em 0 3em;
 	width: 500px;
 	float: left;
 }
 
-#prod-info {
-	margin-left: 600px;
+main #prod-info {
+	margin-left: 680px;
 	width: 700px;
 	height: 500px;
 }
 
-#rate {
+main #rate {
   	font-family: "Actor";
 }
 
-#rate span {
+main #rate span {
   	color: gray;
 }
 
-#deal {
+main #deal {
 	width: 130px;
 	padding: 0.5em;
 	margin: 1em 0 1em 0;
@@ -53,68 +56,80 @@ main {
 	color: gray;
 }
 
-#amapra {
-  	margin: 0;
+
+main #price {
+	font-size: 35px;
+	margin: 0.6em 0 0.6em 0;
+}
+
+main #rate, #avg-price, #amapra {
+	margin: 0.7em 0 0 0;
+}
+
+main #date-time {
+	margin-bottom: 1.5em;
 }
   
-#view-amazon {
+main #view-amazon {
 	padding: 0.5em;
 	margin-top: 1em;
-	width: 500px;
+	width: 400px;
 	background-color: black;
 	border: 1px solid black;
 	border-radius: 2em;
+	position: relative;
+	left: 130px
 }
 
-#view-amazon a {
+main #view-amazon a {
 	color: white;
 	text-decoration: none;
 }
 
-#details-reviews {
+main #details-reviews {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
 
-#details, #reviews {
+main #details, #reviews {
 	text-align: center;
-	margin: 0 2em 3em 2em;
+	margin: 3em 2em 3em 2em;
 }
 
-#details table {
+main #details table {
 	margin: auto;
 	width: 600px;
 }
 
-#details table td, #details table th{
+main #details table td, #details table th{
   	text-align: left;
 }
 
-.gray {
+main .gray {
   	background-color: #F6F6F6;
 }
 
 /* styling for reviews */
-#reviews-container { 
+main #reviews-container { 
     margin-top: 20px;
 }
 
-.review {
+main .review {
     border: 1px solid #ddd; 
     padding: 20px;
     margin-bottom: 15px;
     border-radius: 5px; /* Add rounded corners for a box effect */
 }
 
-.review strong {
+main .review strong {
     font-weight: bold;
 }
 
-.review p {
+main .review p {
     margin-top: 5px;
 }
 
-.star {
+main .star {
 	display: inline-block;
     margin-top: 5px;
     color: #f0ad4e; /* Example color for stars */
@@ -123,15 +138,40 @@ main {
     font-size: 13px; 
 }
 
-.review-column { 
+main .review-column { 
 	size: 100%;
     display: flex;         /* Enable Flexbox */
     flex-flow: row wrap;       /* Allow items to wrap to multiple lines */
 	/* align-items: stretch */
 }
 
-.review {
+main .review {
     flex: 50%;         /* Make each review occupy 50% width */
     margin-bottom: 15px;   /* Keep spacing between reviews */
 	box-sizing: border-box;
+}
+
+main #comment {
+	background-color: #DEF8FF;
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+	width: 400px;
+    height: 3em;
+}
+
+main #rating {
+	background-color: #DEF8FF;
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+	width: 70px;
+    height: 3em;
+}
+
+main #submit {
+	background-color: #38AB38;
+	border-radius: 1em;
+	height: 40px;
+    color: white;
+    border: none;
+    width: 180px;
 }
