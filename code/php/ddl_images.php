@@ -6,10 +6,7 @@
 // using try catch statement to handle any error
 try {
     // database connection
-    $host = "localhost";
-    $database = "project";
-    $user = "root";
-    $password = "";
+    include 'connect.php';
     
     $connection = mysqli_connect($host, $user, $password, $database);
     

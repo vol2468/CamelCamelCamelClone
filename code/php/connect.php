@@ -8,4 +8,3 @@
     $connection = mysqli_connect($host, $user, $password, $database);
     
     $error = mysqli_connect_error();
-?>
