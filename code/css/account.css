@@ -1,20 +1,21 @@
-p, body {
+main p, body {
     font-family: "DM Sans";
     font-size: 1em;
 }
 
-h1 {
+main h1 {
     font-family: "Alata";
     font-size: 2em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid black;
-    margin-bottom: 0.5em !important;
+    margin-bottom: 1em !important;
 }
 
-h2 {
+main h2 {
     font-family: "Alata";
     font-size: 1.5em;
-    padding-bottom: 0.3em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
     border-bottom: 1px solid #D8DEE4;
 }
 
@@ -22,71 +23,71 @@ main {
     margin: 0em 5em 0em 5em;
 }
 
-#menu-bar {
+main #menu-bar {
     width: 200px;
-    height: 700px;
+    height: 590px;
     float: left;
     margin: 0 3em 0 0;
 }
 
-#menu-bar a {
+main #menu-bar a {
     display: block;
     text-decoration: none;
     color: black;
 }
 
-a#logout {
+main a#logout {
     color: #BA1E14;
 }
 
-hr {
+main hr {
     border-top: 1px solid gray;
 }
 
-#account-profile {
+main #account-profile {
     margin-left: 240px;
 }
 
-#account-info {
+main #account-info {
     left: 500px;
     width: 750px;
 }
 
-#profile-pic {
+main #profile-pic {
     position: absolute;
     top: 340px;
     right: 100px;
 }
 
-#pic-form input {
+main #pic-form input {
     width: 200px;
     border: none;
 }
 
-#profile-pic p {
+main #profile-pic p {
     margin: 0;
 }
 
-#pic {
-    border: 1px solid #D0D7DE;
+main #pic {
+    border: 3px solid #D0D7DE;
     border-radius: 10em;
     width: 200px;
     height: 200px;
     object-fit: cover;
 }
 
-#change-pic {
+main #change-pic {
     background-color: white;
     padding: 0.3em;
     margin: 0;
 }
 
-#acount-info {
+main #acount-info {
     display: flex;
     justify-content: center;
 }
 
-form {
+main form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,7 +95,7 @@ form {
     padding: 0.25em;
 }
 
-form input {
+main form input {
     margin: 0.7em 0em 0.7em 0em;
     border: 1px solid #D0D7DE;
     background-color: #F6F8FA;
@@ -104,26 +105,26 @@ form input {
     height: 50px;
 }
 
-form label {
+main form label {
     width: 750px;
     display: block;
 }
 
-#password {
+main #password {
     display: block;
 }
 
-#curr-pass, #new-pass, #con-pass {
+main #curr-pass, #new-pass, #con-pass {
     width: 350px;
 }
 
-#confirm {
+main #confirm {
     position: relative;
     bottom: 96px;
     left: 400px;
 }
 
-#save {
+main #save {
     background-color: #38AB38;
     padding-top: 0.8em;
     color: white;
@@ -131,7 +132,7 @@ form label {
     width: 180px;
 }
 
-form input#ch-pic {
+main form input#ch-pic {
     background-color: #38AB38;
     font-size: 0.8em;
     padding: 0;

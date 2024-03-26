@@ -26,7 +26,6 @@ if (isset($_SESSION["chpic"])) {
         <title>Your Account</title>
         <link rel="stylesheet" href="../css/reset.css"/>
         <link rel="stylesheet" href="../css/account.css"/>
-        <link rel="stylesheet" href="../css/header.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
