@@ -173,7 +173,7 @@ session_start();
                 </p>
                 <p id="price">$
                     <?php echo $price; ?>
-    </p>
+                </p>
                 <p id="avg-price">Average price:
                     <?php echo $avgprice; ?>
                 </p>
