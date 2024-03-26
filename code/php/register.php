@@ -20,8 +20,6 @@ if (isset($_SESSION["exist"])) {
         <title>Register</title>
         <link rel="stylesheet" href="../css/reset.css"/>
         <link rel="stylesheet" href="../css/register.css"/>
-        <link rel="stylesheet" href="../css/header.css"/>
-        <link rel="stylesheet" href="../css/footer.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -31,7 +29,9 @@ if (isset($_SESSION["exist"])) {
     </head>
     <body>
         <header>
-            <?php include_once("header.php"); ?>
+            <?php
+                include_once("header.php");
+            ?>
         </header>
 
         <main>
@@ -76,7 +76,9 @@ if (isset($_SESSION["exist"])) {
         </main>
 
         <footer>
-            <?php include_once("footer.php"); ?>
+            <?php
+                include_once("footer.php");
+            ?>
         </footer>
 
     </body>

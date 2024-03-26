@@ -10,9 +10,7 @@ if (isset($_SESSION["uid"])) {
     session_unset();
     session_destroy();
 
-    // set the referring page
-    $referer = $_SERVER["HTTP_REFERER"] ?? "login.php";
-    header("Location: $referer");
+    header("Location: main.php");
     exit();
 } else {
     header("Location: login.php");

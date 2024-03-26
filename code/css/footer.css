@@ -1,42 +1,43 @@
-body {
+footer body {
     font-family: "DM Sans";
     font-size: 1em;
 }
 
-h1 {
+footer h1 {
     font-size: 2em;
 }
 
-h2 {
+footer h2 {
     font-size: 1.5em;
 }
 
-footer {
+footer footer {
     background-color: black;
     color: white;
     display: flex;
     align-items: center;
-    padding: 1.2em;
 }
 
-#contact-us a {
+footer #contact-us a {
     text-decoration: none;
     color: white;
     display: flex;
     align-items: center;
 }
-#contact-us a img {
+footer #contact-us a img {
     margin: 0.3em;
 }
 
-#site-logo {
+footer #site-logo {
     margin: 0 10em 0 10em;
 }
 
-#contact-us {
+footer #contact-us {
+    font-family: "DM Sans";
     margin: 0 5em 0 5em;
 }
 
-#copyright {
+footer #copyright {
+    font-family: "DM Sans";
     margin: 0 10em 0 10em;
 }

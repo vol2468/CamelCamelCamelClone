@@ -104,7 +104,7 @@ if (isset($_SESSION["chpic"])) {
             <div id="menu-bar">
                 <a href="#">Account Profile</a>
                 <a href="">Your Price Watches</a>
-                <a href="logout.php" id="logout">Log out</a>
+                <a href="logout.php" id="logout">Sign out</a>
             </div>
             <div id="account-profile">
                 <h2>Account profile</h2>

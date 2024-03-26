@@ -6,8 +6,6 @@
     <title>Product</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/product.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
@@ -19,7 +17,9 @@
 
 <body>
     <header>
-        <?php include_once ("header.php"); ?>
+        <?php
+            include_once ("header.php");
+        ?>
     </header>
 
     <main>
@@ -133,18 +133,18 @@
         <div id="product">
             <img id="pimg" <?php echo 'src="data:image/jpg;base64,' . base64_encode($file) . '"'; ?>>
             <div id="prod-info">
-                <h2 id="pname">
+                <h1 id="pname">
                     <?php echo $pname; ?>
-                </h2>
+                </h1>
                 <p id="category">Category:
                     <?php echo $cname; ?>
                 </p>
                 <p id="rate">
                     <?php echo $rate; ?>/<span>5</span>
                 </p>
-                <h3 id="price">$
+                <p id="price">$
                     <?php echo $price; ?>
-                </h3>
+    </p>
                 <p id="avg-price">Average price:
                     <?php echo $avgprice; ?>
                 </p>
@@ -161,11 +161,11 @@
                 <div id="reviews-container"></div>
             </div>
             <div id="reviews">
-                <h6>Write a review</h6>
+                <h3>Write a review</h3>
                 <form id="add-review" method="post" >
                     <input type="text" id="comment" name="comment" placeholder="Add a review...">
-                    <input type="number" id="rating" name="rating" min="0" max="5" /><br /><br />
-                    <button type="submit">Submit Review</button>
+                    <input type="number" id="rating" name="rating" min="0" max="5" placeholder="Rate"/><br /><br />
+                    <button type="submit" id="submit">Submit Review</button>
                 </form>
             </div>
         </div>
@@ -175,7 +175,9 @@
     </main>
 
     <footer>
-        <?php include_once ("footer.php"); ?>
+        <?php
+            include_once ("footer.php");
+        ?>
     </footer>
 
 </body>
