@@ -28,6 +28,7 @@ session_start();
 
     <main>
         <?php
+        include ("breadcrumb.php");
         try {
             // database connection
             include "connect.php";
