@@ -104,10 +104,10 @@ if (isset($_SESSION["uid"])) {
                 <?php
                     if (!isset($_SESSION["uid"])) {
                         echo "<a href='login.php' target='_top'><img src='../images/account.png' alt='account' id='account-image'/></a>";
-                        echo "<figcaption><a href='login.php'>sign in<a></figcaption>";
+                        echo "<figcaption><a href='login.php'>Sign in<a></figcaption>";
                     } else {
                         echo "<a href='account.php' target='_top'><img alt='account' id='account-image' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
-                        echo "<figcaption><a href='logout.php'>sign out<a></figcaption>";
+                        echo "<figcaption><a href='logout.php'>Sign out<a></figcaption>";
                     }
                 ?>
             </figure>
