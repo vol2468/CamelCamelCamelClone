@@ -194,12 +194,10 @@
                             // printout popular item cards
                             for ($i=0; $i < count($popularItems); $i++) { 
                                 echo '<div class="card">';
-                                echo '<img src="data:image/jpg;base64,'.base64_encode($popularItemImages[$i]).'" style="width: 100%;"/>';
+                                echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($popularItemImages[$i]).'" style="width: 100%;"/></a>';
                                 echo '<h3>'.$popularItemNames[$i].'</h3>';
                                 echo '<p class="price">$'.$popularItemPrices[$i].'</p>';
                                 echo '<p><button><a href="product.php?pid='.$popularItems[$i].'">See Product Detail</a></button></p>';
-                                // TODO: It needs to add pid to session if this button is pressed. 
-                                // pid is $popularItems[$i]
                                 echo '</div>';
                             }
                         ?>
@@ -212,13 +210,11 @@
                             // printout top price dropped item cards
                             for ($i=0; $i < count($priceDropItems); $i++) { 
                                 echo '<div class="card">';
-                                echo '<img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/>';
+                                echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/></a>';
                                 echo '<h3>'.$priceDropNames[$i].'</h3>';
                                 echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
                                 echo 'Price drop: <p class="price">$'.$priceDropDifferences[$i].'</p>';
                                 echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
-                                // TODO: It needs to add pid to session if this button is pressed. 
-                                // pid is $priceDropItems[$i]
                                 echo '</div>';
                             }
                         ?>
