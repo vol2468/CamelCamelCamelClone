@@ -22,8 +22,6 @@ if (isset($_SESSION["error"])) {
         <title>Login</title>
         <link rel="stylesheet" href="../css/reset.css"/>
         <link rel="stylesheet" href="../css/login.css"/>
-        <link rel="stylesheet" href="../css/header.css"/>
-        <link rel="stylesheet" href="../css/footer.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -35,7 +33,9 @@ if (isset($_SESSION["error"])) {
     <body>
 
         <header>
-            <?php include_once("header.php"); ?>
+            <?php
+                include_once("header.php");
+            ?>
         </header>
 
         <main>
@@ -44,7 +44,7 @@ if (isset($_SESSION["error"])) {
                 <p class="welcome">Please enter your login details.</p>
                 <div id="signin-info">
                     <form method="post" action="processlogin.php" id="signin-form">
-                        <p class="error" style="color:red"><?php echo $error; $_SESSION["error"] = null; ?></p>
+                        <p class="error" style="color:red"><?php echo $error; $_SESSION["error"] = null; ?></p><br>
                         <div class="input">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
@@ -55,7 +55,7 @@ if (isset($_SESSION["error"])) {
                             <input type="password" id="password" name="password" placeholder="Enter your password" class="required" /> 
                             <p class="error-message"></p>
                         </div>
-                        <p id="forgot"><a href="#">Forgot Password?</a></p>
+                        <p id="forgot"><a href="forgotpassword.php">Forgot Password?</a></p>
                         <div class="input">
                             <input type="submit" id="submit" value="Sign in"/>
                         </div>
@@ -69,7 +69,9 @@ if (isset($_SESSION["error"])) {
         </main>
 
         <footer>
-            <?php include_once("footer.php"); ?>
+            <?php
+                include_once("footer.php");
+            ?>
         </footer>
 
     </body>

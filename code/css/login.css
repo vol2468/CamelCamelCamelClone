@@ -1,48 +1,49 @@
-p, body {
+main p, body {
     font-family: "DM Sans" !important;
     font-size: 1em;
 }
 
-h1 {
+main h1 {
     font-family: "Alata";
     font-weight: normal;
-    font-size: 2em;
+    font-size: 3em;
 }
 
-h2 {
+main h2 {
     font-size: 1.5em;
 }
 
-main {
+main main {
     margin: 0em 2em 0em 2em;
 }
 
-.welcome {
+main .welcome {
     display: flex;
     justify-content: center;
 }
 
-p.welcome {
+main p.welcome {
     color: gray;
 }
  
-#wrap {
+main #wrap {
     border: solid black 1px;
     border-radius: 1.5em;
     width: 600px;
+    height: 795px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2em;
     margin-bottom: 5em;
-    padding: 7em 2em 7em 2em;
+    padding: 9em 2em 9em 2em;
 }
 
-#signin-info {
+main #signin-info {
     display: flex;
     justify-content: center;
 }
 
-form {
+main form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +51,7 @@ form {
     padding: 0.25em;
 }
 
-form input {
+main form input {
     margin: 0.7em 0em 0.7em 0em;
     border: solid black 1px;
     padding: 1em;
@@ -59,39 +60,40 @@ form input {
     height: 50px;
 }
 
-#submit {
+main #submit {
     color: white;
     background-color: black;
+    padding: 0;
 }
 
-#google {
+main #google {
     background-color: white;
     background-image: url("../images/google.png");
     background-size: 140px;
     background-repeat: no-repeat;
 }
 
-.input {
+main .input {
     margin: 0.8em 0 0.8em 0;
 }
 
-.input label {
+main .input label {
     display: block;
 }
 
-#forgot {
+main #forgot {
     position: relative;
     bottom: 12px;
     margin: 0 0 0 auto;
     margin-left: auto;
 }
 
-#forgot a {
+main #forgot a {
     text-decoration: none;
     color: #38AB38;
 }
 
-#sig {
+main #sig {
     text-decoration: none;
     color: #38AB38;
 }
