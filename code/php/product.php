@@ -58,7 +58,6 @@ session_start();
                     mysqli_stmt_bind_param($statement, "iis", $uid, $pid, $currentDate);
                     mysqli_stmt_execute($statement);
                     mysqli_stmt_store_result($statement);
-                    echo mysqli_stmt_num_rows($statement);
                     if (mysqli_stmt_num_rows($statement) == 0) {
                         $sql = "INSERT INTO visitHistory VALUES (?, ?, ?)";
                         $statement = mysqli_prepare($connection, $sql);
