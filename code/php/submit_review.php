@@ -2,13 +2,11 @@
 // Database connection 
 include_once("db_config.php");
 
-// Get form data
-// $uid = $_POST['uid'];
-$uid = 1;
+// Access variables
+$uid = $_POST['uid'];
+$pid = $_POST['pid'];
+$rating = $_POST['rating'];
 $comment = $_POST['comment'];
-$rating = $_POST['rating']; 
-// $pid = $_POST['pid']; 
-$pid = 1;
 
 // Prepare SQL statement (using a prepared statement for security)
 $sql = "INSERT INTO review (uid, pid, rate, comment) 

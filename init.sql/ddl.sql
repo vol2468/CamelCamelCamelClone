@@ -38,8 +38,9 @@ DROP TABLE IF EXISTS image;
 
 -- Creating tables
 CREATE TABLE category (
-    cid         INT AUTO_INCREMENT, 
-    cname       VARCHAR(50) NOT NULL,
+    cid             INT AUTO_INCREMENT, 
+    cname           VARCHAR(50) NOT NULL,
+    last_updated    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (cid)  
 );
 
@@ -79,7 +80,7 @@ CREATE TABLE product (
 CREATE TABLE review (
     uid         INT, 
     pid         INT, 
-    DATE        DATETIME, 
+    DATE        DATETIME DEFAULT NOW(), 
     rate        INT NOT NULL,  
     comment     VARCHAR(300) NOT NULL, 
     PRIMARY KEY (uid, pid), 

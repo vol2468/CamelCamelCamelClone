@@ -3,8 +3,7 @@
 include_once ("db_config.php");
 
 // Get product ID
-// $pid = $_POST['pid'];
-$pid = 1;
+$pid = $_GET['pid'];
 
 // Prepare and execute SQL query
 $sql = "SELECT review.comment, review.rate, CAST(review.DATE AS DATE) AS date_only, user.uname FROM review 
