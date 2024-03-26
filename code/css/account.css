@@ -101,7 +101,7 @@ main form input {
     background-color: #F6F8FA;
     padding: 1em;
     border-radius: 1em;
-    width: 750px;
+    width: 47em;
     height: 50px;
 }
 
@@ -115,7 +115,7 @@ main #password {
 }
 
 main #curr-pass, #new-pass, #con-pass {
-    width: 350px;
+    width: 23em;
 }
 
 main #confirm {
