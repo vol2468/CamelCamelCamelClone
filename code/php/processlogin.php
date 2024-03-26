@@ -22,13 +22,10 @@ try {
             // database connection
             include "connect.php";
 
-            if($error != null)
-            {
+            if($error != null) {
                 $output = "<p>Unable to connect to database!</p>";
                 exit($output);
-            }
-            else
-            {
+            } else {
                 // check if the email and password are valid in the database using a prepared statement
                 $sql = "SELECT * FROM user WHERE email = ? AND password = ?";
                 if ($statement = mysqli_prepare($connection, $sql)) {
