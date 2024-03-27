@@ -26,13 +26,13 @@ INSERT INTO test (eno, ename) VALUES ("E0004", "Mr.Random");
 
 
 -- Dropping existing tables to clear
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS product;
-DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS watchList;
 DROP TABLE IF EXISTS priceHistory;
 DROP TABLE IF EXISTS visitHistory;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS image;
 
 
@@ -80,7 +80,7 @@ CREATE TABLE product (
 CREATE TABLE review (
     uid         INT, 
     pid         INT, 
-    DATE        DATETIME DEFAULT NOW(), 
+    date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     rate        INT NOT NULL,  
     comment     VARCHAR(300) NOT NULL, 
     PRIMARY KEY (uid, pid), 
