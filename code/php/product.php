@@ -17,12 +17,13 @@ session_start();
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/review.js"></script>
+    <script src="../js/filter.js"></script>
 </head>
 
 <body>
     <header>
         <?php
-            include_once ("header.php");
+        include_once ("header.php");
         ?>
     </header>
 
@@ -35,15 +36,15 @@ session_start();
 
             if ($error != null) {
                 $output = "<p>Unable to connect to database!</p>";
-                exit ($output);
+                exit($output);
             } elseif (!isset($_GET["pid"])) {
                 $output = "<p>Unable to fetch pid!</p>";
-                exit ($output);
+                exit($output);
             } else {
-                
-                if (!isset($_SESSION["uid"])){
+
+                if (!isset($_SESSION["uid"])) {
                     $output = "<p>You need to sign in to view product detail!</p>";
-                    exit ($output);
+                    exit($output);
                 } else {
                     // Retrieve uid from SESSION
                     $uid = $_SESSION["uid"];
@@ -144,7 +145,7 @@ session_start();
                         }
                     }
                 }
-                
+
             }
 
 
@@ -187,14 +188,23 @@ session_start();
         </div>
         <div id="reviews">
             <h2>Reviews</h2>
+            <p>Filter by: </p>
+            <select id="rating-filter">
+                <option value="0" selected="selected">All Ratings</option>
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
             <div class="review-column">
                 <div id="reviews-container"></div>
             </div>
             <div id="reviews">
                 <h3>Write a review</h3>
-                <form id="add-review" method="post" >
+                <form id="add-review" method="post">
                     <input type="text" id="comment" name="comment" placeholder="Add a review...">
-                    <input type="number" id="rating" name="rating" min="0" max="5" placeholder="Rate"/><br /><br />
+                    <input type="number" id="rating" name="rating" min="0" max="5" placeholder="Rate" /><br /><br />
                     <button type="submit" id="submit">Submit Review</button>
                 </form>
             </div>
@@ -206,7 +216,7 @@ session_start();
 
     <footer>
         <?php
-            include_once ("footer.php");
+        include_once ("footer.php");
         ?>
     </footer>
 

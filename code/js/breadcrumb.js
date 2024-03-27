@@ -30,7 +30,6 @@ $(document).ready(function () {
           ${pathParts[pathParts.length - 1]}
         </li>
       `;
-        console.log(breadcrumbHtml);
         $('#breadcrumb').html(breadcrumbHtml);
     }
 
