@@ -132,6 +132,7 @@ try {
 								$uid = mysqli_insert_id($connection);
 								echo "<p>An account for the user $uname has been created</p>";
                                 $_SESSION["uid"] = $uid;
+								$$_SESSION["usertype"] = $usertype;
                                 header("Location: main.php");
                                 exit();
 							} else {

@@ -9,6 +9,7 @@ if (!isset($_SESSION["uid"])) {
     exit();
 } else {
     $uid = $_SESSION["uid"];
+    $usertype = $_SESSION["usertype"];
 }
 
 function checkValidExtention($validExt, $validMime, $fileArray) {
