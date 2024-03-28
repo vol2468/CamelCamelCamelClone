@@ -11,7 +11,7 @@ $(document).ready(function () {
             }
         }
 
-        let breadcrumbHtml = '<li class="breadcrumb-item"><a href="/COSC360Project/code/php/main.php">Home</a></li>';
+        let breadcrumbHtml = '<li class="breadcrumb-item"><a href="/yukiiso/COSC360Project/code/php/main.php">Home</a></li>';
 
         $.each(pathParts.slice(pathParts.length, pathParts.length - 1), function (index, part) {
             const linkUrl = `/${pathParts.slice(0, index + 1).join('/')}`;
