@@ -43,9 +43,11 @@ if (isset($_SESSION["chpic"])) {
     </header>
 
     <main>
+    <?php
+        include ("breadcrumb.php");
+        ?>
         <h1>Dashboard</h1>
         <?php
-
         // using try catch statement to handle any error
         try {
             // database connection
