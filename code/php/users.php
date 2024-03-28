@@ -45,7 +45,7 @@ if (!isset($_SESSION["uid"])) {
                 if ($usertype === 1) {
                     echo "<a href='dashboard.php'>Dashboard</a>";
                     echo "<a href='#'>Products</a>";
-                    echo "<a href='adminusers.php'>Users</a>";
+                    echo "<a href='#'>Users</a>";
                     echo "<a href='#'>Tickets</a>";
                 }
             ?>
