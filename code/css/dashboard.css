@@ -1,0 +1,111 @@
+main p, body {
+    font-family: "DM Sans";
+    font-size: 1em;
+}
+
+main h1 {
+    font-family: "Alata";
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em !important;
+}
+
+main h2 {
+    font-family: "Alata";
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #D8DEE4;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+}
+
+main #menu-bar {
+    width: 150px;
+    height: 100px;
+    float: left;
+    margin: 0 3em 0 0;
+}
+
+main #menu-bar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+main a#logout {
+    color: #BA1E14;
+}
+
+main hr {
+    border-top: 1px solid gray;
+}
+
+main #dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+    margin: 30px auto;
+    
+}
+
+main #dashboard a {
+  text-decoration: none;
+}
+
+
+/* styling for boxes */
+
+  .box {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 25px;
+    margin-right: 20px;
+    text-align: left;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    font-family: 'Alata', sans-serif;
+  }
+  
+  .box i {
+    font-size: 3em;
+    color: #3498db; 
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the headings within the box */
+  .box h2 { 
+    margin-bottom: 5px; 
+    color: black; /* Or set the color you desire for the heading */
+  }
+  
+  .count {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;  
+  }
+  
+  .legend {
+    margin-top: 0; 
+    font-size: 1.3em; 
+    color: #cccccc; 
+    font-weight: normal; 
+  }
+  
+  /* Customize these colors as needed */
+  .user-box {
+    color: #3498db;
+  }
+  
+  .ticket-box {
+    color: #e74c3c;
+  }
+
+  #website-traffic {
+    margin-left: -45px;
+  }
+
