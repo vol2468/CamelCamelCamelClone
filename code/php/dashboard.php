@@ -111,7 +111,7 @@ if (isset($_SESSION["chpic"])) {
             <a href="account.php">Account Profile</a>
             <a href="">Your Price Watches</a>
             <a href="#">Dashboard</a>
-            <a href="user.php">Users</a>
+            <a href="users.php">Users</a>
             <a href="">Tickets</a>
             <a href="">Settings</a>
             <a href="logout.php" id="logout">Sign out</a>
