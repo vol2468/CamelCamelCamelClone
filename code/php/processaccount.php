@@ -10,6 +10,7 @@ if (!isset($_SESSION["uid"])) {
     exit();
 } else {
     $uid = $_SESSION["uid"];
+    $usertype = $_SESSION["usertype"];
 }
 
 // using try catch statement to handle any error

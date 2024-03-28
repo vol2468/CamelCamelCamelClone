@@ -38,6 +38,7 @@ try {
                         // create new session superglobal for username and redirect to main.
                         if (mysqli_stmt_fetch($statement)) {
                             $_SESSION["uid"] = $uid;
+                            $_SESSION["usertype"] = $usertype;
                             header("Location: main.php");
                         }
                     } else {    // invalid credential

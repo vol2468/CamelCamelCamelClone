@@ -142,3 +142,25 @@ main form input#ch-pic {
     width: 120px;
     height: 30px;
 }
+
+main #delete {
+    width: 5em;
+    padding: 0;
+}
+
+main #userlist .center-header th {
+    padding: 1em;
+    text-align: center;
+}
+
+main #userlist img {
+    border: 1px solid #D0D7DE;
+    border-radius: 1em;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+main #userlist td {
+    padding: 0 1em 0 1em;
+}
