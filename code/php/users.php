@@ -65,7 +65,7 @@ if (!isset($_SESSION["uid"])) {
                     } else {
                         // check if the username is valid using a prepared statement
                         $nonadmin = 0;
-                        $sql = "SELECT uname, email, usertype, file FROM user u LEFT JOIN image i ON u.imgid = i.imgid WHERE usertype = ?";
+                        $sql = "SELECT uid, uname, email, usertype, i.imgid, file FROM user u LEFT JOIN image i ON u.imgid = i.imgid WHERE usertype = ?";
                         if ($statement = mysqli_prepare($connection, $sql)) {
                             mysqli_stmt_bind_param($statement, "i", $nonadmin);
                             mysqli_stmt_execute($statement);
@@ -78,15 +78,14 @@ if (!isset($_SESSION["uid"])) {
                                 echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th></tr>";
                             
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $uname, $email, $usertype, $file);
+                                mysqli_stmt_bind_result($statement, $userid, $uname, $email, $usertype, $imgid, $file);
 
                                 while (mysqli_stmt_fetch($statement)) {
                                     echo "<tr>";
                                     echo "<td><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
-                                    // echo "<td>" . $uid . "</td>";
                                     echo "<td>" . $uname . "</td>";
                                     echo "<td>" . $email . "</td>";
-                                    echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$uid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                    echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
                                     echo "</tr>";
                                 }
                                 echo "</table>";
