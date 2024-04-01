@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-
 <?php
+
 session_start();
 
+// redirect to home.php if the user already logged in
 if (isset($_SESSION["uid"])) {
     header("Location: main.php");
     exit();
-}
-
-if (isset($_SESSION["error"])) {
-    $error = $_SESSION["error"];
 }
 
 if (isset($_SESSION["status"])) {
@@ -17,23 +14,20 @@ if (isset($_SESSION["status"])) {
 }
 
 ?>
-
 <html>
     <head lang="en">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Login</title>
         <link rel="stylesheet" href="../css/reset.css"/>
-        <link rel="stylesheet" href="../css/login.css"/>
+        <link rel="stylesheet" href="../css/resetpassword.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="../js/validatelogin.js"></script>
+        <script src="../js/validatepassword.js"></script>
     </head>
     <body>
-
         <header>
             <?php
                 include_once("header.php");
@@ -41,31 +35,35 @@ if (isset($_SESSION["status"])) {
         </header>
 
         <main>
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "GET") { 
+                    if (isset($_GET["uid"]) && !empty($_GET["uid"]))
+                        $uid = $_GET["uid"];
+                }
+            ?>
             <div id="wrap">
-                <h1 class="welcome">WELCOME BACK!</h1>
-                <p class="welcome">Please enter your login details.</p>
-                <div id="signin-info">
-                    <form method="post" action="processlogin.php" id="signin-form">
-                        <p class="error" style="color:red"><?php echo $error; $_SESSION["error"] = null; ?></p><br>
+                <h1 class="welcome">RESET PASSWORD</h1>
+                <p class="welcome">Please enter your new password.</p>
+                <div id="reset-info">
+                    <form method="post" action="processchangepass.php" id="setting-form">
                         <p class="error" style="color:#38AB38"><?php echo $status; $_SESSION["status"] = null; ?></p><br>
                         <div class="input">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
+                            <label for="password">New Password</label>
+                            <input type="password" id="new-pass" name="new-pass" placeholder="Enter your new password" class="required" /> 
                             <p class="error-message"></p>
                         </div>
                         <div class="input">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Enter your password" class="required" /> 
+                            <label for="password">Confirm Password</label>
+                            <input type="password" id="con-pass" name="con-pass" placeholder="Enter your new password" class="required" /> 
                             <p class="error-message"></p>
                         </div>
-                        <p id="forgot"><a href="forgotpassword.php">Forgot Password?</a></p>
                         <div class="input">
-                            <input type="submit" id="submit" value="Sign in"/>
+                            <input type='hidden' name="uid" value=<?php echo $uid; ?>>
+                            <p class="error-message"></p>
                         </div>
-                        <!-- <div class="input">
-                            <input id="google" type="submit" id="submit" value="Sign in with Google"/>
-                        </div> -->
-                        <p>Don't have an account? <span><a id="sig" href="register.php">Sign up for free!</a></span></p>
+                        <div class="input">
+                            <input type="submit" id="submit" value="Reset password"/>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -76,8 +74,5 @@ if (isset($_SESSION["status"])) {
                 include_once("footer.php");
             ?>
         </footer>
-
     </body>
-
-    
 </html>
