@@ -13,7 +13,7 @@ if (isset($_SESSION["uid"])) {
 
 <head lang="en">
     <meta charset="utf-8">
-    <title>Your Account</title>
+    <title>Top Price Drops</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/pop-drop.css" />
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
@@ -33,7 +33,7 @@ if (isset($_SESSION["uid"])) {
         <?php
         include ("breadcrumb.php");
         ?>
-        <h1>Popular Products</h1>
+        <h1>Top Proce Drops</h1>
         <?php
 
             // using try catch statement to handle any error
