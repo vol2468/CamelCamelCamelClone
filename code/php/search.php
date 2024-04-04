@@ -41,9 +41,9 @@ if (isset($_SESSION["uid"])) {
                     exit($output);
                 } else {
                     // obtain the search result when category & search text are specified
-                    if (isset($_POST["categoryId"]) && !empty($_POST["categoryId"]) && $_POST["categoryId"] !== 0 && isset($_POST["searchText"]) && !empty($_POST["searchText"])) {
-                        $cid = $_POST["categoryId"];
-                        $searchText = $_POST["searchText"];
+                    if (isset($_GET["categoryId"]) && !empty($_GET["categoryId"]) && $_GET["categoryId"] !== 0 && isset($_GET["searchText"]) && !empty($_GET["searchText"])) {
+                        $cid = $_GET["categoryId"];
+                        $searchText = $_GET["searchText"];
 
                         // list of product name contains "searchText" from selected category
                         $sql = "SELECT cname, p.pid, pname, price, file ".
@@ -87,8 +87,8 @@ if (isset($_SESSION["uid"])) {
                         mysqli_close($connection);
 
                     // obtain the search result when search text is specified but not category
-                    } elseif (isset($_POST["categoryId"]) && empty($_POST["categoryId"]) && isset($_POST["searchText"]) && !empty($_POST["searchText"])) {
-                        $searchText = $_POST["searchText"];
+                    } elseif (isset($_GET["categoryId"]) && empty($_GET["categoryId"]) && isset($_GET["searchText"]) && !empty($_GET["searchText"])) {
+                        $searchText = $_GET["searchText"];
 
                         // list of product name contains "searchText" from all category
                         $sql = "SELECT cname, p.pid, pname, price, file ".
@@ -132,8 +132,8 @@ if (isset($_SESSION["uid"])) {
                         mysqli_close($connection);
 
                     // obtain the search result when category is specified but not search text
-                    } elseif (isset($_POST["categoryId"]) && !empty($_POST["categoryId"]) && (!isset($_POST["searchText"]) || empty($_POST["searchText"]))) {
-                        $cid = $_POST["categoryId"];
+                    } elseif (isset($_GET["categoryId"]) && !empty($_GET["categoryId"]) && (!isset($_GET["searchText"]) || empty($_GET["searchText"]))) {
+                        $cid = $_GET["categoryId"];
 
                         // list of all product in selected category
                         $sql = "SELECT cname, p.pid, pname, price, file ".
