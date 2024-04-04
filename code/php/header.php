@@ -87,7 +87,7 @@ if (isset($_SESSION["uid"])) {
                     echo "<a href='#'>Your Price Watches</a>";
             ?>
             <a href="popular.php">Popular Products</a>
-            <a href="topdrop.php">Top Price Drops</a>
+            <a href="toppricedrop.php">Top Price Drops</a>
             <form method="get" action="search.php">
                 <select size="1" name="categoryId" id="category-dropdown"></select>
                 <input id="search" name="searchText" type="text" placeholder="      Search for products...">
