@@ -25,6 +25,7 @@ if (!isset($_SESSION["uid"])) {
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="../js/searchuser.js"></script>
 </head>
 
 <body>
@@ -46,65 +47,108 @@ if (!isset($_SESSION["uid"])) {
                 if ($usertype === 1) {
                     echo "<a href='dashboard.php'>Dashboard</a>";
                     echo "<a href='#'>Products</a>";
-                    echo "<a href='#'>Users</a>";
+                    echo "<a href='users.php'>Users</a>";
                     echo "<a href='#'>Tickets</a>";
                 }
             ?>
             <a href="logout.php" id="logout">Sign out</a>
         </div>
-        <div id="account-profile">
+        <div id="non-adminuser">
             <div id="users">
-            <?php
-                // using try catch statement to handle any error
-                try {
-                    // database connection
-                    include "connect.php";
+                <form action="users.php" method="post" id="searchuser">
+                    <input id="search" name="searchText" type="text" placeholder="Look up by username or email">
+                </form>
+                <?php
+                    // using try catch statement to handle any error
+                    try {
+                        // database connection
+                        include "connect.php";
 
-                    if ($error != null) {
-                        $output = "<p>Unable to connect to database!</p>";
-                        exit($output);
-                    } else {
-                        // check if the username is valid using a prepared statement
-                        $nonadmin = 0;
-                        $sql = "SELECT uid, uname, email, usertype, i.imgid, file FROM user u LEFT JOIN image i ON u.imgid = i.imgid WHERE usertype = ?";
-                        if ($statement = mysqli_prepare($connection, $sql)) {
-                            mysqli_stmt_bind_param($statement, "i", $nonadmin);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-
-                            if (mysqli_stmt_num_rows($statement) < 1) {
-                                echo "<p>Invalid usertype<p>";
-                            } else {
-                                echo "<table id='userlist'>";
-                                echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
-                            
-                                // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $userid, $uname, $email, $usertype, $imgid, $file);
-
-                                while (mysqli_stmt_fetch($statement)) {
-                                    echo "<tr>";
-                                    echo "<td><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
-                                    echo "<td>" . $uname . "</td>";
-                                    echo "<td>" . $email . "</td>";
-                                    echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
-                                    echo "</tr>";
-                                }
-                                echo "</table>";
-                                
-                            }
-
+                        if ($error != null) {
+                            $output = "<p>Unable to connect to database!</p>";
+                            exit($output);
                         } else {
-                            echo "Failed to prepare statement";
+                            // check if the username is valid using a prepared statement
+                            $nonadmin = 0;
+                            if (isset($_POST["searchText"]) && !empty($_POST["searchText"])) {
+                                $search = $_POST["searchText"];
+                                $sql = "SELECT uid, uname, email, usertype, i.imgid, file FROM user u LEFT JOIN image i ON u.imgid = i.imgid WHERE usertype = ? AND (uname = ? OR email = ?)";
+
+                                if ($statement = mysqli_prepare($connection, $sql)) {
+                                    mysqli_stmt_bind_param($statement, "iss", $nonadmin, $search, $search);
+                                    mysqli_stmt_execute($statement);
+                                    mysqli_stmt_store_result($statement);
+
+                                    if (mysqli_stmt_num_rows($statement) < 1) {
+                                        echo "<p>Invalid usertype<p>";
+                                    } else {
+                                        echo "<table id='userlist'>";
+                                        echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
+                                    
+                                        // fetch and display the result
+                                        mysqli_stmt_bind_result($statement, $userid, $uname, $email, $usertype, $imgid, $file);
+
+                                        while (mysqli_stmt_fetch($statement)) {
+                                            echo "<tr>";
+                                            echo "<td><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
+                                            echo "<td>" . $uname . "</td>";
+                                            echo "<td>" . $email . "</td>";
+                                            echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                            echo "</tr>";
+                                        }
+                                        echo "</table>";
+                                       
+                                    }
+                                    
+                                } else {
+                                    echo "Failed to prepare statement";
+                                }
+
+                                // close the statement and connection
+                                mysqli_stmt_close($statement);
+                                mysqli_close($connection);
+
+                            } else {
+                                $sql = "SELECT uid, uname, email, usertype, i.imgid, file FROM user u LEFT JOIN image i ON u.imgid = i.imgid WHERE usertype = ?";
+                                if ($statement = mysqli_prepare($connection, $sql)) {
+                                    mysqli_stmt_bind_param($statement, "i", $nonadmin);
+                                    mysqli_stmt_execute($statement);
+                                    mysqli_stmt_store_result($statement);
+
+                                    if (mysqli_stmt_num_rows($statement) < 1) {
+                                        echo "<p>Invalid usertype<p>";
+                                    } else {
+                                        echo "<table id='userlist'>";
+                                        echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
+                                    
+                                        // fetch and display the result
+                                        mysqli_stmt_bind_result($statement, $userid, $uname, $email, $usertype, $imgid, $file);
+
+                                        while (mysqli_stmt_fetch($statement)) {
+                                            echo "<tr>";
+                                            echo "<td><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
+                                            echo "<td>" . $uname . "</td>";
+                                            echo "<td>" . $email . "</td>";
+                                            echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                            echo "</tr>";
+                                        }
+                                        echo "</table>";
+                                        
+                                    }
+
+                                } else {
+                                    echo "Failed to prepare statement";
+                                }
+
+                                // close the statement and connection
+                                mysqli_stmt_close($statement);
+                                mysqli_close($connection);
+                            }
                         }
 
-                        // close the statement and connection
-                        mysqli_stmt_close($statement);
-                        mysqli_close($connection);
+                    } catch (Exception $e) {
+                        echo 'Error Message: ' . $e->getMessage();
                     }
-
-                } catch (Exception $e) {
-                    echo 'Error Message: ' . $e->getMessage();
-                }
 
                 ?>
             </div>
