@@ -77,6 +77,7 @@ if (isset($_SESSION["uid"])) {
 
         ?>
         <div id="products">
+            <!-- 4 cards / row -->
             <div class="row">
                 <div class="card">
                     <a href="product.php?pid=2"><img src="../images/sock.png"/></a>

@@ -27,12 +27,11 @@ if (isset($_SESSION["chpic"])) {
     <meta charset="utf-8">
     <title>Your Account</title>
     <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/account.css" />
+    <link rel="stylesheet" href="../css/pricewatch.css" />
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="../js/validatepassword.js"></script>
 </head>
 
 <body>
@@ -109,7 +108,7 @@ if (isset($_SESSION["chpic"])) {
 
         ?>
         <div id="menu-bar">
-            <a href="#">Account Profile</a>
+            <a href="account.php">Account Profile</a>
             <a href="pricewatch.php">Your Price Watches</a>
             <?php
                 if ($usertype === 1) {
@@ -121,41 +120,49 @@ if (isset($_SESSION["chpic"])) {
             ?>
             <a href="logout.php" id="logout">Sign out</a>
         </div>
-        <div id="account-profile">
-            <h2>Account profile</h2>
-            <div id="account-info">
-                <label for="name">Name</label>
-                <form method="post" action="processaccount.php" id="setting-form">
-                    <input type="text" id="name" name="name" value=<?php echo $uname; ?>>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value=<?php echo $email; ?>>
-                    <div id="password">
-                        <label for="curr-pass">Current Password</label>
-                        <input type="password" id="curr-pass" name="curr-pass" class="required">
-                        <label for="new-pass">New Password</label>
-                        <input type="password" id="new-pass" name="new-pass" class="required">
-                        <div id="confirm">
-                            <label for="con-pass">Confirm Password</label>
-                            <input type="password" id="con-pass" name="con-pass" class="required">
-                        </div>
+        <div id="price-watch">
+            <h2>Your Price Watches</h2>
+            <div id="products">
+                <!-- 3 cards / row -->
+                <div class="row">
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
                     </div>
-                    <p class="status" style="color:#38AB38">
-                        <?php echo $status;
-                        $_SESSION["status"] = null; ?>
-                    </p>
-                    <input type="submit" id="save" name="save" value="Change password">
-                </form>
-                <div id="profile-pic">
-                    <p>Profile picture</p>
-                    <?php echo '<img id="pic" src="data:image/jpeg;base64,' . base64_encode($image) . '"/>'; ?>
-                    <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
-                        <input type="file" id="change-pic" name="change-pic">
-                        <input type="submit" id="ch-pic" value="Change picture">
-                    </form>
-                    <p class="error" style="color:red">
-                        <?php echo $chpic;
-                        $_SESSION["chpic"] = null; ?>
-                    </p>
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
+                    </div>
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
+                    </div>
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
+                    </div>
+                    <div class="card">
+                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
+                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
+                        <p class="price">$12.76</p>
+                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
+                    </div>
                 </div>
             </div>
         </div>
