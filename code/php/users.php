@@ -30,13 +30,13 @@ if (!isset($_SESSION["uid"])) {
 <body>
     <header>
         <?php
-        include_once ("header.php");
+            include_once ("header.php");
         ?>
     </header>
 
     <main>
         <?php
-        include ("breadcrumb.php");
+            include ("breadcrumb.php");
         ?>
         <h1>Users</h1>
         <div id="menu-bar">
@@ -53,7 +53,7 @@ if (!isset($_SESSION["uid"])) {
             <a href="logout.php" id="logout">Sign out</a>
         </div>
         <div id="account-profile">
-            <div id="account-info">
+            <div id="users">
             <?php
                 // using try catch statement to handle any error
                 try {
@@ -76,7 +76,7 @@ if (!isset($_SESSION["uid"])) {
                                 echo "<p>Invalid usertype<p>";
                             } else {
                                 echo "<table id='userlist'>";
-                                echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th></tr>";
+                                echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
                             
                                 // fetch and display the result
                                 mysqli_stmt_bind_result($statement, $userid, $uname, $email, $usertype, $imgid, $file);
@@ -114,7 +114,7 @@ if (!isset($_SESSION["uid"])) {
 
     <footer>
         <?php
-        include_once ("footer.php");
+            include_once ("footer.php");
         ?>
     </footer>
 
