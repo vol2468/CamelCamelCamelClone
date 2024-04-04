@@ -13,7 +13,7 @@ if (isset($_SESSION["uid"])) {
 
 <head lang="en">
     <meta charset="utf-8">
-    <title>Your Account</title>
+    <title>Popular Products</title>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/pop-drop.css" />
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
