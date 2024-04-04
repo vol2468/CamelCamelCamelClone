@@ -115,7 +115,7 @@ main #password {
 }
 
 main #curr-pass, #new-pass, #con-pass {
-    width: 23em;
+    width: 22em;
 }
 
 main #confirm {

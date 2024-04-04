@@ -21,6 +21,7 @@ main h2 {
 
 main {
     margin: 0em 5em 0em 5em;
+    min-height: 750px;
 }
 
 main #menu-bar {
@@ -36,63 +37,17 @@ main #menu-bar a {
     color: black;
 }
 
-main a#logout {
-    color: #BA1E14;
-}
-
-main hr {
-    border-top: 1px solid gray;
-}
-
-main #account-profile {
+main #non-adminuser {
     margin-left: 240px;
 }
 
-main #account-info {
-    left: 500px;
-    width: 750px;
-}
-
-main #profile-pic {
-    position: absolute;
-    top: 370px;
-    right: 100px;
-}
-
-main #pic-form input {
-    width: 200px;
-    border: none;
-}
-
-main #profile-pic p {
-    margin: 0;
-}
-
-main #pic {
-    border: 3px solid #D0D7DE;
-    border-radius: 10em;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
-
-main #change-pic {
-    background-color: white;
-    padding: 0.3em;
-    margin: 0;
-}
-
-main #acount-info {
+main #user {
     display: flex;
     justify-content: center;
 }
 
-main form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-width: 0.15em;
-    padding: 0.25em;
+main #search {
+    width: 98%;
 }
 
 main form input {
@@ -105,47 +60,18 @@ main form input {
     height: 50px;
 }
 
-main form label {
-    width: 750px;
-    display: block;
-}
-
-main #password {
-    display: block;
-}
-
-main #curr-pass, #new-pass, #con-pass {
-    width: 23em;
-}
-
-main #confirm {
-    position: relative;
-    bottom: 96px;
-    left: 400px;
-}
-
-main #save {
-    background-color: #38AB38;
-    padding-top: 0.8em;
-    color: white;
-    border: none;
-    width: 180px;
-}
-
-main form input#ch-pic {
-    background-color: #38AB38;
-    font-size: 0.8em;
-    padding: 0;
-    border-radius: 1.2em;
-    color: white;
-    border: none;
-    width: 120px;
-    height: 30px;
-}
-
 main #delete {
+    background-color: #38AB38;
+    color: white;
+    border: #38AB38;
+    border-radius: 0.5em;
     width: 5em;
+    height: 35px;
     padding: 0;
+}
+
+main #userlist {
+    margin-bottom: 3em;
 }
 
 main #userlist .center-header th {
