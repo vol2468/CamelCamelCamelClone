@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+
 session_start();
 
 if (isset($_SESSION["uid"])) {
@@ -51,22 +52,13 @@ if (isset($_SESSION["uid"])) {
                     
                     // retrive image from the database
                     $sql = "SELECT file FROM image where imgid = ?";
-                                    // build the prepared statement SELECTing on the userID for the user
                     $stmt = mysqli_stmt_init($connection);
-                                    //init prepared statement object
                     mysqli_stmt_prepare($stmt, $sql);
-                                    // bind the query to the statement
                     mysqli_stmt_bind_param($stmt, "i", $imgid);
-                                    // bind in the variable data (ie userID)
                     $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
-                                    // Run the query. run spot run!
-                    mysqli_stmt_bind_result($stmt, $image); //bind in results
-                                    // Binds the columns in the resultset to variables
+                    mysqli_stmt_bind_result($stmt, $image);
                     mysqli_stmt_fetch($stmt);
-                                    // Fetches the blob and places it in the variable $image for use as well
-                                    // as the image type (which is stored in $type)
                     mysqli_stmt_close($stmt);
-                                    // release the statement
                 }
 
             } else {
@@ -96,10 +88,10 @@ if (isset($_SESSION["uid"])) {
             ?>
             <a href="popular.php">Popular Products</a> 
             <a href="topdrop.php">Top Price Drops</a>
-            <form method="post" action="#">
-                <select size="1" name="categoryName" id="category-dropdown">
-                <input id="search" type="text" placeholder="      Search for products...">
-                </select><input type="submit" value="Search" id="srcbtn">
+            <form method="post" action="search.php">
+                <select size="1" name="categoryId" id="category-dropdown"></select>
+                <input id="search" name="searchText" type="text" placeholder="      Search for products...">
+                <input type="submit" value="Search" id="srcbtn">
             </form>
             <figure>
                 <?php
