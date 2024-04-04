@@ -84,7 +84,7 @@ if (isset($_SESSION["uid"])) {
         <div id="navigation-menu">
             <?php
                 if (isset($_SESSION["uid"]))
-                    echo "<a href='#'>Your Price Watches</a>";
+                    echo "<a href='pricewatch.php'>Your Price Watches</a>";
             ?>
             <a href="popular.php">Popular Products</a>
             <a href="toppricedrop.php">Top Price Drops</a>
