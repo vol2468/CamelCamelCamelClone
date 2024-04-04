@@ -46,7 +46,7 @@ if (isset($_SESSION["uid"])) {
                         $searchText = $_POST["searchText"];
 
                         // list of product name contains "searchText" from selected category
-                        $sql = "SELECT cname, pname, price, file ".
+                        $sql = "SELECT cname, p.pid, pname, price, file ".
                                "FROM product p ".
                                "JOIN priceHistory ph ON p.pid = ph.pid ".
                                "JOIN category c ON p.cid = c.cid ".
@@ -65,11 +65,12 @@ if (isset($_SESSION["uid"])) {
                                 $noresult = "<p>Unfortunately, we couldn't find any...<p>";
                             } else {
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $cname, $pname, $price, $file);
+                                mysqli_stmt_bind_result($statement, $cname, $pid, $pname, $price, $file);
 
                                 $counter = 0;
                                 while (mysqli_stmt_fetch($statement)) {
                                     $productCategory[$counter] = $cname;
+                                    $productId[$counter] = $pid;
                                     $productName[$counter] = $pname;
                                     $productPrice[$counter] = $price;
                                     $productImage[$counter] = $file;
@@ -88,7 +89,9 @@ if (isset($_SESSION["uid"])) {
                     // obtain the search result when search text is specified but not category
                     } elseif (isset($_POST["categoryId"]) && empty($_POST["categoryId"]) && isset($_POST["searchText"]) && !empty($_POST["searchText"])) {
                         $searchText = $_POST["searchText"];
-                        $sql = "SELECT cname, pname, price, file ".
+
+                        // list of product name contains "searchText" from all category
+                        $sql = "SELECT cname, p.pid, pname, price, file ".
                                "FROM product p ".
                                "JOIN priceHistory ph ON p.pid = ph.pid ".
                                "JOIN category c ON p.cid = c.cid ".
@@ -106,11 +109,12 @@ if (isset($_SESSION["uid"])) {
                                 $noresult = "<p>Unfortunately, we couldn't find any...<p>";
                             } else {
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $cname, $pname, $price, $file);
+                                mysqli_stmt_bind_result($statement, $cname, $pid, $pname, $price, $file);
 
                                 $counter = 0;
                                 while (mysqli_stmt_fetch($statement)) {
                                     $productCategory[$counter] = $cname;
+                                    $productId[$counter] = $pid;
                                     $productName[$counter] = $pname;
                                     $productPrice[$counter] = $price;
                                     $productImage[$counter] = $file;
@@ -131,8 +135,8 @@ if (isset($_SESSION["uid"])) {
                     } elseif (isset($_POST["categoryId"]) && !empty($_POST["categoryId"]) && (!isset($_POST["searchText"]) || empty($_POST["searchText"]))) {
                         $cid = $_POST["categoryId"];
 
-                        // list of product in selected category
-                        $sql = "SELECT cname, pname, price, file ".
+                        // list of all product in selected category
+                        $sql = "SELECT cname, p.pid, pname, price, file ".
                                "FROM product p ".
                                "JOIN priceHistory ph ON p.pid = ph.pid ".
                                "JOIN category c ON p.cid = c.cid ".
@@ -149,11 +153,12 @@ if (isset($_SESSION["uid"])) {
                                 $noresult = "<p>Unfortunately, we couldn't find any...<p>";
                             } else {
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $cname, $pname, $price, $file);
+                                mysqli_stmt_bind_result($statement, $pid, $cname, $pname, $price, $file);
 
                                 $counter = 0;
                                 while (mysqli_stmt_fetch($statement)) {
                                     $productCategory[$counter] = $cname;
+                                    $productId[$counter] = $pid;
                                     $productName[$counter] = $pname;
                                     $productPrice[$counter] = $price;
                                     $productImage[$counter] = $file;
@@ -171,7 +176,7 @@ if (isset($_SESSION["uid"])) {
                         mysqli_close($connection);
                     } else {
                         // list of product in all category
-                        $sql = "SELECT cname, pname, price, file ".
+                        $sql = "SELECT cname, p.pid, pname, price, file ".
                                "FROM product p ".
                                "JOIN priceHistory ph ON p.pid = ph.pid ".
                                "JOIN category c ON p.cid = c.cid ".
@@ -186,11 +191,12 @@ if (isset($_SESSION["uid"])) {
                                 $noresult = "<p>Unfortunately, we couldn't find any...<p>";
                             } else {
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $cname, $pname, $price, $file);
+                                mysqli_stmt_bind_result($statement, $cname, $pid, $pname, $price, $file);
 
                                 $counter = 0;
                                 while (mysqli_stmt_fetch($statement)) {
                                     $productCategory[$counter] = $cname;
+                                    $productId[$counter] = $pid;
                                     $productName[$counter] = $pname;
                                     $productPrice[$counter] = $price;
                                     $productImage[$counter] = $file;
@@ -229,7 +235,7 @@ if (isset($_SESSION["uid"])) {
                             echo "<h2>".$productName[$i]."</h2>";
                             echo "<p class='category'>Category: ".$productCategory[$i]."</p>";
                             echo "<p class='price'>$".$productPrice[$i]."</p>";
-                            echo "<button class='view-amazon'><a href='http://amazon.ca'>View on Amazon</a></button>";
+                            echo "<button class='view-amazon'><a href='product.php?pid=".$productId[$i]."'>See Product Detail</a></button>";
                             echo "</div>";
                             echo "</div>";
                             if ($i !== count($productName)-1)
