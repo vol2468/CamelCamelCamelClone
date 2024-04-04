@@ -3,6 +3,13 @@
 
 session_start();
 
+if (!isset($_SESSION["uid"])) {
+    $_SESSION["error"] = "You need to sign in to view product detail.";
+    header("Location: login.php");
+} else {
+    $uid = $_SESSION["uid"];
+}
+
 ?>
 
 <html>
@@ -43,108 +50,99 @@ session_start();
                 $output = "<p>Unable to fetch pid!</p>";
                 exit($output);
             } else {
+                // Retrieve pid from GET
+                $pid = $_GET["pid"];
 
-                if (!isset($_SESSION["uid"])) {
-                    $output = "<p>You need to sign in to view product detail!</p>";
-                    exit($output);
-                } else {
-                    // Retrieve uid from SESSION
-                    $uid = $_SESSION["uid"];
+                $currentDate = date('Y-m-d');
 
-                    // Retrieve pid from GET
-                    $pid = $_GET["pid"];
-
-                    $currentDate = date('Y-m-d');
-
-                    // Store product visit information in db.
-                    $sql = "SELECT * FROM visitHistory WHERE uid = ? AND pid = ? AND date = ?";
+                // Store product visit information in db.
+                $sql = "SELECT * FROM visitHistory WHERE uid = ? AND pid = ? AND date = ?";
+                $statement = mysqli_prepare($connection, $sql);
+                mysqli_stmt_bind_param($statement, "iis", $uid, $pid, $currentDate);
+                mysqli_stmt_execute($statement);
+                mysqli_stmt_store_result($statement);
+                if (mysqli_stmt_num_rows($statement) == 0) {
+                    $sql = "INSERT INTO visitHistory VALUES (?, ?, ?)";
                     $statement = mysqli_prepare($connection, $sql);
                     mysqli_stmt_bind_param($statement, "iis", $uid, $pid, $currentDate);
                     mysqli_stmt_execute($statement);
-                    mysqli_stmt_store_result($statement);
-                    if (mysqli_stmt_num_rows($statement) == 0) {
-                        $sql = "INSERT INTO visitHistory VALUES (?, ?, ?)";
-                        $statement = mysqli_prepare($connection, $sql);
-                        mysqli_stmt_bind_param($statement, "iis", $uid, $pid, $currentDate);
-                        mysqli_stmt_execute($statement);
-                    }
+                }
 
-                    // Retrieve product information
-                    $sql = "SELECT pname, cid, imgid FROM product WHERE pid = ?";
-                    $statement = mysqli_prepare($connection, $sql);
-                    if ($statement = mysqli_prepare($connection, $sql)) {
+                // Retrieve product information
+                $sql = "SELECT pname, cid, imgid FROM product WHERE pid = ?";
+                $statement = mysqli_prepare($connection, $sql);
+                if ($statement = mysqli_prepare($connection, $sql)) {
+                    mysqli_stmt_bind_param($statement, "i", $pid);
+                    mysqli_stmt_execute($statement);
+                    mysqli_stmt_store_result($statement);
+
+                    if (mysqli_stmt_num_rows($statement) > 0) {
+                        mysqli_stmt_bind_result($statement, $pname, $cid, $imgid);
+                        mysqli_stmt_fetch($statement);
+
+                        // Retrieve image
+                        $sql = "SELECT file FROM image WHERE imgid = ?";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $imgid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        mysqli_stmt_bind_result($statement, $file);
+                        mysqli_stmt_fetch($statement);
+
+                        // Retrieve rate
+                        $sql = "SELECT AVG(rate) FROM review GROUP BY pid HAVING pid = ?";
+                        $statement = mysqli_prepare($connection, $sql);
                         mysqli_stmt_bind_param($statement, "i", $pid);
                         mysqli_stmt_execute($statement);
                         mysqli_stmt_store_result($statement);
-
                         if (mysqli_stmt_num_rows($statement) > 0) {
-                            mysqli_stmt_bind_result($statement, $pname, $cid, $imgid);
+                            mysqli_stmt_bind_result($statement, $rate);
                             mysqli_stmt_fetch($statement);
-
-                            // Retrieve image
-                            $sql = "SELECT file FROM image WHERE imgid = ?";
-                            $statement = mysqli_prepare($connection, $sql);
-                            mysqli_stmt_bind_param($statement, "i", $imgid);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-                            mysqli_stmt_bind_result($statement, $file);
-                            mysqli_stmt_fetch($statement);
-
-                            // Retrieve rate
-                            $sql = "SELECT AVG(rate) FROM review GROUP BY pid HAVING pid = ?";
-                            $statement = mysqli_prepare($connection, $sql);
-                            mysqli_stmt_bind_param($statement, "i", $pid);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-                            if (mysqli_stmt_num_rows($statement) > 0) {
-                                mysqli_stmt_bind_result($statement, $rate);
-                                mysqli_stmt_fetch($statement);
-                            } else {
-                                $rate = 0;
-                            }
-                            $rate = round($rate, 2);
-
-                            // Retrieve price
-                            $sql = "SELECT price, date, AVG(price) FROM priceHistory WHERE pid = ? ORDER BY date DESC";
-                            $statement = mysqli_prepare($connection, $sql);
-                            mysqli_stmt_bind_param($statement, "i", $pid);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-                            if (mysqli_stmt_num_rows($statement) > 0) {
-                                mysqli_stmt_bind_result($statement, $price, $date, $avgprice);
-                                mysqli_stmt_fetch($statement);
-                            } else {
-                                $price = 0;
-                            }
-                            $avgprice = round($avgprice, 2);
-
-                            // Retrieve price
-                            $sql = "SELECT price, date FROM priceHistory WHERE pid = ? ORDER BY date DESC";
-                            $statement = mysqli_prepare($connection, $sql);
-                            mysqli_stmt_bind_param($statement, "i", $pid);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-                            if (mysqli_stmt_num_rows($statement) > 0) {
-                                mysqli_stmt_bind_result($statement, $price, $date);
-                                mysqli_stmt_fetch($statement);
-                            } else {
-                                $price = 0;
-                            }
-
-                            // Retrieve category
-                            $sql = "SELECT cname FROM category WHERE cid = ?";
-                            $statement = mysqli_prepare($connection, $sql);
-                            mysqli_stmt_bind_param($statement, "i", $cid);
-                            mysqli_stmt_execute($statement);
-                            mysqli_stmt_store_result($statement);
-                            mysqli_stmt_bind_result($statement, $cname);
-                            mysqli_stmt_fetch($statement);
-
-                        } else {    // invalid credential
-                            $_SESSION["error"] = "No such product. ";
-                            header("Location: main.php?error=invalid1");
-                            exit();
+                        } else {
+                            $rate = 0;
                         }
+                        $rate = round($rate, 2);
+
+                        // Retrieve price
+                        $sql = "SELECT price, date, AVG(price) FROM priceHistory WHERE pid = ? ORDER BY date DESC";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $pid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        if (mysqli_stmt_num_rows($statement) > 0) {
+                            mysqli_stmt_bind_result($statement, $price, $date, $avgprice);
+                            mysqli_stmt_fetch($statement);
+                        } else {
+                            $price = 0;
+                        }
+                        $avgprice = round($avgprice, 2);
+
+                        // Retrieve price
+                        $sql = "SELECT price, date FROM priceHistory WHERE pid = ? ORDER BY date DESC";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $pid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        if (mysqli_stmt_num_rows($statement) > 0) {
+                            mysqli_stmt_bind_result($statement, $price, $date);
+                            mysqli_stmt_fetch($statement);
+                        } else {
+                            $price = 0;
+                        }
+
+                        // Retrieve category
+                        $sql = "SELECT cname FROM category WHERE cid = ?";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $cid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        mysqli_stmt_bind_result($statement, $cname);
+                        mysqli_stmt_fetch($statement);
+
+                    } else {    // invalid credential
+                        $_SESSION["error"] = "No such product. ";
+                        header("Location: main.php?error=invalid1");
+                        exit();
                     }
                 }
 

@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 
+<?php
+
+session_start();
+
+if (isset($_SESSION["uid"])) {
+    $uid = $_SESSION["uid"];
+}
+
+?>
 <html>
     <head lang="en">
         <meta charset="utf-8">
@@ -19,12 +28,6 @@
 
         <main>
             <?php 
-                // Fetch uid 
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    if (isset($_POST["uid"]) && !empty($_POST["uid"])) {
-                        $uid = $_POST["uid"];
-                    }
-                }
                 try {
                     // database connection
                     include 'connect.php';
