@@ -11,14 +11,6 @@ if (!isset($_SESSION["uid"])) {
     $usertype = $_SESSION["usertype"];
 }
 
-if (isset($_SESSION["status"])) {
-    $status = $_SESSION["status"];
-}
-
-if (isset($_SESSION["chpic"])) {
-    $chpic = $_SESSION["chpic"];
-}
-
 ?>
 
 <html>
@@ -34,6 +26,7 @@ if (isset($_SESSION["chpic"])) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
 
 <body>
@@ -49,63 +42,6 @@ if (isset($_SESSION["chpic"])) {
         ?>
         <h1>Dashboard</h1>
         <?php
-        // using try catch statement to handle any error
-        try {
-            // database connection
-            include "connect.php";
-
-            if ($error != null) {
-                $output = "<p>Unable to connect to database!</p>";
-                exit($output);
-            } else {
-                // check if the username is valid using a prepared statement
-                $sql = "SELECT * FROM user WHERE uid = ?";
-                if ($statement = mysqli_prepare($connection, $sql)) {
-                    mysqli_stmt_bind_param($statement, "i", $uid);
-                    mysqli_stmt_execute($statement);
-                    mysqli_stmt_store_result($statement);
-
-                    if (mysqli_stmt_num_rows($statement) < 1) {
-                        echo "<p>Invalid uid<p>";
-                    } else {
-                        // fetch and display the result
-                        mysqli_stmt_bind_result($statement, $uid, $uname, $email, $passwd, $imgid, $usertype);
-
-                        mysqli_stmt_fetch($statement);
-
-                        // retrive image from the database
-                        $sql = "SELECT file FROM image where imgid = ?";
-                        // build the prepared statement SELECTing on the userID for the user
-                        $stmt = mysqli_stmt_init($connection);
-                        //init prepared statement object
-                        mysqli_stmt_prepare($stmt, $sql);
-                        // bind the query to the statement
-                        mysqli_stmt_bind_param($stmt, "i", $imgid);
-                        // bind in the variable data (ie userID)
-                        $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
-                        // Run the query. run spot run!
-                        mysqli_stmt_bind_result($stmt, $image); //bind in results
-                        // Binds the columns in the resultset to variables
-                        mysqli_stmt_fetch($stmt);
-                        // Fetches the blob and places it in the variable $image for use as well
-                        // as the image type (which is stored in $type)
-                        mysqli_stmt_close($stmt);
-                        // release the statement
-                        // echo '<img src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
-                    }
-
-                } else {
-                    echo "Failed to prepare statement";
-                }
-
-                // close the statement and connection
-                mysqli_stmt_close($statement);
-                mysqli_close($connection);
-            }
-
-        } catch (Exception $e) {
-            echo 'Error Message: ' . $e->getMessage();
-        }
 
         ?>
         <div id="menu-bar">
@@ -136,16 +72,30 @@ if (isset($_SESSION["chpic"])) {
                 <p class="count" id="ticket-count">3</p>
             </div>
 
-            <img id="website-traffic" src="../images/website_traffic.png" width="1075px" height="500px">
+            <!-- REPLACE WITH ACTUAL DATA -->
+            <div>
+                <canvas id="traffic"></canvas>
+            </div>
+            <script>
 
-            <p class="status" style="color:#38AB38">
-                <?php echo $status;
-                $_SESSION["status"] = null; ?>
-            </p>
-            <p class="error" style="color:red">
-                <?php echo $chpic;
-                $_SESSION["chpic"] = null; ?>
-            </p>
+                const traffic = document.getElementById("traffic");
+                const labels = ["January", "February", "March", "April", "May", "June", "July"];
+                
+                var chart = new Chart(traffic, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Website Traffic",
+                            data: [65, 59, 80, 81, 56, 55, 40],
+                            fill: false,
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    }
+                })
+
+            </script>
         </div>
 
     </main>
