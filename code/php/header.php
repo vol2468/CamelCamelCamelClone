@@ -104,7 +104,7 @@ if (isset($_SESSION["uid"])) {
                     }
                 ?>
             </figure>
-            <a href="#">Need help?</a>
+            <a href="contactus.php">Need help?</a>
         </div>
     </header>
 </body>
