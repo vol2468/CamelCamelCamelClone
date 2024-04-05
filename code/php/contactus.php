@@ -41,6 +41,7 @@ if (isset($_SESSION["uid"])) {
                             <option value="general">General Inquery</option>
                             <option value="tech">Technical Issues</option>
                             <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Report</option>
                         </select>
                         <br>
                         <label for="message"><h3>Message</h3></label><br>
