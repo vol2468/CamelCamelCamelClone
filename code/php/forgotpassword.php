@@ -18,7 +18,7 @@ if (isset($_SESSION["status"])) {
     <head lang="en">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
+        <title>Forgot Password</title>
         <link rel="stylesheet" href="../css/reset.css"/>
         <link rel="stylesheet" href="../css/forgotpassword.css"/>
         <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
