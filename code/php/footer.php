@@ -19,7 +19,7 @@
         </div>
         <div id="contact-us">
             
-            <a href="#"><span><img src="../images/email-icon.png" alt="email" width="20px"></span>Contact Us</a>
+            <a href="contactus.php"><span><img src="../images/email-icon.png" alt="email" width="20px"></span>Contact Us</a>
         </div>
         <div id="copyright">
             <p>Copyright &copy; 2024 ATY Corp. | All Rights Reserved</p>

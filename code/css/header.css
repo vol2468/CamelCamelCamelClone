@@ -80,7 +80,7 @@ header #search {
 
 header #search::placeholder {
     font-family: "Actor";
-  }
+}
 
 header #search:focus { 
     background-image: none; 
