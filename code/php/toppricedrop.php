@@ -33,7 +33,7 @@ if (isset($_SESSION["uid"])) {
         <?php
         include ("breadcrumb.php");
         ?>
-        <h1>Top Proce Drops</h1>
+        <h1>Top Price Drops</h1>
         <?php
 
             // using try catch statement to handle any error

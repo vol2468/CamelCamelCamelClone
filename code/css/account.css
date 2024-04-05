@@ -93,6 +93,7 @@ main form {
     align-items: center;
     border-width: 0.15em;
     padding: 0.25em;
+    margin-bottom: 4em;
 }
 
 main form input {
@@ -110,6 +111,11 @@ main form label {
     display: block;
 }
 
+main form label[for="con-pass"] {
+    width: 350px;
+    display: block;
+}
+
 main #password {
     display: block;
 }
@@ -120,6 +126,7 @@ main #curr-pass, #new-pass, #con-pass {
 
 main #confirm {
     position: relative;
+    width: 350px;
     bottom: 96px;
     left: 400px;
 }

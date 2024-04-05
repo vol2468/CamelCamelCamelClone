@@ -53,10 +53,10 @@ main hr {
 
 main #price-watch {
     margin-left: 240px;
+	margin-bottom: 3em;
 }
 
 main #products {
-    /* left: 500px; */
     width: 1000px;
 }
 

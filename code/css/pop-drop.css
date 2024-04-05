@@ -30,6 +30,9 @@ main {
     margin: 0em 5em 0em 5em;
 }
 
+main #products {
+	margin-bottom: 3em;
+}
 /* prodcut cards */
 main .row {
 	--bs-gutter-x: 0;

@@ -37,6 +37,10 @@ main #menu-bar a {
     color: black;
 }
 
+main a#logout {
+    color: #BA1E14;
+}
+
 main #non-adminuser {
     margin-left: 240px;
 }
