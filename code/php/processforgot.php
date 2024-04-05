@@ -1,5 +1,8 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
 // redirect to home.php if the user already logged in
@@ -37,15 +40,34 @@ try {
                             // $reset_link = "http://cosc360.ok.ubc.ca/yukiiso/COSC360Project/code/php/resetpassword.php";
                             $reset_link = "http://localhost/COSC360Project/code/php/resetpassword.php?uid=$uid";
                             $to = $email;
-                            $subject = "Password Reset of Your ATY Account";
+                            $subject = "The Password Reset Link of Your ATY Account";
                             $message = "Click the link below to reset your password:\n\n$reset_link";
-                            
-                            if(mb_send_mail($to, $subject, $message)) {
-                                //echo "Mail successfully sent";
-                                $_SESSION["status"] = "We have sent you a reset password email. Please check!";
-                                header("Location: login.php");
-                                exit();
-                            }
+
+                            require "phpmailer/src/Exception.php";
+                            require "phpmailer/src/PHPMailer.php";
+                            require "phpmailer/src/SMTP.php";
+
+                            $mail = new PHPMailer(true);
+                            $mail -> isSMTP();
+                            $mail -> Host = "smtp.gmail.com";
+                            $mail -> SMTPAuth = true;
+                            $mail -> Username = "atycorp2024@gmail.com";
+                            $mail -> Password = "vmlyrmweakdkkwpa";
+                            $mail -> SMTPSecure = "ssl";
+                            $mail -> Port = 465;
+
+                            $mail -> setFrom("atycorp2024@gmail.com");
+                            $mail -> addAddress($to);
+                            $mail -> isHTML(true);
+
+                            $mail -> Subject = $subject;
+                            $mail -> Body = $message;
+
+                            $mail -> send();
+
+                            $_SESSION["status"] = "We have sent you a link to reset password. Please check!";
+                            header("Location: login.php");
+                            exit();
                         }
                     } else {    // invalid credential
                         $_SESSION["error"] = "We don't have an account accociated with the email.";
