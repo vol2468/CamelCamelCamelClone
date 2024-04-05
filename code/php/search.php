@@ -153,7 +153,7 @@ if (isset($_SESSION["uid"])) {
                                 $noresult = "<p>Unfortunately, we couldn't find any...<p>";
                             } else {
                                 // fetch and display the result
-                                mysqli_stmt_bind_result($statement, $pid, $cname, $pname, $price, $file);
+                                mysqli_stmt_bind_result($statement, $cname, $pid, $pname, $price, $file);
 
                                 $counter = 0;
                                 while (mysqli_stmt_fetch($statement)) {
@@ -235,7 +235,7 @@ if (isset($_SESSION["uid"])) {
                             echo "<h2>".$productName[$i]."</h2>";
                             echo "<p class='category'>Category: ".$productCategory[$i]."</p>";
                             echo "<p class='price'>$".$productPrice[$i]."</p>";
-                            echo "<button class='view-amazon'><a href='product.php?pid=".$productId[$i]."'>See Product Detail</a></button>";
+                            echo "<button class='prod-details'><a href='product.php?pid=".$productId[$i]."'>See Product Detail</a></button>";
                             echo "</div>";
                             echo "</div>";
                             if ($i !== count($productName)-1)

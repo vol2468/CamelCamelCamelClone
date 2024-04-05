@@ -30,7 +30,7 @@ main {
 }
 
 main #products {
-    padding: 0 2em 0 2em;
+    padding: 0 2em 3em 2em;
 }
 
 main .items {
@@ -63,7 +63,7 @@ main .price {
     color: #38AB38;
 }
 
-main .view-amazon {
+main .prod-details {
 	padding: 0.5em;
 	margin-top: 1em;
 	width: 400px;
@@ -72,7 +72,7 @@ main .view-amazon {
 	border-radius: 2em;
 }
 
-main .view-amazon a {
+main .prod-details a {
 	color: white;
 	text-decoration: none;
 }
