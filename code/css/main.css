@@ -54,6 +54,14 @@ main .price {
 	background-color: #F5F5F5;
 	padding: 0.4em 0 0.4em 0;
 }
+
+main .price-drop {
+	font-family: "Actor";
+	font-size: 1em;
+	margin: 0;
+	padding: 0 0 1em 0;
+	background-color: #F5F5F5;
+}
   
 main .card button {
 	border: none;

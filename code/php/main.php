@@ -210,7 +210,7 @@ if (isset($_SESSION["uid"])) {
                                 echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/></a>';
                                 echo '<h3>'.$priceDropNames[$i].'</h3>';
                                 echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
-                                echo 'Price drop: <p class="price">$'.$priceDropDifferences[$i].'</p>';
+                                echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
                                 echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
                                 echo '</div>';
                             }
