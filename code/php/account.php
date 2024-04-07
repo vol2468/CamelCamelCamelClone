@@ -122,7 +122,7 @@ if (isset($_SESSION["chpic"])) {
             <a href="logout.php" id="logout">Sign out</a>
         </div>
         <div id="account-profile">
-            <h2>Account profile</h2>
+            <h2>Account Profile</h2>
             <div id="account-info">
                 <label for="name">Name</label>
                 <form method="post" action="processaccount.php" id="setting-form">
@@ -146,7 +146,7 @@ if (isset($_SESSION["chpic"])) {
                     <input type="submit" id="save" name="save" value="Change password">
                 </form>
                 <div id="profile-pic">
-                    <p>Profile picture</p>
+                    <p>Profile Picture</p>
                     <?php echo '<img id="pic" src="data:image/jpeg;base64,' . base64_encode($image) . '"/>'; ?>
                     <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
                         <input type="file" id="change-pic" name="change-pic">
