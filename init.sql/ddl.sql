@@ -240,7 +240,7 @@ INSERT INTO product (pname, cid, imgid)
     ('Nongshim Gourmet Spicy Shin Instant Ramen Noodle, 20 Pack, Chunky Vegetables, Premium Microwaveable Ramen Soup Mix, Savory & Rich', 14, 76), 
     ('Samyang Buldak Spicy Ramen, Hot Chicken Ramen, Korean Stir-Fried Instant Noodle, Original, 1 Bag with 5 Pack', 14, 77), 
     ('RITZ Fresh Stacks Original Crackers, Party Size, 23.7 oz (16 Stacks)', 14, 78), 
-    ('Spam Classic, 12 Ounce Can (Pack of 12', 14, 79), 
+    ('Spam Classic, 12 Ounce Can (Pack of 12)', 14, 79), 
     ('Japanese populer Ramen "ICHIRAN" instant noodles tonkotsu 5 meals(Japan Import)', 14, 80),  
     -- Category 15 Arts & Crafts
     ('RMJOY Rainbow Scratch Paper Sets: 60pcs Magic Art Craft Scratch Off Papers Supplies Kits Pad for Age 3-12 Kids Girl Boy Teen Toy Game Gift for Birthday|Party Favor|DIY Activities|Painting Game Gift', 15, 81), 
@@ -304,7 +304,7 @@ INSERT INTO priceHistory (pid, date, price)
     (10, '2024-02-01 00:00:00', 18.89), 
     (11, '2024-02-01 00:00:00', 31.99), 
     (12, '2024-02-01 00:00:00', 6.82), 
-    (13, '2024-02-01 00:00:00', 69.99), 
+    (13, '2024-02-01 00:00:00', 39.99), 
     (14, '2024-02-01 00:00:00', 8.79), 
     (15, '2024-02-01 00:00:00', 9.99), 
     (16, '2024-02-01 00:00:00', 32.30), 
@@ -702,5 +702,3 @@ INSERT INTO  visitHistory (uid, pid, date)
     (8, 31, '2024-03-24'),
     (9, 32, '2024-03-01'),
     (10, 50, '2024-03-02');
-
-
