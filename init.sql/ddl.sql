@@ -36,7 +36,7 @@ CREATE TABLE user (
     uid         INT AUTO_INCREMENT,
     uname       VARCHAR(40) NOT NULL,
     email       VARCHAR(50) NOT NULL, 
-    password    VARCHAR(50) NOT NULL, 
+    password    VARCHAR(200) NOT NULL, 
     imgid       INT,                    
     usertype    INT NOT NULL,           -- 0 for user, 1 for admin
     PRIMARY KEY (uid), 
@@ -122,7 +122,7 @@ CREATE TABLE inquiry (
 -- Inserting rows
 INSERT INTO category(cid, cname) 
     VALUES 
-    (0, "All"), 
+    (0, 'All'), 
     (1, 'Electronics'), 
     (2, 'Clothing & Apparel'), 
     (3, 'Home & Kitchen'),
@@ -143,109 +143,109 @@ INSERT INTO category(cid, cname)
 
 INSERT INTO user (uname, email, password, imgid, usertype)
     VALUES 
-    ('Taii Hirano', 'taiihirano@student.ubc.ca', 'p@55w0rd', 1, 1), 
-    ('Yuki Isomura', 'yukiiso@student.ubc.ca', 'p@55w0rd', 2, 1), 
-    ('Adams Chen', 'adamschen@student.ubc.ca', 'p@55w0rd', 3, 1), 
-    ('Arnold Anderson', 'a.anderson@gmail.com', '360Arnold!', 4, 0), 
-    ('Emily Johnson', 'emily.johnson@example.com', '360Emily!', 5, 0), 
-    ('Alexander Smith', 'alexander.smith@example.com', '360Alexander!', 6, 0), 
-    ('Sophia Patel', 'sophia.patel@example.com', '360Sophia!', 7, 0), 
-    ('Benjamin Williams', 'benjamin.williams@example.com', '360Benjamin!', 8, 0), 
-    ('Olivia Garcia', 'olivia.garcia@example.com', '360Olivia!', 9, 0), 
-    ('Lucas Kim', 'lucas.kim@example.com', '360Lucas!', 10, 0);
+    ('Taii Hirano', 'taiihirano@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 1, 1), -- p@55w0rd
+    ('Yuki Isomura', 'yukiiso@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 2, 1), -- p@55w0rd
+    ('Adams Chen', 'adamschen@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 3, 1), -- p@55w0rd
+    ('Arnold Anderson', 'a.anderson@gmail.com', '0c1153dd5438e00de45c356ee749a97b', 4, 0), -- 360Arnold!
+    ('Emily Johnson', 'emily.johnson@example.com', 'd5b8f606d8e99c4919e5e1de000cd179', 5, 0), -- 360Emily!
+    ('Alexander Smith', 'alexander.smith@example.com', 'da7cd3e63724aa038f5113ab7a62a18b', 6, 0), -- 360Alexander!
+    ('Sophia Mariani', 'sophia.mariani@example.com', 'fefdafe5d00f26befba8b27d0afd3db5', 7, 0), -- 360Sophia!
+    ('Benjamin Williams', 'benjamin.williams@example.com', '780d8054bbdfb14659e05c1b1cf82a1f', 8, 0), -- 360Benjamin!
+    ('Olivia Garcia', 'olivia.garcia@example.com', '41637d2fc32127f2b42d86ec7a621d84', 9, 0), -- 360Olivia!
+    ('Lucas Kim', 'lucas.kim@example.com', '54ed848ae58249d1e18496fd9278c43e', 10, 0); -- 360Lucas!
 
 INSERT INTO product (pname, cid, imgid, amazonlink)
     VALUES 
     -- Category 1 Electronics
-    ('Nelko Label Maker Machine with Tape, P21 Bluetooth Label Printer, Wireless Mini Label Makers with Multiple Templates for Organizing Office Home, White', 1, 11, "https://a.co/d/gGJ593F"), 
-    ('LISEN USB C Car Charger Adapter Fast Charge 54 W PD36W Cigarette Lighter USB Charger Fast Charging Port Car Phone Charger for iPhone 15 Pro Max Plus', 1, 12, "https://a.co/d/3rv4Jch"), 
-    ('Solar-Charger-Power-Bank-38800mAh Portable Charger Fast Charger Dual USB Port Built-in Led Flashlight and Compass for All Cell Phone and Electronic Devices', 1, 13, "https://a.co/d/gLbu8Pb"), 
-    ('Mini Projector, VISSPL Full HD 1080P Video Projector, Portable Outdoor Projector with Tripod, Kids Gift, Home Theater Movie Phone Projector Compatible with Android/ iOS/ Windows/ TV Stick/ HDMI/ USB', 1, 14, "https://a.co/d/4QHyo9J"), 
-    ('Meta Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB', 1, 15, "https://a.co/d/aoS9t2u"), 
+    ('Nelko Label Maker Machine with Tape, P21 Bluetooth Label Printer, Wireless Mini Label Makers with Multiple Templates for Organizing Office Home, White', 1, 11, 'https://a.co/d/gGJ593F'), 
+    ('LISEN USB C Car Charger Adapter Fast Charge 54 W PD36W Cigarette Lighter USB Charger Fast Charging Port Car Phone Charger for iPhone 15 Pro Max Plus', 1, 12, 'https://a.co/d/3rv4Jch'), 
+    ('Solar-Charger-Power-Bank-38800mAh Portable Charger Fast Charger Dual USB Port Built-in Led Flashlight and Compass for All Cell Phone and Electronic Devices', 1, 13, 'https://a.co/d/gLbu8Pb'), 
+    ('Mini Projector, VISSPL Full HD 1080P Video Projector, Portable Outdoor Projector with Tripod, Kids Gift, Home Theater Movie Phone Projector Compatible with Android/ iOS/ Windows/ TV Stick/ HDMI/ USB', 1, 14, 'https://a.co/d/4QHyo9J'), 
+    ('Meta Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB', 1, 15, 'https://a.co/d/aoS9t2u'), 
     -- Category 2 Clothing & Apparel
-    ('Simple Joys by Carter''s Baby Boys'' 3-Pack Snug Fit Footed Cotton Pajamas, Blue Sea Life/ Navy Stripe/ White Cars, 18 Months', 2, 16, "https://a.co/d/cChrgNr"), 
-    ('Studio 9Thirty3 Adult Hamptons Tennis Club Oversized Sweatshirt, Vintage Tennis Sweatshirt, Preppy Sweatshirt (Medium, Black)', 2, 17, "https://a.co/d/1l4BKOh"), 
-    ('Harley-Davidson Men''s Lightning Crest Full-Zippered Sweatshirt, Black (2XL)', 2, 18, "https://a.co/d/6ggHLjH"), 
-    ('SATINIOR 5 Pcs Winter Hat Scarf Gloves Set Knit Beanie Pompom Hat Warm Touch Screen Gloves Earmuff Warmer Stocking for Women (Beige, Khaki)', 2, 19, "https://a.co/d/2MyOdSZ"), 
-    ('Art Solar Eclipse 2024 Totality April 8 Men Women Kids T-Shirt', 2, 20, "https://a.co/d/38COKrZ"), 
+    ('Simple Joys by Carter''s Baby Boys'' 3-Pack Snug Fit Footed Cotton Pajamas, Blue Sea Life/ Navy Stripe/ White Cars, 18 Months', 2, 16, 'https://a.co/d/cChrgNr'), 
+    ('Studio 9Thirty3 Adult Hamptons Tennis Club Oversized Sweatshirt, Vintage Tennis Sweatshirt, Preppy Sweatshirt (Medium, Black)', 2, 17, 'https://a.co/d/1l4BKOh'), 
+    ('Harley-Davidson Men''s Lightning Crest Full-Zippered Sweatshirt, Black (2XL)', 2, 18, 'https://a.co/d/6ggHLjH'), 
+    ('SATINIOR 5 Pcs Winter Hat Scarf Gloves Set Knit Beanie Pompom Hat Warm Touch Screen Gloves Earmuff Warmer Stocking for Women (Beige, Khaki)', 2, 19, 'https://a.co/d/2MyOdSZ'), 
+    ('Art Solar Eclipse 2024 Totality April 8 Men Women Kids T-Shirt', 2, 20, 'https://a.co/d/38COKrZ'), 
     -- Category 3 Home & Kitchen
-    ('AIDERLY Iron Dish Drying Rack with Drainboard Dish Drainers for Kitchen Counter Sink Adjustable Spout Dish Strainers with Utensil Holder and Knife Slots, Black', 3, 21, "https://a.co/d/4WhflMe"), 
-    ('Seropy Roll Up Dish Drying Rack, Over The Sink Dish Drying Rack Kitchen Rolling Dish Drainer, Foldable Sink Rack Mat Stainless Steel Wire Dish Drying Rack for Kitchen Sink Counter Storage 17.5x11.8', 3, 22, "https://a.co/d/7jsRx9v"), 
-    ('Home Hero 20 Pcs Kitchen Knife Set with Sharpener - High Carbon Stainless Steel Knife Block Set with Ergonomic Handles (20 Pcs - Black)', 3, 23, "https://a.co/d/gIpGYar"), 
-    ('Dishwasher Magnet Clean Dirty Sign, Strong Universal Dirty Clean Dishwasher Magnet Indicator for Kitchen Organization, Slide Rustic Farmhouse Black and White Wood', 3, 24, "https://a.co/d/5Q2Mr7G"), 
-    ('TEZZ Sponge Holder for Kitchen Sink- Stainless Steel Kitchen Sink Caddy for Organizing Sponge, Brush & Soap Dish Dispenser, Kitchen Sink Organizer Rack with Adhesive or Counter top, Black', 3, 25, "https://a.co/d/2Y5eQ7p"), 
+    ('AIDERLY Iron Dish Drying Rack with Drainboard Dish Drainers for Kitchen Counter Sink Adjustable Spout Dish Strainers with Utensil Holder and Knife Slots, Black', 3, 21, 'https://a.co/d/4WhflMe'), 
+    ('Seropy Roll Up Dish Drying Rack, Over The Sink Dish Drying Rack Kitchen Rolling Dish Drainer, Foldable Sink Rack Mat Stainless Steel Wire Dish Drying Rack for Kitchen Sink Counter Storage 17.5x11.8', 3, 22, 'https://a.co/d/7jsRx9v'), 
+    ('Home Hero 20 Pcs Kitchen Knife Set with Sharpener - High Carbon Stainless Steel Knife Block Set with Ergonomic Handles (20 Pcs - Black)', 3, 23, 'https://a.co/d/gIpGYar'), 
+    ('Dishwasher Magnet Clean Dirty Sign, Strong Universal Dirty Clean Dishwasher Magnet Indicator for Kitchen Organization, Slide Rustic Farmhouse Black and White Wood', 3, 24, 'https://a.co/d/5Q2Mr7G'), 
+    ('TEZZ Sponge Holder for Kitchen Sink- Stainless Steel Kitchen Sink Caddy for Organizing Sponge, Brush & Soap Dish Dispenser, Kitchen Sink Organizer Rack with Adhesive or Counter top, Black', 3, 25, 'https://a.co/d/2Y5eQ7p'), 
     -- Category 4 Sports & Outdoors
-    ('Under Armour Men''s Woven Vital Workout Pants, Black (001)/ Onyx White, Medium', 4, 26, "https://a.co/d/3hkupbG"), 
-    ('Nike Club Hoodie (Navy, Medium)', 4, 27, "https://a.co/d/iKrMunO"), 
-    ('Balega Hidden Comfort Performance No Show Athletic Running Socks for Men and Women (1 Pair), White, Medium', 4, 28, "https://a.co/d/5BTfS0N"), 
-    ('Descente PJ-328 Long Sleeve Wind Jack, BLK, L', 4, 29, "https://a.co/d/23CmLJJ"), 
-    ('KB-LOW BLK Classic Cotton Dad Hat Adjustable Plain Cap. Polo Style Low Profile (Unstructured) (Classic) Black Adjustable', 4, 30, "https://a.co/d/7TUlGmZ"), 
+    ('Under Armour Men''s Woven Vital Workout Pants, Black (001)/ Onyx White, Medium', 4, 26, 'https://a.co/d/3hkupbG'), 
+    ('Nike Club Hoodie (Navy, Medium)', 4, 27, 'https://a.co/d/iKrMunO'), 
+    ('Balega Hidden Comfort Performance No Show Athletic Running Socks for Men and Women (1 Pair), White, Medium', 4, 28, 'https://a.co/d/5BTfS0N'), 
+    ('Descente PJ-328 Long Sleeve Wind Jack, BLK, L', 4, 29, 'https://a.co/d/23CmLJJ'), 
+    ('KB-LOW BLK Classic Cotton Dad Hat Adjustable Plain Cap. Polo Style Low Profile (Unstructured) (Classic) Black Adjustable', 4, 30, 'https://a.co/d/7TUlGmZ'), 
     -- Category 5 Beauty & Personal Care
-    ('e.l.f. Squeeze Me Lip Balm, Moisturizing Lip Balm For A Sheer Tint Of Color, Infused With Hyaluronic Acid, Vegan & Cruelty-free, Vanilla Frosting', 5, 31, "https://a.co/d/iGK5sd4"), 
-    ('BREYLEE Aloe Vera Eye Mask– 60 Pcs - Puffy Eyes and Dark Circles Treatments – Look Younger and Reduce Wrinkles and Fine Lines Undereye, Improve and Firm eye Skin - Pure Natural Material Extraction', 5, 32, "https://a.co/d/ekD7loV"), 
-    ('PEAUAMIE Under Eye Patches (30 Pairs) Gold Eye Mask and Hyaluronic Acid Eye Patches for puffy eyes, Rose Eye Masks for Dark Circles and Puffiness under eye treatment skin care products...', 5, 33, "https://a.co/d/610xe2G"), 
-    ('18 Pack Shower Steamers - Easter Basket Stuffers, Birthday Gifts - Shower Bombs with Lavender Mint Rose Coco Ocean Grapefruit Natural Fragrance, Self Care & Relaxation Gifts for Women and Men', 5, 34, "https://a.co/d/6L0Yd7S"), 
-    ('Tree Hut Shea Sugar Scrub Coco Colada, 18 oz, Ultra Hydrating and Exfoliating Scrub for Nourishing Essential Body Care', 5, 35, "https://a.co/d/a5gULqQ"), 
+    ('e.l.f. Squeeze Me Lip Balm, Moisturizing Lip Balm For A Sheer Tint Of Color, Infused With Hyaluronic Acid, Vegan & Cruelty-free, Vanilla Frosting', 5, 31, 'https://a.co/d/iGK5sd4'), 
+    ('BREYLEE Aloe Vera Eye Mask– 60 Pcs - Puffy Eyes and Dark Circles Treatments – Look Younger and Reduce Wrinkles and Fine Lines Undereye, Improve and Firm eye Skin - Pure Natural Material Extraction', 5, 32, 'https://a.co/d/ekD7loV'), 
+    ('PEAUAMIE Under Eye Patches (30 Pairs) Gold Eye Mask and Hyaluronic Acid Eye Patches for puffy eyes, Rose Eye Masks for Dark Circles and Puffiness under eye treatment skin care products...', 5, 33, 'https://a.co/d/610xe2G'), 
+    ('18 Pack Shower Steamers - Easter Basket Stuffers, Birthday Gifts - Shower Bombs with Lavender Mint Rose Coco Ocean Grapefruit Natural Fragrance, Self Care & Relaxation Gifts for Women and Men', 5, 34, 'https://a.co/d/6L0Yd7S'), 
+    ('Tree Hut Shea Sugar Scrub Coco Colada, 18 oz, Ultra Hydrating and Exfoliating Scrub for Nourishing Essential Body Care', 5, 35, 'https://a.co/d/a5gULqQ'), 
     -- Category 6 Health & Wellness
-    ('OLLY Probiotic + Prebiotic Gummy, Digestive Support and Gut Health, 500 Million CFUs, Fiber, Adult Chewable Supplement for Men and Women, Peach, 30 Day Supply - 30 Count', 6, 36, "https://a.co/d/bCQIaQ7"), 
-    ('RENPHO Smart Scale for Body Weight, Digital Bathroom Scale BMI Weighing Bluetooth Body Fat Scale, Body Composition Monitor Health Analyzer with Smartphone App, 400 lbs - Black Elis 1', 6, 37, "https://a.co/d/97eUjJw"), 
-    ('Apple Cider Vinegar Gummies - 1000mg - Formulated to Support Weight Loss Efforts & Gut Health - Supports Digestion, Detox & Cleansing* - ACV Gummies W/ VIT B12, Beetroot & Pomegranate (120 Gummies)', 6, 38, "https://a.co/d/dJcI2it"), 
-    ('Nature''s Bounty Magnesium, Bone and Muscle Health, Whole Body Support, Tablets, 500 Mg, 200 Ct', 6, 39, "https://a.co/d/20ctMuQ"), 
-    ('Sleep Mask for Side Sleeper, Upgraded 3D Contoured Cup Eye mask Blindfold for Man Women, Block Out Light, Eye mask with Adjustable Strap, Breathable & Soft for Sleeping, Yoga, Traveling (Black)', 6, 40, "https://a.co/d/gHS83AU"), 
+    ('OLLY Probiotic + Prebiotic Gummy, Digestive Support and Gut Health, 500 Million CFUs, Fiber, Adult Chewable Supplement for Men and Women, Peach, 30 Day Supply - 30 Count', 6, 36, 'https://a.co/d/bCQIaQ7'), 
+    ('RENPHO Smart Scale for Body Weight, Digital Bathroom Scale BMI Weighing Bluetooth Body Fat Scale, Body Composition Monitor Health Analyzer with Smartphone App, 400 lbs - Black Elis 1', 6, 37, 'https://a.co/d/97eUjJw'), 
+    ('Apple Cider Vinegar Gummies - 1000mg - Formulated to Support Weight Loss Efforts & Gut Health - Supports Digestion, Detox & Cleansing* - ACV Gummies W/ VIT B12, Beetroot & Pomegranate (120 Gummies)', 6, 38, 'https://a.co/d/dJcI2it'), 
+    ('Nature''s Bounty Magnesium, Bone and Muscle Health, Whole Body Support, Tablets, 500 Mg, 200 Ct', 6, 39, 'https://a.co/d/20ctMuQ'), 
+    ('Sleep Mask for Side Sleeper, Upgraded 3D Contoured Cup Eye mask Blindfold for Man Women, Block Out Light, Eye mask with Adjustable Strap, Breathable & Soft for Sleeping, Yoga, Traveling (Black)', 6, 40, 'https://a.co/d/gHS83AU'), 
     -- Category 7 Toys & Games
-    ('LZZAPJ Montessori Toys for 1 Year Old, Sensory Toys for Toddlers 1-3, Infant Pull String Car Seat Toys for Travel, Baby Teething Toy First Birthday Gift for Boys Girls Aged 6, 9, 12, 18 Months.', 7, 41, "https://a.co/d/aREBOvX"), 
-    ('2 Pack Cloud Slime Kit with Red Watermelon and Mint Charms, Scented DIY Slime Supplies for Girls and Boys, Stress Relief Toy for Kids Education, Party Favor, Gift and Birthday', 7, 42, "https://a.co/d/08qFnEL"), 
-    ('JOYIN Kids Bow and Arrow Set, LED Light Up Archery Toy Set with 9 Suction Cup Arrows, Target & Arrow Case, Indoor and Outdoor Hunting Play Gift Toys for Kids, Boys & Girls Ages 3-12', 7, 43, "https://a.co/d/2NNYzC6"), 
-    ('Taco Cat Goat Cheese Pizza', 7, 44, "https://a.co/d/iLwCZ8y"), 
-    ('Spin Master Games Double Twelve Dominoes Set in Storage Tin, for Families and Kids Ages 8 and up', 7, 45, "https://a.co/d/eXV01fM"), 
+    ('LZZAPJ Montessori Toys for 1 Year Old, Sensory Toys for Toddlers 1-3, Infant Pull String Car Seat Toys for Travel, Baby Teething Toy First Birthday Gift for Boys Girls Aged 6, 9, 12, 18 Months.', 7, 41, 'https://a.co/d/aREBOvX'), 
+    ('2 Pack Cloud Slime Kit with Red Watermelon and Mint Charms, Scented DIY Slime Supplies for Girls and Boys, Stress Relief Toy for Kids Education, Party Favor, Gift and Birthday', 7, 42, 'https://a.co/d/08qFnEL'), 
+    ('JOYIN Kids Bow and Arrow Set, LED Light Up Archery Toy Set with 9 Suction Cup Arrows, Target & Arrow Case, Indoor and Outdoor Hunting Play Gift Toys for Kids, Boys & Girls Ages 3-12', 7, 43, 'https://a.co/d/2NNYzC6'), 
+    ('Taco Cat Goat Cheese Pizza', 7, 44, 'https://a.co/d/iLwCZ8y'), 
+    ('Spin Master Games Double Twelve Dominoes Set in Storage Tin, for Families and Kids Ages 8 and up', 7, 45, 'https://a.co/d/eXV01fM'), 
     -- Category 8 Books & Literature
-    ('The Lost Bookshop: The most charming and uplifting novel for 2024 and the perfect gift for book lovers!', 8, 46, "https://a.co/d/38nhY0X"), 
-    ('The Women: A Novel', 8, 47, "https://a.co/d/ibDIFXJ"), 
-    ('The Housemaid', 8, 48, "https://a.co/d/d2hdO3M"), 
-    ('The War Planners', 8, 49, "https://a.co/d/8uHlGdj"), 
-    ('Foreign Deceit (David Wolf Book 1)', 8, 50, "https://a.co/d/b6atFnX"), 
+    ('The Lost Bookshop: The most charming and uplifting novel for 2024 and the perfect gift for book lovers!', 8, 46, 'https://a.co/d/38nhY0X'), 
+    ('The Women: A Novel', 8, 47, 'https://a.co/d/ibDIFXJ'), 
+    ('The Housemaid', 8, 48, 'https://a.co/d/d2hdO3M'), 
+    ('The War Planners', 8, 49, 'https://a.co/d/8uHlGdj'), 
+    ('Foreign Deceit (David Wolf Book 1)', 8, 50, 'https://a.co/d/b6atFnX'), 
     -- Category 9 Automotive & Parts
-    ('GOOACC 100PCS 7mm 8mm 10mm Compatible with Subaru Push Type Retainer Fasteners Rivets Clips OEM Upgrade for 90914-0007, 90913-0067 & 90914-0051 + Bonus Fastener Remover', 9, 51, "https://a.co/d/6cvfEQq"), 
-    ('Super Loud Train Horns, Car Waterproof Durable Air Electric Snail Horn, 12V Raging Sound Air Horns Replacement Kit, Automotive Accessories Universal for Car, Motorcycle, Truck, Bike, Boat (Black)', 9, 52, "https://a.co/d/8FfxAjO"), 
-    ('JOYCOURT Car Shift Knob Hoodie, Fashionable Gear Shift Knob Cover, Auto Interior Cute Gadgets, Universal Car Decor Accessories', 9, 53, "https://a.co/d/iO3nKx9"), 
-    ('YANF 4Pcs Car Door Lights Compatible with Partial 3/ 4/ 5/ 6/ 7/ X/ Z/ M/ GT Series, Except G02/ 05/ 06/ 07/ 20/ 21/ 22/ 23/ 26/ 80/ 82/ 83, E39/ 46/ 53, etc', 9, 54, "https://a.co/d/8T2b8m6"), 
-    ('Hirificing Locking Gas Cap Fuel Tank with Key, Gas Cap Lock Locking Fuel Cap Cover Compatible with Toyota 4Runner, Chevy Silverado 1500 2500 3500, Nissan GMC Honda Subaru Buick #10504 77300-47020', 9, 55, "https://a.co/d/8FtRZNB"), 
+    ('GOOACC 100PCS 7mm 8mm 10mm Compatible with Subaru Push Type Retainer Fasteners Rivets Clips OEM Upgrade for 90914-0007, 90913-0067 & 90914-0051 + Bonus Fastener Remover', 9, 51, 'https://a.co/d/6cvfEQq'), 
+    ('Super Loud Train Horns, Car Waterproof Durable Air Electric Snail Horn, 12V Raging Sound Air Horns Replacement Kit, Automotive Accessories Universal for Car, Motorcycle, Truck, Bike, Boat (Black)', 9, 52, 'https://a.co/d/8FfxAjO'), 
+    ('JOYCOURT Car Shift Knob Hoodie, Fashionable Gear Shift Knob Cover, Auto Interior Cute Gadgets, Universal Car Decor Accessories', 9, 53, 'https://a.co/d/iO3nKx9'), 
+    ('YANF 4Pcs Car Door Lights Compatible with Partial 3/ 4/ 5/ 6/ 7/ X/ Z/ M/ GT Series, Except G02/ 05/ 06/ 07/ 20/ 21/ 22/ 23/ 26/ 80/ 82/ 83, E39/ 46/ 53, etc', 9, 54, 'https://a.co/d/8T2b8m6'), 
+    ('Hirificing Locking Gas Cap Fuel Tank with Key, Gas Cap Lock Locking Fuel Cap Cover Compatible with Toyota 4Runner, Chevy Silverado 1500 2500 3500, Nissan GMC Honda Subaru Buick #10504 77300-47020', 9, 55, 'https://a.co/d/8FtRZNB'), 
     -- Category 10 Jewelry & Accessories
-    ('lengnoyp Premium Jewelry Stand, Earring Holder, Necklace Holder Stand, Clear 3-Tier Acrylic Large Storage Jewelry Organizer Stand & Bracelet/ Bangles Stand, 48 Earring Holes Display Stands', 10, 56, "https://a.co/d/4VzGCH7"), 
-    ('Simple Bar Jewelry Set Vertical Bar Necklace Earrings Adjustable Cuff Bracelet (Gold)', 10, 57, "https://a.co/d/hLPOLGP"), 
-    ('KElofoN Travel Jewelry Case and Organizer with Mirror - Gift for Women and Girls', 10, 58, "https://a.co/d/2khhpTl"), 
-    ('HengLiSam Jewelry Organizer, Small Jewelry Box Earring Holder for Women, Jewelry Storage Box 4-Layer Rotatable Jewelry Accessory Storage Tray with Lid for Rings Bracelets', 10, 59, "https://a.co/d/2apUQoQ"), 
-    ('49 Pcs Women Accessories Surfer Wave string Friendship Bracelets Layered Choker Square Claw Hair Clips for Girls (Boho)', 10, 60, "https://a.co/d/gB7SAAU"), 
+    ('lengnoyp Premium Jewelry Stand, Earring Holder, Necklace Holder Stand, Clear 3-Tier Acrylic Large Storage Jewelry Organizer Stand & Bracelet/ Bangles Stand, 48 Earring Holes Display Stands', 10, 56, 'https://a.co/d/4VzGCH7'), 
+    ('Simple Bar Jewelry Set Vertical Bar Necklace Earrings Adjustable Cuff Bracelet (Gold)', 10, 57, 'https://a.co/d/hLPOLGP'), 
+    ('KElofoN Travel Jewelry Case and Organizer with Mirror - Gift for Women and Girls', 10, 58, 'https://a.co/d/2khhpTl'), 
+    ('HengLiSam Jewelry Organizer, Small Jewelry Box Earring Holder for Women, Jewelry Storage Box 4-Layer Rotatable Jewelry Accessory Storage Tray with Lid for Rings Bracelets', 10, 59, 'https://a.co/d/2apUQoQ'), 
+    ('49 Pcs Women Accessories Surfer Wave string Friendship Bracelets Layered Choker Square Claw Hair Clips for Girls (Boho)', 10, 60, 'https://a.co/d/gB7SAAU'), 
     -- Category 11 Pet Supplies
-    ('AVELORA Dog Water Bottle, Portable pet Water Bottle with Food Container, Outdoor Portable Water Dispenser for Cat, Rabbit, Puppy and Other Pets for Walking, Hiking, Travel(10oz)', 11, 61, "https://a.co/d/3FXyjOB"), 
-    ('Comotech 3PCS Dog Bath Brush | Dog Shampoo Brush | Dog Scrubber for Bath | Dog Bath Brush Scrubber | Dog Shower/ Washing Brush with Adjustable Ring Handle for Short & Long Hair (Blue Blue Blue)', 11, 62, "https://a.co/d/a7wCDo6"), 
-    ('Pet Feeding Mat-Absorbent Pet Placemat for Food and Water Bowl, with Waterproof Rubber Backing, Quick Dry Water Dispenser Mat for Dog and Cat, 12"x20"', 11, 63, "https://a.co/d/9G2IDmq"), 
-    ('Chom Chom Roller Pet Hair Remover and Reusable Lint Roller - ChomChom Cat and Dog Hair Remover for Furniture, Couch, Carpet, Clothing and Bedding - Portable, Multi-Surface Fur Removal Tool', 11, 64, "https://a.co/d/0chvD4u"), 
-    ('FurZapper Pet Hair Remover, 2 Count (Pack of 1)', 11, 65, "https://a.co/d/e17pdIj"), 
+    ('AVELORA Dog Water Bottle, Portable pet Water Bottle with Food Container, Outdoor Portable Water Dispenser for Cat, Rabbit, Puppy and Other Pets for Walking, Hiking, Travel(10oz)', 11, 61, 'https://a.co/d/3FXyjOB'), 
+    ('Comotech 3PCS Dog Bath Brush | Dog Shampoo Brush | Dog Scrubber for Bath | Dog Bath Brush Scrubber | Dog Shower/ Washing Brush with Adjustable Ring Handle for Short & Long Hair (Blue Blue Blue)', 11, 62, 'https://a.co/d/a7wCDo6'), 
+    ('Pet Feeding Mat-Absorbent Pet Placemat for Food and Water Bowl, with Waterproof Rubber Backing, Quick Dry Water Dispenser Mat for Dog and Cat, 12"x20"', 11, 63, 'https://a.co/d/9G2IDmq'), 
+    ('Chom Chom Roller Pet Hair Remover and Reusable Lint Roller - ChomChom Cat and Dog Hair Remover for Furniture, Couch, Carpet, Clothing and Bedding - Portable, Multi-Surface Fur Removal Tool', 11, 64, 'https://a.co/d/0chvD4u'), 
+    ('FurZapper Pet Hair Remover, 2 Count (Pack of 1)', 11, 65, 'https://a.co/d/e17pdIj'), 
     -- Category 12 Office & Stationery
-    ('Better Office Products Vintage Airmail Stationery Paper Set, 100-Piece Set (50 Lined Sheets + 50 Matching Envelopes), Letter Size 8.5 x 11 inch, Double Sided & Lined Paper,', 12, 66, "https://a.co/d/e3czI3s"), 
-    ('Lolocor 360 Degree Rotatable Pen Holder, 5 Slots Office Desk Organizer, Pencil Holder for Desk Multi-Functional Pencil Cup Desktop Stationary Organizer Storage for Office School Home Dark Green', 12, 67, "https://a.co/d/2aI2t7V"), 
-    ('Premium Gel Ink Pen Fine Point Pens Ballpoint Pen 0.5mm for Japanese Office School Stationery Supply 12 Packs', 12, 68, "https://a.co/d/azfHHIj"), 
-    ('Mr. Pen- Transparent Sticky Notes, 200 Pcs, Vintage Colors, Round Translucent Sticky Notes, Pastel Sticky Notes, See Through Sticky Notes, Sticky Notes Transparent, Bible Sticky Notes', 12, 69, "https://a.co/d/09aB2JW"), 
-    ('UIXJODO Gel Pens, 5 Pcs 0.5mm Black Ink Pens Fine Point Smooth Writing Pens, High-End Series Pens for Journaling Note Taking, Cute Office School Supplies Gifts for Women Men (Morandi)', 12, 70, "https://a.co/d/8mLw9wu"), 
+    ('Better Office Products Vintage Airmail Stationery Paper Set, 100-Piece Set (50 Lined Sheets + 50 Matching Envelopes), Letter Size 8.5 x 11 inch, Double Sided & Lined Paper,', 12, 66, 'https://a.co/d/e3czI3s'), 
+    ('Lolocor 360 Degree Rotatable Pen Holder, 5 Slots Office Desk Organizer, Pencil Holder for Desk Multi-Functional Pencil Cup Desktop Stationary Organizer Storage for Office School Home Dark Green', 12, 67, 'https://a.co/d/2aI2t7V'), 
+    ('Premium Gel Ink Pen Fine Point Pens Ballpoint Pen 0.5mm for Japanese Office School Stationery Supply 12 Packs', 12, 68, 'https://a.co/d/azfHHIj'), 
+    ('Mr. Pen- Transparent Sticky Notes, 200 Pcs, Vintage Colors, Round Translucent Sticky Notes, Pastel Sticky Notes, See Through Sticky Notes, Sticky Notes Transparent, Bible Sticky Notes', 12, 69, 'https://a.co/d/09aB2JW'), 
+    ('UIXJODO Gel Pens, 5 Pcs 0.5mm Black Ink Pens Fine Point Smooth Writing Pens, High-End Series Pens for Journaling Note Taking, Cute Office School Supplies Gifts for Women Men (Morandi)', 12, 70, 'https://a.co/d/8mLw9wu'), 
     -- Category 13 Furniture & Decor
-    ('OLIXIS Modern Lift Top Coffee Table Wooden Furniture with Storage Shelf and Hidden Compartment for Living Room Office (Black)', 13, 71, "https://a.co/d/7UkrXNb"), 
-    ('WLIVE Dresser for Bedroom with 5 Drawers, Wide Chest of Drawers, Fabric Dresser, Storage Organizer Unit with Fabric Bins for Closet, Living Room, Hallway, Rustic Brown Wood Grain Print', 13, 72, "https://a.co/d/92BIMG2"), 
-    ('Tromlycs Couch Sofa Cushion Support for Sagging Seat Curve Furniture Seat Under Cushion Sag Repair Set of 2', 13, 73, "https://a.co/d/4hVzRNk"), 
-    ('DEYILIAN Hanging Shoe Rack 2 Pack, Wall Mounted Shoe Rack with Sticky Hanging Mounts, Wall Shoes Holder Storage Organizer Shelf, Shoe Rack for Wall Camper and RV Shoe Storage with Hooks No Drilling', 13, 74, "https://a.co/d/9NxBC4o"), 
-    ('Hansleep Memory Foam Twin Size Mattress Topper, Twin Cooling Mattress Pad with Deep Pocket, Breathable Air Twin Mattress Cover, 39x75 Inches, Charcoal', 13, 75, "https://a.co/d/0zzcvEz"),  
+    ('OLIXIS Modern Lift Top Coffee Table Wooden Furniture with Storage Shelf and Hidden Compartment for Living Room Office (Black)', 13, 71, 'https://a.co/d/7UkrXNb'), 
+    ('WLIVE Dresser for Bedroom with 5 Drawers, Wide Chest of Drawers, Fabric Dresser, Storage Organizer Unit with Fabric Bins for Closet, Living Room, Hallway, Rustic Brown Wood Grain Print', 13, 72, 'https://a.co/d/92BIMG2'), 
+    ('Tromlycs Couch Sofa Cushion Support for Sagging Seat Curve Furniture Seat Under Cushion Sag Repair Set of 2', 13, 73, 'https://a.co/d/4hVzRNk'), 
+    ('DEYILIAN Hanging Shoe Rack 2 Pack, Wall Mounted Shoe Rack with Sticky Hanging Mounts, Wall Shoes Holder Storage Organizer Shelf, Shoe Rack for Wall Camper and RV Shoe Storage with Hooks No Drilling', 13, 74, 'https://a.co/d/9NxBC4o'), 
+    ('Hansleep Memory Foam Twin Size Mattress Topper, Twin Cooling Mattress Pad with Deep Pocket, Breathable Air Twin Mattress Cover, 39x75 Inches, Charcoal', 13, 75, 'https://a.co/d/0zzcvEz'),  
     -- Category 14 Food & Grocery
-    ('Nongshim Gourmet Spicy Shin Instant Ramen Noodle, 20 Pack, Chunky Vegetables, Premium Microwaveable Ramen Soup Mix, Savory & Rich', 14, 76, "https://a.co/d/f2fxQLx"), 
-    ('Samyang Buldak Spicy Ramen, Hot Chicken Ramen, Korean Stir-Fried Instant Noodle, Original, 1 Bag with 5 Pack', 14, 77, "https://a.co/d/hC3A1of"), 
-    ('RITZ Fresh Stacks Original Crackers, Party Size, 23.7 oz (16 Stacks)', 14, 78, "https://a.co/d/09gJiE7"), 
-    ('Spam Classic, 12 Ounce Can (Pack of 12)', 14, 79, "https://a.co/d/7fG68qy"), 
-    ('Japanese populer Ramen "ICHIRAN" instant noodles tonkotsu 5 meals(Japan Import)', 14, 80, "https://a.co/d/6OisiGx"),  
+    ('Nongshim Gourmet Spicy Shin Instant Ramen Noodle, 20 Pack, Chunky Vegetables, Premium Microwaveable Ramen Soup Mix, Savory & Rich', 14, 76, 'https://a.co/d/f2fxQLx'), 
+    ('Samyang Buldak Spicy Ramen, Hot Chicken Ramen, Korean Stir-Fried Instant Noodle, Original, 1 Bag with 5 Pack', 14, 77, 'https://a.co/d/hC3A1of'), 
+    ('RITZ Fresh Stacks Original Crackers, Party Size, 23.7 oz (16 Stacks)', 14, 78, 'https://a.co/d/09gJiE7'), 
+    ('Spam Classic, 12 Ounce Can (Pack of 12)', 14, 79, 'https://a.co/d/7fG68qy'), 
+    ('Japanese populer Ramen "ICHIRAN" instant noodles tonkotsu 5 meals(Japan Import)', 14, 80, 'https://a.co/d/6OisiGx'),  
     -- Category 15 Arts & Crafts
-    ('RMJOY Rainbow Scratch Paper Sets: 60pcs Magic Art Craft Scratch Off Papers Supplies Kits Pad for Age 3-12 Kids Girl Boy Teen Toy Game Gift for Birthday|Party Favor|DIY Activities|Painting Game Gift', 15, 81, "https://a.co/d/d8ftmVw"), 
-    ('Water Marbling Paint for Kids - Arts and Crafts for Girls & Boys Crafts Kits Ideal Gifts for Kids Age 3-5 4-8 8-12', 15, 82, "https://a.co/d/4QE5yeG"), 
-    ('Arcane Tinmen ApS ART12090 Dragon Shield: Brushed Art Constellations Drasmorx (100)', 15, 83, "https://a.co/d/dKFr9j8"), 
-    ('BOHADIY DIY Horse Diamond Painting Kits for Adults Full Drill Colorful Horse Gem Art Kits with Crystal Rhinestone Sunflower Paint with Diamond for Home Wall Decor 12*16 inch', 15, 84, "https://a.co/d/bEYePtx"), 
-    ('Art Painting Display Easel Stand - Portable Adjustable Aluminum Metal Tripod Artist Easel with Bag, Height from 17" to 66", Extra Sturdy for Table-Top/ Floor Painting, Drawing, and Displaying, Black', 15, 85, "https://a.co/d/9U1aFYS");
+    ('RMJOY Rainbow Scratch Paper Sets: 60pcs Magic Art Craft Scratch Off Papers Supplies Kits Pad for Age 3-12 Kids Girl Boy Teen Toy Game Gift for Birthday|Party Favor|DIY Activities|Painting Game Gift', 15, 81, 'https://a.co/d/d8ftmVw'), 
+    ('Water Marbling Paint for Kids - Arts and Crafts for Girls & Boys Crafts Kits Ideal Gifts for Kids Age 3-5 4-8 8-12', 15, 82, 'https://a.co/d/4QE5yeG'), 
+    ('Arcane Tinmen ApS ART12090 Dragon Shield: Brushed Art Constellations Drasmorx (100)', 15, 83, 'https://a.co/d/dKFr9j8'), 
+    ('BOHADIY DIY Horse Diamond Painting Kits for Adults Full Drill Colorful Horse Gem Art Kits with Crystal Rhinestone Sunflower Paint with Diamond for Home Wall Decor 12*16 inch', 15, 84, 'https://a.co/d/bEYePtx'), 
+    ('Art Painting Display Easel Stand - Portable Adjustable Aluminum Metal Tripod Artist Easel with Bag, Height from 17" to 66", Extra Sturdy for Table-Top/ Floor Painting, Drawing, and Displaying, Black', 15, 85, 'https://a.co/d/9U1aFYS');
 
 INSERT INTO review (uid, pid, date, rate, comment)
     VALUES
@@ -702,16 +702,16 @@ INSERT INTO  visitHistory (uid, pid, date)
 
 INSERT INTO  loginHistory (uid, date)
     VALUES 
-    (4, "2024-02-05"), 
-    (5, "2024-02-05"), 
-    (6, "2024-02-05"), 
-    (7, "2024-02-05"), 
-    (8, "2024-02-05"), 
-    (9, "2024-02-05"), 
-    (10, "2024-02-05"); 
+    (4, '2024-02-05'), 
+    (5, '2024-02-05'), 
+    (6, '2024-02-05'), 
+    (7, '2024-02-05'), 
+    (8, '2024-02-05'), 
+    (9, '2024-02-05'), 
+    (10, '2024-02-05'); 
 
 INSERT INTO inquiry (email, type, date, message, status) 
     VALUES 
-    ("yukiiso@student.ubc.ca", "General Inquery", "2024-02-05", "WTF!?", "completed"); 
+    ('yukiiso@student.ubc.ca', 'General Inquery', '2024-02-05', 'WTF!?', 'completed'); 
 
 
