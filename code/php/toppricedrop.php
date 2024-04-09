@@ -97,7 +97,7 @@ if (isset($_SESSION["uid"])) {
                     // echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
                     echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
                     echo '</div>';
-                    if($columnCounter%$rowMaxItems == 3){
+                    if($columnCounter%$rowMaxItems == $rowMaxItems-1){
                         // Open new row
                         echo '</div>';
                     }
