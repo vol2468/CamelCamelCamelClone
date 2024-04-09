@@ -47,6 +47,10 @@ main .image .desc {
     justify-items: center;
 }
 
+main .desc {
+	margin-left: 2em;
+}
+
 main .prod-img {
     width: 350px;
 }
@@ -65,7 +69,7 @@ main .price {
 main .prod-details {
 	padding: 0.5em;
 	margin-top: 1em;
-	width: 400px;
+	width: 100%;
 	background-color: black;
 	border: 1px solid black;
 	border-radius: 2em;
@@ -74,4 +78,31 @@ main .prod-details {
 main .prod-details a {
 	color: white;
 	text-decoration: none;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 700px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main .prod-img {
+        width: 100px;
+    }
+
+	main h2 {
+		font-size: 1em;
+	}
+
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main .prod-img {
+        width: 250px;
+    }
+
 }
