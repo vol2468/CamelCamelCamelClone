@@ -24,10 +24,9 @@ main {
 }
 
 main #menu-bar {
-    width: 150px;
-    height: 100px;
+    width: 15%;
+    height: 590px;
     float: left;
-    margin: 0 3em 0 0;
 }
 
 main #menu-bar a {
@@ -45,21 +44,29 @@ main hr {
 }
 
 main #dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 80%;
-    margin: 30px auto;
-    
+    padding-left: 2em;
+    margin-left: 15%;
 }
 
 main #dashboard a {
   text-decoration: none;
 }
 
+main #card {
+    display: flex;
+}
 
-/* styling for boxes */
+main #numu-of-user {
+    display: inline-block;
+}
 
+main #dashboard:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Styling for boxes */
 main .box {
     background-color: #f0f0f0;
     border-radius: 15px;
@@ -76,7 +83,7 @@ main .box i {
     color: #3498db; 
     margin-bottom: 10px;
 }
-  
+
 /* Styling for the headings within the box */
 main .box h2 { 
     margin-bottom: 5px; 
@@ -88,7 +95,7 @@ main .count {
     font-size: 2em;
     font-weight: bold;
     color: black;  
-  }
+}
   
 main .legend {
 	margin-top: 0; 
@@ -112,3 +119,34 @@ main #traffic {
 	margin: 2em 0 3em 0;
 }
 
+/* Responsive design for mobile */
+@media screen and (max-width: 850px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #menu-bar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    main #card {
+        padding: 0;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    main .box {
+        margin: 0;
+        width: 180px;
+        font-size: 0.7em;
+    }
+
+    main #dashboard {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+}
