@@ -43,15 +43,15 @@ main hr {
     border-top: 1px solid gray;
 }
 
+main #account-profile {
+    padding-left: 2em;
+    margin-left: 15%;
+}
+
 main #account-profile:after {
     content: "";
     display: table;
     clear: both;
-}
-
-main #account-profile {
-    padding-left: 2em;
-    margin-left: 15%;
 }
 
 main #account-info {
@@ -179,10 +179,6 @@ main form input#ch-pic {
         margin: 0em 3em 0em 3em;
     }
 
-    main h2 {
-        margin-top: 2em;
-    }
-    
     main #menu-bar {
         width: 100%;
         height: auto;
