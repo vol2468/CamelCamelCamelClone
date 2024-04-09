@@ -124,19 +124,23 @@ if (isset($_SESSION["chpic"])) {
         <div id="account-profile">
             <h2>Account Profile</h2>
             <div id="account-info">
-                <label for="name">Name</label>
                 <form method="post" action="processaccount.php" id="setting-form">
-                    <input type="text" id="name" name="name" value=<?php echo $uname; ?>>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value=<?php echo $uname; ?> placeholder=<?php echo $uname; ?>>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value=<?php echo $email; ?>>
+                    <input type="email" id="email" name="email" value=<?php echo $email; ?> placeholder=<?php echo $email; ?>>
                     <div id="password">
                         <label for="curr-pass">Current Password</label>
                         <input type="password" id="curr-pass" name="curr-pass" class="required">
-                        <label for="new-pass">New Password</label>
-                        <input type="password" id="new-pass" name="new-pass" class="required">
-                        <div id="confirm">
-                            <label for="con-pass">Confirm Password</label>
-                            <input type="password" id="con-pass" name="con-pass" class="required">
+                        <div id="new-password">
+                            <div id="new">
+                                <label for="new-pass">New Password</label>
+                                <input type="password" id="new-pass" name="new-pass" class="required">
+                            </div>
+                            <div id="confirm">
+                                <label for="con-pass">Confirm Password</label>
+                                <input type="password" id="con-pass" name="con-pass" class="required">
+                        </div>
                         </div>
                     </div>
                     <p class="status" style="color:#38AB38">
@@ -145,18 +149,20 @@ if (isset($_SESSION["chpic"])) {
                     </p>
                     <input type="submit" id="save" name="save" value="Change password">
                 </form>
-                <div id="profile-pic">
-                    <p>Profile Picture</p>
+            </div>
+            <div id="profile-pic">
+                <p>Profile Picture</p>
+                <div id="picture">
                     <?php echo '<img id="pic" src="data:image/jpeg;base64,' . base64_encode($image) . '"/>'; ?>
-                    <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
-                        <input type="file" id="change-pic" name="change-pic">
-                        <input type="submit" id="ch-pic" value="Change picture">
-                    </form>
-                    <p class="error" style="color:red">
-                        <?php echo $chpic;
-                        $_SESSION["chpic"] = null; ?>
-                    </p>
                 </div>
+                <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
+                    <input type="file" id="change-pic" name="change-pic">
+                    <input type="submit" id="ch-pic" value="Change picture">
+                </form>
+                <p class="error" style="color:red">
+                    <?php echo $chpic;
+                    $_SESSION["chpic"] = null; ?>
+                </p> 
             </div>
         </div>
 
