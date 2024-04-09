@@ -80,7 +80,7 @@ if (!isset($_SESSION["uid"])) {
                                     mysqli_stmt_store_result($statement);
 
                                     if (mysqli_stmt_num_rows($statement) < 1) {
-                                        echo "<p>Invalid usertype<p>";
+                                        echo "<p>There is no user with username \"".$search."\" or email \"".$search."\"<p>";
                                     } else {
                                         echo "<table id='userlist'>";
                                         echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
@@ -116,7 +116,7 @@ if (!isset($_SESSION["uid"])) {
                                     mysqli_stmt_store_result($statement);
 
                                     if (mysqli_stmt_num_rows($statement) < 1) {
-                                        echo "<p>Invalid usertype<p>";
+                                        echo "<p>No user at this time.<p>";
                                     } else {
                                         echo "<table id='userlist'>";
                                         echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
