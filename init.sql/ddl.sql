@@ -1788,7 +1788,6 @@ INSERT INTO priceHistory (pid, date, price)
     (75, '2024-04-04 00:00:00', 18.15),
     (75, '2024-04-06 00:00:00', 18.25);
 
-
 INSERT INTO  visitHistory (uid, pid, date)
     VALUES 
     (7, 32, '2024-02-05'),
