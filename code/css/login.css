@@ -14,7 +14,7 @@ main h2 {
 }
 
 main {
-    margin: 0em 2em 0em 2em;
+    margin: 0em 5em 0em 5em;
 }
 
 main .welcome {
@@ -31,11 +31,8 @@ main #wrap {
     border-radius: 1.5em;
     width: 600px;
     height: 795px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-    margin-bottom: 5em;
-    padding: 9em 2em 9em 2em;
+    margin: 2em auto 5em auto;
+    padding: 9em 0 9em 0;
 }
 
 main #signin-info {
@@ -47,7 +44,7 @@ main form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-width: 0.15em;
+    width: 80%;
     padding: 0.25em;
 }
 
@@ -56,7 +53,7 @@ main form input {
     border: solid black 1px;
     padding: 1em;
     border-radius: 1em;
-    width: 400px;
+    width: 100%;
     height: 50px;
 }
 
@@ -75,6 +72,7 @@ main #google {
 
 main .input {
     margin: 0.8em 0 0.8em 0;
+    width: 80%;
 }
 
 main .input label {
@@ -96,4 +94,21 @@ main #forgot a {
 main #sig {
     text-decoration: none;
     color: #38AB38;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 800px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #wrap {
+        border: solid black 1px;
+        border-radius: 1.5em;
+        width: 80%;
+        height: 795px;
+        margin: 2em auto 5em auto;
+        padding: 9em 0 9em 0;
+    }
+
 }
