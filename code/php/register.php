@@ -41,7 +41,7 @@ if (isset($_SESSION["exist"])) {
                 <p class="error" style="color:red"><?php echo $exist; $_SESSION["exist"] = null; ?></p>
                 <div id="regis-info">
                     <form enctype="multipart/form-data" method="post" action="processregister.php" id="register-form">
-                        <div class="input">
+                        <div class="input" id="image">
                             <input type="file" id="profile-pic" name="profile-pic" class="required" />
                         </div>
                         <div class="input">
