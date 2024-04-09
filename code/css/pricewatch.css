@@ -31,10 +31,9 @@ main {
 }
 
 main #menu-bar {
-    width: 200px;
+    width: 15%;
     height: 590px;
     float: left;
-    margin: 0 3em 0 0;
 }
 
 main #menu-bar a {
@@ -56,8 +55,19 @@ main #price-watch {
 	margin-bottom: 3em;
 }
 
+main #price-watch {
+    padding-left: 2em;
+    margin-left: 15%;
+}
+
+main #price-watch:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 main #products {
-    width: 1000px;
+    width: 100%;
 }
 
 /* prodcut cards */
@@ -122,3 +132,22 @@ main .card img {
 	width: 250px;
 }
 
+/* Responsive design for mobile */
+@media screen and (max-width: 700px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #menu-bar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    main #price-watch {
+        padding: 0;
+		margin: 0;
+        width: 100%;
+    }
+
+}

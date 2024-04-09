@@ -58,19 +58,22 @@ if (!isset($_SESSION["uid"])) {
             <a href="logout.php" id="logout">Sign out</a>
         </div>
         <div id="dashboard">
-            <a href="users.php">
-                <div class="box user-box">
-                    <i class="fas fa-users"></i>
-                    <p class="legend">Total Users</p>
-                    <p class="count" id="user-count">/p>
-                </div>
-            </a>
+            <div id="card">
+                <a href="users.php" id="numu-of-user">
+                    <div class="box user-box">
+                        <i class="fas fa-users"></i>
+                        <p class="legend">Total Users</p>
+                        <p class="count" id="user-count">/p>
+                    </div>
+                </a>
 
-            <div class="box ticket-box">
-                <i class="fas fa-ticket-alt"></i>
-                <p class="legend">Unresolved Tickets</p>
-                <p class="count" id="ticket-count">3</p>
+                <div class="box ticket-box">
+                    <i class="fas fa-ticket-alt"></i>
+                    <p class="legend">Unresolved Tickets</p>
+                    <p class="count" id="ticket-count">3</p>
+                </div>
             </div>
+            
 
             <!-- REPLACE WITH ACTUAL DATA -->
             <div>

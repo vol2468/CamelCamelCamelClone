@@ -33,7 +33,6 @@ main #popular-drop {
 
 main #popular, #drop {
 	text-align: center;
-	align-items: center;
 	display: flex;
     flex-direction: column;
     align-items: center;

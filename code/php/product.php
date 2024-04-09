@@ -182,8 +182,10 @@ if (!isset($_SESSION["uid"])) {
                 <p id="amapra">Amazon Price</p>
                 <p id="date-time">as of
                     <?php echo $date; ?>
-                <p>
+                </p>
+                <div id="amazon">
                     <button id="view-amazon"><a href="http://amazon.ca">View on Amazon</a></button>
+                </div>
             </div>
         </div>
         <div id="reviews">
