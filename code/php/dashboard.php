@@ -25,8 +25,8 @@ if (!isset($_SESSION["uid"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="../js/dashboard.js"></script>
 </head>
 
 <body>
@@ -69,33 +69,18 @@ if (!isset($_SESSION["uid"])) {
             <div class="box ticket-box">
                 <i class="fas fa-ticket-alt"></i>
                 <p class="legend">Unresolved Tickets</p>
-                <p class="count" id="ticket-count">3</p>
+                <p class="count" id="ticket-count">3</p> <!-- TODO: make this dynamic -->
             </div>
 
             <!-- REPLACE WITH ACTUAL DATA -->
-            <div>
+            <div id="analytics">
+                <!-- TODO: Make this selector dynamic -->
+                <select id="yearSelector">
+                    <option value="2023">2023</option>
+                    <option value="2024" selected>2024</option>
+                </select>
                 <canvas id="traffic"></canvas>
             </div>
-            <script>
-
-                const traffic = document.getElementById("traffic");
-                const labels = ["January", "February", "March", "April", "May", "June", "July"];
-                
-                var chart = new Chart(traffic, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: "Website Traffic",
-                            data: [65, 59, 80, 81, 56, 55, 40],
-                            fill: false,
-                            borderColor: 'rgb(75, 192, 192)',
-                            tension: 0.1
-                        }]
-                    }
-                })
-
-            </script>
         </div>
 
     </main>
