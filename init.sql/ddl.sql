@@ -112,7 +112,7 @@ CREATE TABLE loginHistory (
 CREATE TABLE inquiry (
     email       VARCHAR(50) NOT NULL,
     type        VARCHAR(50) NOT NULL, 
-    date        DATE, 
+    date        DATETIME, 
     message     VARCHAR(300) NOT NULL, 
     status      VARCHAR(50) NOT NULL, 
     PRIMARY KEY (email, date)
