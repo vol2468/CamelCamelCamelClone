@@ -54,7 +54,7 @@ try {
                 mysqli_stmt_store_result($statement);
                 mysqli_stmt_bind_result($statement, $pid, $maxPrice);
                 while (mysqli_stmt_fetch($statement)) {
-                    $priceDifferences[$pid] = $maxPrice - $currentPrices[$pid];
+                    $priceDifferences[$pid] = round($maxPrice - $currentPrices[$pid], 2);
                 }
                 arsort($priceDifferences);
                 $topPriceDrops = array_slice($priceDifferences, 0, $priceDropNum, true); // pick up top n price drop
