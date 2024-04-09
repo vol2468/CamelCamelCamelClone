@@ -64,7 +64,7 @@ function updateChart() {
     $('#yearSelector').change(function() {
         var selectedYear = $(this).val();
         $.ajax({
-          url: 'fetchChartData.php', 
+          url: 'fetchLoginHistoryData.php', 
           type: 'POST',
           data: {selectedYear: selectedYear},
           dataType: 'json',
