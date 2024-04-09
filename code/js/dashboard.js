@@ -78,5 +78,4 @@ function updateChart() {
         });
     });
     $('#yearSelector').trigger('change');
-
 }
