@@ -75,61 +75,35 @@ if (isset($_SESSION["uid"])) {
                 echo 'Error Message: ' . $e->getMessage();
             }
 
+            $_SESSION['popularItemNum'] = 8;
+            include 'popular_item.php';
+
         ?>
         <div id="products">
             <!-- 4 cards / row -->
-            <div class="row">
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-                <div class="card">
-                    <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                    <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                    <p class="price">$12.76</p>
-                    <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                </div>
-            </div>
+            <?php
+                $columnCounter = 0;
+                $rowMaxItems = 4; 
+
+                // printout popular item cards
+                for ($i=0; $i < count($popularItems); $i++) { 
+                    if($columnCounter%$rowMaxItems == 0){
+                        // Open new row
+                        echo '<div class="row">';
+                    }
+                    echo '<div class="card">';
+                    echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($popularItemImages[$i]).'" style="width: 100%;"/></a>';
+                    echo '<h3>'.$popularItemNames[$i].'</h3>';
+                    echo '<p class="price">$'.$popularItemPrices[$i].'</p>';
+                    echo '<p><button><a href="product.php?pid='.$popularItems[$i].'">See Product Detail</a></button></p>';
+                    echo '</div>';
+                    if($columnCounter%$rowMaxItems == $rowMaxItems-1){
+                        // Open new row
+                        echo '</div>';
+                    }
+                    $columnCounter++;
+                }
+            ?>
         </div>
 
     </main>

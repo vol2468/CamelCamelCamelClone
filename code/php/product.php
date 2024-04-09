@@ -25,8 +25,12 @@ if (!isset($_SESSION["uid"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="../js/review.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/product.js"></script>
+
 </head>
 
 <body>
@@ -211,8 +215,8 @@ if (!isset($_SESSION["uid"])) {
                 </form>
             </div>
         </div>
-        <div id="price-hist">
-
+        <div id="price-analytics">
+            <canvas id="price-history" data-pid="<?php echo $pid; ?>"></canvas>
         </div>
     </main>
 
