@@ -81,30 +81,29 @@ if (isset($_SESSION["uid"])) {
 
         ?>
         <div id="products">
-            <div class="row">
-                <?php
-                    $columnCounter = 0;
-                    $rowMaxItems = 4; 
-                    // printout top price dropped item cards
-                    for ($i=0; $i < count($priceDropItems); $i++) { 
-                        if($columnCounter%$rowMaxItems == 1 && $columnCounter != 1){
-                            // close the current row and move to next row
-                            echo '</div>';
-                            echo '<div class="row">';
-                        }
-                        echo '<div class="card">';
-                        echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/></a>';
-                        echo '<h3>'.$priceDropNames[$i].'</h3>';
-                        echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
-                        // echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
-                        echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
-                        echo '</div>';
-                        $columnCounter++;
+            <?php
+                $columnCounter = 0;
+                $rowMaxItems = 4; 
+                // printout top price dropped item cards
+                for ($i=0; $i < count($priceDropItems); $i++) { 
+                    if($columnCounter%$rowMaxItems == 0){
+                        // Open new row
+                        echo '<div class="row">';
                     }
-                
-                ?>
-                
-            </div>
+                    echo '<div class="card">';
+                    echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/></a>';
+                    echo '<h3>'.$priceDropNames[$i].'</h3>';
+                    echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
+                    // echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
+                    echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
+                    echo '</div>';
+                    if($columnCounter%$rowMaxItems == 3){
+                        // Open new row
+                        echo '</div>';
+                    }
+                    $columnCounter++;
+                }
+            ?>
         </div>
 
     </main>
