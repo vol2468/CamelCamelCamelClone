@@ -819,9 +819,9 @@ INSERT INTO  loginHistory (uid, date)
     (7, '2023-03-08'),
     (8, '2024-12-09');
 
-
 INSERT INTO inquiry (email, type, date, message, status) 
     VALUES 
     ('yukiiso@student.ubc.ca', 'General Inquery', '2024-02-05', 'WTF!?', 'completed'); 
+    ('yukiiso@student.ubc.ca', 'General Inquery', '2024-02-06', 'Am I not allowed to view product detail without login??', 'pending'); 
 
 
