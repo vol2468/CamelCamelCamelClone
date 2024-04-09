@@ -80,7 +80,7 @@ if (!isset($_SESSION["uid"])) {
                                     mysqli_stmt_store_result($statement);
 
                                     if (mysqli_stmt_num_rows($statement) < 1) {
-                                        echo "<p>Invalid usertype<p>";
+                                        echo "<p>There is no user with username \"".$search."\" or email \"".$search."\"<p>";
                                     } else {
                                         echo "<table id='userlist'>";
                                         echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";
@@ -90,10 +90,10 @@ if (!isset($_SESSION["uid"])) {
 
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<tr>";
-                                            echo "<td><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
-                                            echo "<td>" . $uname . "</td>";
-                                            echo "<td>" . $email . "</td>";
-                                            echo "<td><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                            echo "<td class='col-20'><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
+                                            echo "<td class='col-10'>" . $uname . "</td>";
+                                            echo "<td class='col-65'>" . $email . "</td>";
+                                            echo "<td class='col-5'><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
                                             echo "</tr>";
                                         }
                                         echo "</table>";
@@ -116,7 +116,7 @@ if (!isset($_SESSION["uid"])) {
                                     mysqli_stmt_store_result($statement);
 
                                     if (mysqli_stmt_num_rows($statement) < 1) {
-                                        echo "<p>Invalid usertype<p>";
+                                        echo "<p>No user at this time.<p>";
                                     } else {
                                         echo "<table id='userlist'>";
                                         echo "<tr class='center-header'><th>Profile Image</th><th>Username</th><th>Email</th><th>Action</th></tr>";

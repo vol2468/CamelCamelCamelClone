@@ -24,7 +24,7 @@ main h3 {
 }
 
 main {
-    margin: 0em 2em 0em 2em;
+    margin: 0em 5em 0em 5em;
 }
 
 main #contact-info {
@@ -32,9 +32,18 @@ main #contact-info {
     justify-content: center;
     margin-bottom: 3em;
 }
+
+main #contact-us {
+    width: 50%;
+}
+
 main #contact-us img {
-    width: 600px;
+    width: 100%;
     margin-right: 1em;
+}
+
+main #query {
+    width: 50%;
 }
 
 main form input {
@@ -42,12 +51,17 @@ main form input {
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    padding: 1em 1em 0.2em 0;
-    width: 600px;
+    padding: 1em 0 0.2em 0;
+    width: 100%;
 }
 
 main #email::placeholder, #message::placeholder {
     font-family: "Actor";
+}
+
+main #send-button {
+    display: flex;
+    justify-content: end;
 }
 
 main form input[type="submit"] {
@@ -55,10 +69,9 @@ main form input[type="submit"] {
     border: 1.5px solid black;
     border-radius: 0.6em;
     background-color: black;
-    margin-left: 300px;
     margin-top: 2em;
     color: white;
-    width: 300px;
+    width: 50%;
     height: 50px;
     padding: 0;
 }
@@ -67,8 +80,29 @@ main #subject {
     border: 2px  solid #8D8D8D;
     border-radius: 0.5em;
     height: 3.5em;
-    width: 600px;
+    width: 100%;
     font-size: small;
     margin-bottom: 4em;
     font-family: "Actor";
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 600px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #contact-info {
+        display: block;
+        margin-bottom: 3em;
+    }
+
+    main #contact-us, main #query {
+        width: 100%;
+    }
+
+    main #contact-us img {
+        width: 300px;
+    }
+
 }

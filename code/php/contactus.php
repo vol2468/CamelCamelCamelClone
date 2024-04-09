@@ -47,7 +47,9 @@ if (isset($_SESSION["uid"])) {
                         <label for="message"><h3>Message</h3></label><br>
                         <input type="text" id="message" name="message" placeholder="Write your message..." class="required" />
                         <br>
-                        <input type="submit" id="submit" value="Send message"/>
+                        <div id="send-button">
+                            <input type="submit" id="submit" value="Send message"/>
+                        </div>
                     </form>
                 </div>
             </div>
