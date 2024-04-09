@@ -188,6 +188,7 @@ main form input#ch-pic {
     }
 
     main #account-info {
+        padding: 0;
         width: 100%;
     }
 
