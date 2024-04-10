@@ -46,7 +46,19 @@ if (isset($_SESSION["status"])) {
                 <p class="welcome">Please enter your new password.</p>
                 <div id="reset-info">
                     <form method="post" action="processchangepass.php" id="setting-form">
-                        <p class="error" style="color:#38AB38"><?php echo $status; $_SESSION["status"] = null; ?></p><br>
+                        <p class="error" style="color:#38AB38">
+                        <?php
+                            if (isset($_SESSION["status"])) {
+                                $status = $_SESSION["status"];
+                                echo $status;
+                                $_SESSION["status"] = null;
+                            }
+                        ?></p><br>
+                        <div class="input">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
+                            <p class="error-message"></p>
+                        </div>
                         <div class="input">
                             <label for="password">New Password</label>
                             <input type="password" id="new-pass" name="new-pass" placeholder="Enter your new password" class="required" /> 
