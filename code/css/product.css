@@ -1,7 +1,8 @@
 /* font-family, font size */
-main p, body {
-    font-family: "Actor" !important;
-    font-size: 1em;
+main p,
+body {
+	font-family: "Actor" !important;
+	font-size: 1em;
 }
 
 main h1 {
@@ -16,13 +17,13 @@ main h2 {
 }
 
 main h3 {
-  	font-family: "Alata";
+	font-family: "Alata";
 	font-size: 1.2em;
 	margin-bottom: 1em;
 }
 
 main {
-    margin: 0em 5em 0em 5em;
+	margin: 0em 5em 0em 5em;
 }
 
 main #pimg {
@@ -36,17 +37,17 @@ main #prod-info {
 }
 
 main #prod-info:after {
-    content: "";
-    display: table;
-    clear: both;
+	content: "";
+	display: table;
+	clear: both;
 }
 
 main #rate {
-  	font-family: "Actor";
+	font-family: "Actor";
 }
 
 main #rate span {
-  	color: gray;
+	color: gray;
 }
 
 main #deal {
@@ -65,7 +66,9 @@ main #price {
 	margin: 0.6em 0 0.6em 0;
 }
 
-main #rate, #avg-price, #amapra {
+main #rate,
+#avg-price,
+#amapra {
 	margin: 0.7em 0 0 0;
 }
 
@@ -97,7 +100,8 @@ main #details-reviews {
 	grid-template-columns: 1fr 1fr;
 }
 
-main #details, #reviews {
+main #details,
+#reviews {
 	text-align: center;
 	margin: 3em 2em 3em 2em;
 }
@@ -107,91 +111,145 @@ main #details table {
 	width: 600px;
 }
 
-main #details table td, #details table th{
-  	text-align: left;
+main #details table td,
+#details table th {
+	text-align: left;
 }
 
 main .gray {
-  	background-color: #F6F6F6;
+	background-color: #F6F6F6;
 }
 
-/* styling for reviews */
-main #reviews-container { 
-    margin-top: 20px;
+/* styling for header of review-displaying section */
+
+.reviews-header-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.reviews-title-container {
+	display: flex;
+}
+
+.reviews-title-container i {
+	margin: 6px 0 0 7px;
+	font-size: small;
+	color: grey;
+}
+
+/* styling for rating filter */
+
+#rating-filter {
+	-webkit-appearance: none;
+	/* For Chrome/Safari/Edge */
+	-moz-appearance: none;
+	/* For Firefox */
+	appearance: none;
+	/* General fallback */
+	border: none;
+	background-color: #ececec;
+	margin-right: 5px;
+}
+
+.dropdown-container {
+	border: none;
+	padding: 8px;
+	border-radius: 30px;
+	background-color: #ececec;
+	width: 9em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -10px;
+}
+
+/* styling for review-displaying sectiom */
+main #reviews-container {
+	margin-top: 20px;
+	size: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
 }
 
 main .review {
-    border: 1px solid #ddd; 
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 5px; /* Add rounded corners for a box effect */
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin-bottom: 15px;
+	border-radius: 15px;
 }
 
 main .review strong {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 main .review p {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 main .star {
 	display: inline-block;
-    margin-top: 5px;
-    color: #f0ad4e; /* Example color for stars */
-    unicode-bidi: bidi-override;
-    direction: ltr; /* Technique to display stars */
-    font-size: 13px; 
-}
-
-main .review-column { 
-	size: 100%;
-    display: flex;         /* Enable Flexbox */
-    flex-flow: row wrap;       /* Allow items to wrap to multiple lines */
-	/* align-items: stretch */
+	margin-top: 5px;
+	color: #f0ad4e;
+	unicode-bidi: bidi-override;
+	direction: ltr;
+	/* Direction to display stars */
+	font-size: 13px;
 }
 
 main .review {
-    flex: 50%;         /* Make each review occupy 50% width */
-    margin-bottom: 15px;   /* Keep spacing between reviews */
+	flex: 45%;
+	max-width: 45%;
+	margin: 0 15px 15px 0;
+	/* Keep spacing between reviews */
 	box-sizing: border-box;
 }
 
+#reviews-container .review:nth-child(n+5) {
+	display: none;
+	/* Show only the first 3 items intially */
+}
+
+#load-more-reviews-btn {
+	border: 1px solid #ddd;
+	border-radius: 30px;
+	background-color: white;
+	height: 3em;
+	width: 12em;
+}
+
+
+/* styling for review submission section */
 main #comment {
 	background-color: #DEF8FF;
-    border: 2px  solid #9EE7FB;
-    border-radius: 0.5em;
+	border: 2px solid #9EE7FB;
+	border-radius: 0.5em;
 	width: 400px;
-    height: 3em;
+	height: 3em;
 }
 
 main #rating {
 	background-color: #DEF8FF;
-    border: 2px  solid #9EE7FB;
-    border-radius: 0.5em;
+	border: 2px solid #9EE7FB;
+	border-radius: 0.5em;
 	width: 70px;
-    height: 3em;
+	height: 3em;
 }
 
 main #submit {
 	background-color: #38AB38;
 	border-radius: 1em;
 	height: 40px;
-    color: white;
-    border: none;
-    width: 180px;
+	color: white;
+	border: none;
+	width: 180px;
 }
-  
-#reviews-container .review:nth-child(n+4) {
-	display: none; /* Show only the first 3 items intially */
-}
-
 
 /* Responsive design for mobile */
 @media screen and (max-width: 600px) {
-    main {
-        margin: 0em 3em 0em 3em;
-    }
+	main {
+		margin: 0em 3em 0em 3em;
+	}
 
 	main h1 {
 		font-size: 1.2em;
@@ -211,9 +269,9 @@ main #submit {
 }
 
 @media (min-width: 600px) and (max-width: 700px) {
-    main {
-        margin: 0em 3em 0em 3em;
-    }
+	main {
+		margin: 0em 3em 0em 3em;
+	}
 
 	main h1 {
 		font-size: 1.5em;

@@ -1,12 +1,17 @@
 $(document).ready(function () {
 
-    let visibleItems = 3;
+    let visibleItems = 4;
+    const ratingFilter = $('#rating-filter');
 
     // Load reviews initially
     loadReviews();
 
+    // Filter review by rating
+    ratingFilter.on('change', filterReviews);
+
+    // Load more reivews
     $('#load-more-reviews-btn').click(function () {
-        visibleItems += 3;
+        visibleItems += 4;
         $('#reviews-container .review:lt(' + visibleItems + ')').show();
 
         // Hide if no more items
@@ -48,6 +53,34 @@ $(document).ready(function () {
 
                 // Checks if button needs to be visible after loading reviews
                 if ($('#reviews-container .review').length == 0) {
+                    $('#load-more-reviews-btn').hide();
+                } else {
+                    $('#load-more-reviews-btn').show();
+                }
+            },
+            error: function () {
+                console.error("Failed to load reviews");
+            }
+        });
+    }
+
+    // Function for filtering reviews by rating
+    function filterReviews() {
+        const rating = ratingFilter.val(); // Rating is string containing int
+        const ratingAsInt = parseInt(rating, 10); // Convert to integer 
+
+        $.ajax({
+            url: 'filter_reviews.php',
+            type: 'GET',
+            data: 'pid=' + pid + "&rating=" + ratingAsInt,
+            success: function (data) {
+                $('#reviews-container').html(data);
+
+                // Reset number of visible items whenever filter is used
+                visibleItems = 4;
+
+                // Check button visiblity
+                if (visibleItems >= $('#reviews-container .review').length) {
                     $('#load-more-reviews-btn').hide();
                 } else {
                     $('#load-more-reviews-btn').show();

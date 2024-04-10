@@ -12,8 +12,14 @@ $(document).ready(function () {
             type: 'GET',
             data: 'pid=' + pid + "&rating=" + ratingAsInt,
             success: function (data) {
-                console.log(data);
                 $('#reviews-container').html(data);
+
+                // Checks if button needs to be visible after loading reviews
+                if ($('#reviews-container .review').length == 0) {
+                    $('#load-more-reviews-btn').hide();
+                } else {
+                    $('#load-more-reviews-btn').show();
+                }
             },
             error: function () {
                 console.error("Failed to load reviews");

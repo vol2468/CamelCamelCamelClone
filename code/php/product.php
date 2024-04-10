@@ -24,11 +24,12 @@ if (!isset($_SESSION["uid"])) {
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="../js/review.js"></script>
-    <script src="../js/filter.js"></script>
     <script src="../js/product.js"></script>
 </head>
 
@@ -151,6 +152,15 @@ if (!isset($_SESSION["uid"])) {
                         mysqli_stmt_bind_result($statement, $amazonlink);
                         mysqli_stmt_fetch($statement);
 
+                        // Retrieve number of reviews
+                        $sql = "SELECT COUNT(*) FROM review WHERE pid = ?";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $pid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        mysqli_stmt_bind_result($statement, $num_reviews);
+                        mysqli_stmt_fetch($statement);
+
                     } else {    // invalid credential
                         $_SESSION["error"] = "No such product. ";
                         header("Location: main.php?error=invalid1");
@@ -203,22 +213,30 @@ if (!isset($_SESSION["uid"])) {
                 </div>
             </div>
         </div>
+        <br><br>
+        <hr>
         <!-- Reviews sections -->
         <div id="reviews">
-            <h2>Reviews</h2>
-            <p>Filter by: </p>
-            <select id="rating-filter">
-                <option value="0" selected="selected">All Ratings</option>
-                <option value="1">★</option>
-                <option value="2">★★</option>
-                <option value="3">★★★</option>
-                <option value="4">★★★★</option>
-                <option value="5">★★★★★</option>
-            </select>
-            <div class="review-column">
-                <div id="reviews-container"></div>
-                <button id="load-more-reviews-btn">Load more reviews</button>
+            <div class="reviews-header-container">
+                <div class="reviews-title-container">
+                    <h2 id="reviews-title">All Reviews</h2>
+                    <i>(<?php echo $num_reviews ?>)</i>
+                </div>
+                <div class="dropdown-container">
+                    <select id="rating-filter">
+                        <option value="" disabled selected hidden>Rating</option>
+                        <option value="0">All</option>
+                        <option value="1">★</option>
+                        <option value="2">★★</option>
+                        <option value="3">★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="5">★★★★★</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
             </div>
+            <div id="reviews-container"></div>
+            <button id="load-more-reviews-btn">Load More Reviews</button>
             <div id="reviews">
                 <h3>Write a review</h3>
                 <form id="add-review" method="post">
@@ -228,11 +246,11 @@ if (!isset($_SESSION["uid"])) {
                 </form>
             </div>
         </div>
+        <hr><br>
         <div id="price-analytics">
             <canvas id="price-history" data-pid="<?php echo $pid; ?>"></canvas>
         </div>
     </main>
-
     <footer>
         <?php
         include_once ("footer.php");
