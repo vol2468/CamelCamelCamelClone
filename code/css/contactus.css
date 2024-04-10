@@ -86,6 +86,10 @@ main #subject {
     font-family: "Actor";
 }
 
+main .error, main .status {
+    margin: 1em 1em 1em 0;
+}
+
 /* Responsive design for mobile */
 @media screen and (max-width: 600px) {
     main {

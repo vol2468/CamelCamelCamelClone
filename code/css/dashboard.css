@@ -56,6 +56,14 @@ main #card {
     display: flex;
 }
 
+main #yearSelector {
+    margin: 2em 0 0 0;
+    background-color: #DEF8FF;
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+    height: 2em;
+}
+
 main #numu-of-user {
     display: inline-block;
 }
