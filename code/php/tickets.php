@@ -39,7 +39,7 @@ if (!isset($_SESSION["uid"])) {
         <?php
             include ("breadcrumb.php");
         ?>
-        <h1>Users</h1>
+        <h1>Tickets</h1>
         <div id="menu-bar">
             <a href="account.php">Account Profile</a>
             <a href="pricewatch.php">Your Price Watches</a>
