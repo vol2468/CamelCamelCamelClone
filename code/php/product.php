@@ -30,7 +30,6 @@ if (!isset($_SESSION["uid"])) {
     <script src="../js/review.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/product.js"></script>
-
 </head>
 
 <body>
@@ -174,6 +173,7 @@ if (!isset($_SESSION["uid"])) {
             var pid = <?php echo json_encode($pid); ?>;
         </script>
 
+        <!-- Product info section -->
         <div id="product">
             <img id="pimg" <?php echo 'src="data:image/jpg;base64,' . base64_encode($file) . '"'; ?>>
             <div id="prod-info">
@@ -203,6 +203,7 @@ if (!isset($_SESSION["uid"])) {
                 </div>
             </div>
         </div>
+        <!-- Reviews sections -->
         <div id="reviews">
             <h2>Reviews</h2>
             <p>Filter by: </p>
@@ -216,6 +217,7 @@ if (!isset($_SESSION["uid"])) {
             </select>
             <div class="review-column">
                 <div id="reviews-container"></div>
+                <button id="load-more-reviews-btn">Load more reviews</button>
             </div>
             <div id="reviews">
                 <h3>Write a review</h3>
