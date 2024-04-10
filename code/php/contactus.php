@@ -32,16 +32,16 @@ if (isset($_SESSION["uid"])) {
                     <img src="../images/contactus.png">
                 </div>
                 <div id="query">
-                    <form action="" method="post">
+                    <form action="processinquiry.php" method="POST">
                         <label for="email"><h3>Email Address</h3></label><br>
                         <input type="email" id="email" name="email" class="required" />
                         <br>
                         <h2>Select Subject</h2>
                         <select name="subject" id="subject">
-                            <option value="general">General Inquery</option>
-                            <option value="tech">Technical Issues</option>
-                            <option value="bug">Bug Report</option>
-                            <option value="feature">Feature Report</option>
+                            <option value="General Inquery">General Inquery</option>
+                            <option value="Technical Issues">Technical Issues</option>
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Feature Report">Feature Report</option>
                         </select>
                         <br>
                         <label for="message"><h3>Message</h3></label><br>
@@ -51,6 +51,19 @@ if (isset($_SESSION["uid"])) {
                             <input type="submit" id="submit" value="Send message"/>
                         </div>
                     </form>
+                    <div>
+                        <?php 
+                            if (isset($_SESSION["error"])) {
+                                $error = $_SESSION["error"];
+                                echo "<p class='error' style='color:red'>".$error."</p>";
+                                $_SESSION["error"] = null;
+                            } else if (isset($_SESSION["status"])) {
+                                $status = $_SESSION["status"];
+                                echo "<p class='status' style='color:#38AB38'>".$status."</p>";
+                                $_SESSION["status"] = null;
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </main>

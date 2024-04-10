@@ -61,7 +61,6 @@ try {
 								echo "<p>File successfully moved</p>";
 							
                             } else {
-								// echo "<p>Failed moving file</p>";
 								$_SESSION["exist"] = "Failed moving file. Please check your permission.";
 								header("Location: register.php");
 								exit();
@@ -87,8 +86,6 @@ try {
 					mysqli_stmt_store_result($statement);
 
 					if (mysqli_stmt_num_rows($statement) > 0) {
-                        // echo "<p>User already exists with this name and/or email<p>";
-                        // echo "<a href='register.html'>Return to registration</a>";
 						$_SESSION["exist"] = "User already exists with this name and/or email.";
 						header("Location: register.php");
 						exit();
@@ -136,7 +133,6 @@ try {
                                 header("Location: main.php");
                                 exit();
 							} else {
-								// echo "<p>Failed to create an account</p>";
 								$_SESSION["exist"] = "Failed to create an account.";
                                 header("Location: register.php");
                                 exit();
@@ -144,7 +140,6 @@ try {
 						}
 					}
 				} else {
-					// echo "<p>Failed to prepare statement.</p>";
 					$_SESSION["exist"] = "Failed to prepare statement.";
 					header("Location: register.php");
 					exit();
@@ -156,13 +151,11 @@ try {
 			}
 
 		} else {
-			// echo "<p>Empty fields exist. Please try again.<p>";
 			$_SESSION["exist"] = "Empty fields exist. Please try again.";
 			header("Location: register.php");
 			exit();
 		}
 	} else {
-		echo "<p>The request method should be POST. Cannnot process the data<p>";
 		$_SESSION["exist"] = "The request method should be POST. Cannnot process the data.";
 		header("Location: register.php");
 		exit();
