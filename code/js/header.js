@@ -3,7 +3,7 @@ $(document).ready(function() {
     populateDropdown();
 
     // Periodically check for updates
-    setInterval(checkForUpdates, 5000); // Check every 5 seconds
+    setInterval(checkForUpdates, 60000); // Checks every 1 min
 });
 
 function populateDropdown() {
