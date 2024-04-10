@@ -129,6 +129,7 @@ if (isset($_SESSION["chpic"])) {
                     <input type="text" id="name" name="name" value=<?php echo $uname; ?> placeholder=<?php echo $uname; ?>>
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" value=<?php echo $email; ?> placeholder=<?php echo $email; ?>>
+                    <input type='hidden' name='email-address' value=<?php echo $email; ?> >
                     <div id="password">
                         <label for="curr-pass">Current Password</label>
                         <input type="password" id="curr-pass" name="curr-pass" class="required">
