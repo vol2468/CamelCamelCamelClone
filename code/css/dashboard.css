@@ -24,10 +24,9 @@ main {
 }
 
 main #menu-bar {
-    width: 150px;
-    height: 100px;
+    width: 15%;
+    height: 590px;
     float: left;
-    margin: 0 3em 0 0;
 }
 
 main #menu-bar a {
@@ -45,22 +44,38 @@ main hr {
 }
 
 main #dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 80%;
-    margin: 30px auto;
-    
+    padding-left: 2em;
+    margin-left: 15%;
 }
 
 main #dashboard a {
   text-decoration: none;
 }
 
+main #card {
+    display: flex;
+}
 
-/* styling for boxes */
+main #yearSelector {
+    margin: 2em 0 0 0;
+    background-color: #DEF8FF;
+    border: 2px  solid #9EE7FB;
+    border-radius: 0.5em;
+    height: 2em;
+}
 
-  .box {
+main #numu-of-user {
+    display: inline-block;
+}
+
+main #dashboard:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Styling for boxes */
+main .box {
     background-color: #f0f0f0;
     border-radius: 15px;
     padding: 25px;
@@ -69,43 +84,77 @@ main #dashboard a {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     width: 250px;
     font-family: 'Alata', sans-serif;
-  }
+}
   
-  .box i {
+main .box i {
     font-size: 3em;
     color: #3498db; 
     margin-bottom: 10px;
-  }
-  
-  /* Styling for the headings within the box */
-  .box h2 { 
+}
+
+/* Styling for the headings within the box */
+main .box h2 { 
     margin-bottom: 5px; 
     color: black; /* Or set the color you desire for the heading */
-  }
-  
-  .count {
+
+}
+
+main .count {
     font-size: 2em;
     font-weight: bold;
     color: black;  
-  }
+}
   
-  .legend {
-    margin-top: 0; 
-    font-size: 1.3em; 
-    color: #cccccc; 
-    font-weight: normal; 
-  }
+main .legend {
+	margin-top: 0; 
+	font-size: 1.3em; 
+	color: #cccccc; 
+	font-weight: normal; 
+}
   
-  /* Customize these colors as needed */
-  .user-box {
-    color: #3498db;
-  }
+/* Customize these colors as needed */
+main .user-box {
+	color: #3498db;
+}
   
-  .ticket-box {
-    color: #e74c3c;
-  }
+main .ticket-box {
+	color: #e74c3c;
+}
 
-  #website-traffic {
-    margin-left: -45px;
-  }
+main #traffic {
+	width: 980px;
+	height: 500px;
+	margin: 2em 0 3em 0;
+}
 
+/* Responsive design for mobile */
+@media screen and (max-width: 850px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #menu-bar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    main #card {
+        padding: 0;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    main .box {
+        margin: 0;
+        width: 180px;
+        font-size: 0.7em;
+    }
+
+    main #dashboard {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+}

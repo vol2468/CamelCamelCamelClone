@@ -3,6 +3,9 @@
 
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
 if (!isset($_SESSION["uid"])) {
@@ -20,6 +23,7 @@ try {
         if (isset($_POST["curr-pass"]) && !empty($_POST["curr-pass"]) && isset($_POST["new-pass"]) && !empty($_POST["new-pass"])) {
             $passwd = $_POST["curr-pass"];
             $newpassword = $_POST["new-pass"];
+            $email = $_POST["email-address"];
 
             // database connection
             include "connect.php";
@@ -36,7 +40,9 @@ try {
                     mysqli_stmt_store_result($statement);
 
                     if (mysqli_stmt_num_rows($statement) < 1) {
-                        echo "<p>Current password is wrong<p>";
+                        $_SESSION["chpic"] = "Current password is wrong";
+                        header("Location: account.php");
+                        exit();
                     } else {
                         // update the user's password using a prepared statement
                         $sql = "UPDATE user SET password = ? WHERE uid = ?";
@@ -44,18 +50,49 @@ try {
                         if ($statement = mysqli_prepare($connection, $sql)) {
                             mysqli_stmt_bind_param($statement, "si", $newpassword, $uid);
                             mysqli_stmt_execute($statement);
-
+                            
                             if (mysqli_stmt_affected_rows($statement) > 0) {
-                                // echo "User’s password has been updated.";
-                                $_SESSION["status"] = "User’s password has been updated";
+                                // Send email notifying password change
+                                $to = $email;
+                                $subject = "The Password Change of Your ATY Account";
+                                $message = "Your password for your ATY account has been changed.";
+
+                                require "phpmailer/src/Exception.php";
+                                require "phpmailer/src/PHPMailer.php";
+                                require "phpmailer/src/SMTP.php";
+
+                                $mail = new PHPMailer(true);
+                                $mail -> isSMTP();
+                                $mail -> Host = "smtp.gmail.com";
+                                $mail -> SMTPAuth = true;
+                                $mail -> Username = "atycorp2024@gmail.com";
+                                $mail -> Password = "vmlyrmweakdkkwpa";
+                                $mail -> SMTPSecure = "ssl";
+                                $mail -> Port = 465;
+
+                                $mail -> setFrom("atycorp2024@gmail.com");
+                                $mail -> addAddress($to);
+                                $mail -> isHTML(true);
+
+                                $mail -> Subject = $subject;
+                                $mail -> Body = $message;
+
+                                $mail -> send();
+
+                                $_SESSION["status"] = "User's password has been updated";
                                 header("Location: account.php");
                                 exit();
-                            } else
-                                echo "Failed to change";
+                            } else {
+                                $_SESSION["chpic"] = "Failed to change";
+                                header("Location: account.php");
+                                exit();
+                            }
                         }
                     }
                 } else {
-                    echo "Failed to prepare statement";
+                    $_SESSION["chpic"] = "Failed to prepare statement";
+                    header("Location: account.php");
+                    exit();
                 }
 
                 // close the statement and connection

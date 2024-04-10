@@ -1,0 +1,153 @@
+main p, body {
+    font-family: "DM Sans";
+    font-size: 1em;
+}
+
+main h1 {
+    font-family: "Alata";
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em !important;
+}
+
+main h2 {
+    font-family: "Alata";
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #D8DEE4;
+}
+
+main h3 {
+	font-family: "Actor";
+	font-size: 1em;
+	margin: 0.5em 0 0 0;
+	padding: 0.7em 1.2em 0.7em 1.2em;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+}
+
+main #menu-bar {
+    width: 15%;
+    height: 590px;
+    float: left;
+}
+
+main #menu-bar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+main a#logout {
+    color: #BA1E14;
+}
+
+main hr {
+    border-top: 1px solid gray;
+}
+
+main #price-watch {
+    margin-left: 240px;
+	margin-bottom: 3em;
+}
+
+main #price-watch {
+    padding-left: 2em;
+    margin-left: 15%;
+}
+
+main #price-watch:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+main #products {
+    width: 100%;
+}
+
+/* prodcut cards */
+main .row {
+	--bs-gutter-x: 0;
+}
+
+main .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 1em;
+	margin-right: 1em;
+}
+  
+main .price {
+	font-size: 35px;
+	font-family: "Actor";
+	background-color: #F5F5F5;
+	padding: 0.4em 0 0.4em 0;
+}
+
+main .card button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+}
+  
+main .card button:hover {
+	opacity: 0.7;
+}
+
+main .card button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #000;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+	font-family: "Actor";
+}
+
+main .card img {
+	padding: 1.2em;
+}
+
+main button a {
+	text-decoration: none;
+	color: white;
+}
+
+main .card img {
+	width: 250px;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 700px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #menu-bar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    main #price-watch {
+        padding: 0;
+		margin: 0;
+        width: 100%;
+    }
+
+}

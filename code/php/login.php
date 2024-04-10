@@ -12,6 +12,10 @@ if (isset($_SESSION["error"])) {
     $error = $_SESSION["error"];
 }
 
+if (isset($_SESSION["status"])) {
+    $status = $_SESSION["status"];
+}
+
 ?>
 
 <html>
@@ -27,8 +31,6 @@ if (isset($_SESSION["error"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="../js/validatelogin.js"></script>
-
-</head>
     </head>
     <body>
 
@@ -45,6 +47,7 @@ if (isset($_SESSION["error"])) {
                 <div id="signin-info">
                     <form method="post" action="processlogin.php" id="signin-form">
                         <p class="error" style="color:red"><?php echo $error; $_SESSION["error"] = null; ?></p><br>
+                        <p class="status" style="color:#38AB38"><?php echo $status; $_SESSION["status"] = null; ?></p><br>
                         <div class="input">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 

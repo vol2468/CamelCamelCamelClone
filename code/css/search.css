@@ -1,0 +1,108 @@
+/* font-family, font size */
+main body {
+	font-family: "Actor";
+	font-size: 1em;
+}
+
+main h1 {
+	font-family: "Alata";
+	font-size: 2em;
+	padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 0.05em solid #222222;
+}
+
+main h2 {
+	font-family: "Alata";
+	font-size: 1.5em;
+}
+
+main h3 {
+	font-family: "Actor";
+	font-size: 1em;
+	margin: 0.5em 0 0 0;
+	padding: 0.7em 1.2em 0.7em 1.2em;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+	min-height: 500px;
+}
+
+main #products {
+    padding: 0 2em 3em 2em;
+}
+
+main .items {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+    padding: 1em;
+}
+
+main .image .desc {
+	text-align: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+main .desc {
+	margin-left: 2em;
+}
+
+main .prod-img {
+    width: 350px;
+}
+
+main .category {
+    font-family: "Actor";
+    margin: 2em 2em 1.5em 0;
+}
+
+main .price {
+    font-family: "Actor";
+    font-size: 2.5em;
+    color: #38AB38;
+}
+
+main .prod-details {
+	padding: 0.5em;
+	margin-top: 1em;
+	width: 100%;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 2em;
+}
+
+main .prod-details a {
+	color: white;
+	text-decoration: none;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 700px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main .prod-img {
+        width: 100px;
+    }
+
+	main h2 {
+		font-size: 1em;
+	}
+
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main .prod-img {
+        width: 250px;
+    }
+
+}

@@ -1,0 +1,173 @@
+main p, body {
+    font-family: "DM Sans";
+    font-size: 1em;
+}
+
+main h1 {
+    font-family: "Alata";
+    font-size: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em !important;
+}
+
+main h2 {
+    font-family: "Alata";
+    font-size: 1.5em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #D8DEE4;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+    min-height: 750px;
+}
+
+main #menu-bar {
+    width: 15%;
+    height: 590px;
+    float: left;
+}
+
+main #menu-bar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+main a#logout {
+    color: #BA1E14;
+}
+
+main #tickets {
+    padding-left: 2em;
+    margin-left: 15%;
+}
+
+main #tickets:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+main #user {
+    display: flex;
+    justify-content: center;
+}
+
+main #search {
+    width: 100%;
+    margin-bottom: 1.5em;
+    border-radius: 3em;
+}
+
+main form input {
+    border: 1px solid #D0D7DE;
+    background-color: #F6F8FA;
+    padding: 1em;
+    border-radius: 1em;
+    height: 50px;
+}
+
+main #delete {
+    background-color: #38AB38;
+    color: white;
+    border: #38AB38;
+    border-radius: 0.5em;
+    width: 5em;
+    height: 35px;
+    padding: 0;
+}
+
+main #inquiry-list {
+    margin-bottom: 3em;
+}
+
+main #inquiry-list .center-header th {
+    padding: 1em;
+    text-align: center;
+}
+
+main #inquiry-list {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #D5D5D5;
+    border-radius: 15px;
+    border-collapse: separate;
+}
+
+main #inquiry-list td {
+    padding: 0 1em 0 1em;
+    height: 100px;
+}
+
+main #inquiry-list .col-30 {
+    width: 30%;
+}
+
+main #inquiry-list .col-20 {
+    width: 20%;
+}
+
+main #inquiry-list .completed, main #inquiry-list .pending {
+    padding: 0.8em;
+    width: 50%;
+    border-radius: 0.5em;
+}
+
+main #inquiry-list .completed {
+    color: #00B69B;
+    background-color: #CCF0EB;
+    border: 1px solid #CCF0EB;
+}
+
+main #inquiry-list .pending {
+    color: #6226EF;
+    background-color: #E0D5FC;
+    border: 1px solid #E0D5FC;
+}
+
+main #inquiry-list>tbody>tr:not(:last-child)>th,
+main #inquiry-list>tbody>tr:not(:last-child)>td {
+    border-bottom: 1px solid #D5D5D5;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 1020px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #menu-bar {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    main #tickets {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    main #inquiry-list {
+        border-spacing: 0;
+    }
+
+    main #inquiry-list tr {
+        height: 100px;
+    }
+
+    main #inquiry-list td {
+        padding: 0.2em;
+    }
+
+    main #delete {
+        border: #38AB38;
+        border-radius: 0.5em;
+        width: 60%;
+        font-size: small;
+    }
+
+}

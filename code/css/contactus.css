@@ -1,0 +1,112 @@
+/* font-family, font size */
+main body {
+	font-family: "Actor";
+	font-size: 1em;
+}
+
+main h1 {
+	font-family: "Alata";
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+main h2 {
+	font-family: "Alata";
+	font-size: 1.5em;
+    margin: 2em 0 1em 0;
+}
+
+main h3 {
+	font-family: "Actor";
+	font-size: 1em;
+	margin: 0.5em 0 0 0;
+	padding: 0.7em 1.2em 0 0;
+}
+
+main {
+    margin: 0em 5em 0em 5em;
+}
+
+main #contact-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+}
+
+main #contact-us {
+    width: 50%;
+}
+
+main #contact-us img {
+    width: 100%;
+    margin-right: 1em;
+}
+
+main #query {
+    width: 50%;
+}
+
+main form input {
+    border-bottom: 1.5px solid #8D8D8D;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 1em 0 0.2em 0;
+    width: 100%;
+}
+
+main #email::placeholder, #message::placeholder {
+    font-family: "Actor";
+}
+
+main #send-button {
+    display: flex;
+    justify-content: end;
+}
+
+main form input[type="submit"] {
+    align-items: right;
+    border: 1.5px solid black;
+    border-radius: 0.6em;
+    background-color: black;
+    margin-top: 2em;
+    color: white;
+    width: 50%;
+    height: 50px;
+    padding: 0;
+}
+
+main #subject {
+    border: 2px  solid #8D8D8D;
+    border-radius: 0.5em;
+    height: 3.5em;
+    width: 100%;
+    font-size: small;
+    margin-bottom: 4em;
+    font-family: "Actor";
+}
+
+main .error, main .status {
+    margin: 1em 1em 1em 0;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 600px) {
+    main {
+        margin: 0em 3em 0em 3em;
+    }
+
+    main #contact-info {
+        display: block;
+        margin-bottom: 3em;
+    }
+
+    main #contact-us, main #query {
+        width: 100%;
+    }
+
+    main #contact-us img {
+        width: 300px;
+    }
+
+}
