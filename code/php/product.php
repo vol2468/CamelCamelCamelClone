@@ -143,6 +143,15 @@ if (!isset($_SESSION["uid"])) {
                         mysqli_stmt_bind_result($statement, $cname);
                         mysqli_stmt_fetch($statement);
 
+                        // Retrieve link to Amazon page
+                        $sql = "SELECT amazonlink FROM product WHERE pid = ?";
+                        $statement = mysqli_prepare($connection, $sql);
+                        mysqli_stmt_bind_param($statement, "i", $pid);
+                        mysqli_stmt_execute($statement);
+                        mysqli_stmt_store_result($statement);
+                        mysqli_stmt_bind_result($statement, $amazonlink);
+                        mysqli_stmt_fetch($statement);
+
                     } else {    // invalid credential
                         $_SESSION["error"] = "No such product. ";
                         header("Location: main.php?error=invalid1");
@@ -188,7 +197,9 @@ if (!isset($_SESSION["uid"])) {
                     <?php echo $date; ?>
                 </p>
                 <div id="amazon">
-                    <button id="view-amazon"><a href="http://amazon.ca">View on Amazon</a></button>
+                    <button id="view-amazon"><a href="
+                    <?php echo $amazonlink; ?>
+                    ">View on Amazon</a></button>
                 </div>
             </div>
         </div>
