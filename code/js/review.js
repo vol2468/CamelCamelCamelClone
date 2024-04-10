@@ -5,11 +5,6 @@ $(document).ready(function () {
     // Load reviews initially
     loadReviews();
 
-    // Checks if button needs to be visible
-    // if ($('#reviews-container .review').length === 0) {
-    //     $('#load-more-reviews-btn').hide();
-    // }
-
     $('#load-more-reviews-btn').click(function () {
         visibleItems += 3;
         $('#reviews-container .review:lt(' + visibleItems + ')').show();
@@ -50,6 +45,13 @@ $(document).ready(function () {
             data: 'pid=' + pid,
             success: function (data) {
                 $('#reviews-container').html(data);
+
+                // Checks if button needs to be visible after loading reviews
+                if ($('#reviews-container .review').length == 0) {
+                    $('#load-more-reviews-btn').hide();
+                } else {
+                    $('#load-more-reviews-btn').show();
+                }
             },
             error: function () {
                 console.error("Failed to load reviews");
