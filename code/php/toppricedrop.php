@@ -20,6 +20,7 @@ if (isset($_SESSION["uid"])) {
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="../js/checkpricewatchupdates.js"></script>
 </head>
 
 <body>
@@ -36,73 +37,73 @@ if (isset($_SESSION["uid"])) {
         <h1>Top Price Drops</h1>
         <?php
 
-            // using try catch statement to handle any error
-            try {
-                // database connection
-                include "connect.php";
+        // using try catch statement to handle any error
+        try {
+            // database connection
+            include "connect.php";
 
-                if ($error != null) {
-                    $output = "<p>Unable to connect to database!</p>";
-                    exit($output);
-                } else {
-                    // MODIFY HERE TO RETRIEVE POPULAR PRODUCT DATA
-                    $sql = "SELECT * FROM user WHERE uid = ?";
-                    if ($statement = mysqli_prepare($connection, $sql)) {
-                        mysqli_stmt_bind_param($statement, "i", $uid);
-                        mysqli_stmt_execute($statement);
-                        mysqli_stmt_store_result($statement);
+            if ($error != null) {
+                $output = "<p>Unable to connect to database!</p>";
+                exit($output);
+            } else {
+                // MODIFY HERE TO RETRIEVE POPULAR PRODUCT DATA
+                $sql = "SELECT * FROM user WHERE uid = ?";
+                if ($statement = mysqli_prepare($connection, $sql)) {
+                    mysqli_stmt_bind_param($statement, "i", $uid);
+                    mysqli_stmt_execute($statement);
+                    mysqli_stmt_store_result($statement);
 
-                        if (mysqli_stmt_num_rows($statement) < 1) {
-                            echo "<p>Invalid uid<p>";
-                        } else {
-                            // fetch and display the result
-                            mysqli_stmt_bind_result($statement, $uid, $uname, $email, $passwd, $imgid, $usertype);
-
-                            mysqli_stmt_fetch($statement);
-
-                        }
-
+                    if (mysqli_stmt_num_rows($statement) < 1) {
+                        echo "<p>Invalid uid<p>";
                     } else {
-                        echo "Failed to prepare statement";
+                        // fetch and display the result
+                        mysqli_stmt_bind_result($statement, $uid, $uname, $email, $passwd, $imgid, $usertype);
+
+                        mysqli_stmt_fetch($statement);
+
                     }
 
-                    // close the statement and connection
-                    mysqli_stmt_close($statement);
-                    mysqli_close($connection);
+                } else {
+                    echo "Failed to prepare statement";
                 }
 
-            } catch (Exception $e) {
-                echo 'Error Message: ' . $e->getMessage();
+                // close the statement and connection
+                mysqli_stmt_close($statement);
+                mysqli_close($connection);
             }
 
-            $_SESSION['priceDropNum'] = 8;
-            include 'price_drop.php';
-            
+        } catch (Exception $e) {
+            echo 'Error Message: ' . $e->getMessage();
+        }
+
+        $_SESSION['priceDropNum'] = 8;
+        include 'price_drop.php';
+
 
         ?>
         <div id="products">
             <?php
-                $columnCounter = 0;
-                $rowMaxItems = 4; 
-                // printout top price dropped item cards
-                for ($i=0; $i < count($priceDropItems); $i++) { 
-                    if($columnCounter%$rowMaxItems == 0){
-                        // Open new row
-                        echo '<div class="row">';
-                    }
-                    echo '<div class="card">';
-                    echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($priceDropImages[$i]).'" style="width: 100%;"/></a>';
-                    echo '<h3>'.$priceDropNames[$i].'</h3>';
-                    echo '<p class="price">$'.$priceDropPrices[$i].'</p>';
-                    // echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
-                    echo '<p><button><a href="product.php?pid='.$priceDropItems[$i].'">See Product Detail</a></button></p>';
-                    echo '</div>';
-                    if($columnCounter%$rowMaxItems == $rowMaxItems-1){
-                        // Open new row
-                        echo '</div>';
-                    }
-                    $columnCounter++;
+            $columnCounter = 0;
+            $rowMaxItems = 4;
+            // printout top price dropped item cards
+            for ($i = 0; $i < count($priceDropItems); $i++) {
+                if ($columnCounter % $rowMaxItems == 0) {
+                    // Open new row
+                    echo '<div class="row">';
                 }
+                echo '<div class="card">';
+                echo '<a href="product.php?pid=' . $priceDropItems[$i] . '"><img src="data:image/jpg;base64,' . base64_encode($priceDropImages[$i]) . '" style="width: 100%;"/></a>';
+                echo '<h3>' . $priceDropNames[$i] . '</h3>';
+                echo '<p class="price">$' . $priceDropPrices[$i] . '</p>';
+                // echo '<h3 class="price-drop">Price drop: $'.$priceDropDifferences[$i].'</h3>';
+                echo '<p><button><a href="product.php?pid=' . $priceDropItems[$i] . '">See Product Detail</a></button></p>';
+                echo '</div>';
+                if ($columnCounter % $rowMaxItems == $rowMaxItems - 1) {
+                    // Open new row
+                    echo '</div>';
+                }
+                $columnCounter++;
+            }
             ?>
         </div>
 
