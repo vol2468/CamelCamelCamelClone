@@ -32,6 +32,7 @@ if (!isset($_SESSION["uid"])) {
         src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="../js/review.js"></script>
     <script src="../js/product.js"></script>
+    <script src="../js/addtopricewatch.js"></script>
 </head>
 
 <body>
@@ -182,7 +183,7 @@ if (!isset($_SESSION["uid"])) {
         <script>
             var uid = <?php echo json_encode($uid); ?>;
             var pid = <?php echo json_encode($pid); ?>;
-            var usertype = <?php echo  json_encode($usertype); ?>
+            var usertype = <?php echo json_encode($usertype); ?>
         </script>
 
         <!-- Product info section -->
@@ -249,9 +250,14 @@ if (!isset($_SESSION["uid"])) {
             </div>
         </div>
         <hr><br>
+        <h2 id="analytics-title">Amazon Price History</h2>
         <div id="price-analytics">
-            <canvas id="price-history" data-pid="<?php echo $pid; ?>"></canvas>
+            <canvas id="price-history" data-pid="<?php echo $pid; ?>"></canvas><br>
+            <div id="add-to-pwatch">
+                <button id="add-to-pwatch-btn" type="button">Add to Price Watch</button>
+            </div>
         </div>
+        <br>
     </main>
     <footer>
         <?php

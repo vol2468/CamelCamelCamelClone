@@ -125,7 +125,8 @@ main .gray {
 .reviews-header-container {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 3em 0 3em;
+	margin-left: -2em; 
+	margin-right: -2em;
 }
 
 .reviews-title-container {
@@ -232,7 +233,6 @@ main .review {
 	float: right;
 }
 
-
 /* styling for review submission section */
 main #comment {
 	background-color: #DEF8FF;
@@ -252,11 +252,30 @@ main #rating {
 
 main #submit {
 	background-color: #38AB38;
-	border-radius: 1em;
+	border-radius: 3em;
 	height: 40px;
 	color: white;
 	border: none;
 	width: 180px;
+}
+
+/* styling for analytics section */
+
+#price-analytics {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#add-to-pwatch-btn {
+	padding: 0.5em;
+	margin-top: 1em;
+	width: 40%;
+	min-width: 15em;
+	background-color: black;
+	border: 1px solid black;
+	border-radius: 2em;
+	color: white;
 }
 
 /* Responsive design for mobile */
