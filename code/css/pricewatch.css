@@ -1,4 +1,5 @@
-main p, body {
+main p,
+body {
     font-family: "DM Sans";
     font-size: 1em;
 }
@@ -20,10 +21,10 @@ main h2 {
 }
 
 main h3 {
-	font-family: "Actor";
-	font-size: 1em;
-	margin: 0.5em 0 0 0;
-	padding: 0.7em 1.2em 0.7em 1.2em;
+    font-family: "Actor";
+    font-size: 1em;
+    margin: 0.5em 0 0 0;
+    padding: 0.7em 1.2em 0.7em 1.2em;
 }
 
 main {
@@ -52,7 +53,7 @@ main hr {
 
 main #price-watch {
     margin-left: 240px;
-	margin-bottom: 3em;
+    margin-bottom: 3em;
 }
 
 main #price-watch {
@@ -68,11 +69,13 @@ main #price-watch:after {
 
 main #products {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* prodcut cards */
 main .row {
-	--bs-gutter-x: 0;
+    --bs-gutter-x: 0;
 }
 
 main .card {
@@ -80,56 +83,59 @@ main .card {
     max-width: 300px;
     text-align: center;
     margin-bottom: 1em;
-	margin-right: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
-  
+
 main .price {
-	font-size: 35px;
-	font-family: "Actor";
-	background-color: #F5F5F5;
-	padding: 0.4em 0 0.4em 0;
+    font-size: 35px;
+    font-family: "Actor";
+    background-color: #F5F5F5;
+    padding: 0.4em 0 0.4em 0;
 }
 
 main .card button {
-	border: none;
-	outline: 0;
-	padding: 12px;
-	color: white;
-	background-color: #000;
-	text-align: center;
-	cursor: pointer;
-	width: 100%;
-	font-size: 18px;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
 }
-  
+
 main .card button:hover {
-	opacity: 0.7;
+    opacity: 0.7;
 }
 
 main .card button {
-	border: none;
-	outline: 0;
-	padding: 12px;
-	color: white;
-	background-color: #000;
-	text-align: center;
-	cursor: pointer;
-	width: 100%;
-	font-size: 18px;
-	font-family: "Actor";
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-family: "Actor";
 }
 
 main .card img {
-	padding: 1.2em;
+    padding: 1.2em;
 }
 
 main button a {
-	text-decoration: none;
-	color: white;
+    text-decoration: none;
+    color: white;
 }
 
 main .card img {
-	width: 250px;
+    width: 250px;
 }
 
 /* Responsive design for mobile */
@@ -146,7 +152,7 @@ main .card img {
 
     main #price-watch {
         padding: 0;
-		margin: 0;
+        margin: 0;
         width: 100%;
     }
 

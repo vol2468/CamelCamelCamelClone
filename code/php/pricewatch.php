@@ -129,10 +129,10 @@ if (isset($_SESSION["chpic"])) {
                 $rowMaxItems = 4;
                 // printout price watch item cards
                 for ($i = 0; $i < count($priceWatchItems); $i++) {
-                    if ($columnCounter % $rowMaxItems == 0) {
-                        // Open new row
-                        echo '<div class="row">';
-                    }
+                    // if ($columnCounter % $rowMaxItems == 0) {
+                    //     // Open new row
+                    //     echo '<div class="row">';
+                    // }
                     echo '<div class="card">';
                     echo '<a href="product.php?pid=' . $priceWatchItems[$i] . '"><img src="data:image/jpg;base64,' . base64_encode($priceWatchItemImages[$i]) . '" style="width: 100%;"/></a>';
                     echo '<h3>' . $priceWatchItemNames[$i] . '</h3>';
@@ -140,11 +140,11 @@ if (isset($_SESSION["chpic"])) {
                     // echo '<h3 class="price-drop">Price drop: $'.$priceWatchDifferences[$i].'</h3>';
                     echo '<p><button><a href="product.php?pid=' . $priceWatchItems[$i] . '">See Product Detail</a></button></p>';
                     echo '</div>';
-                    if ($columnCounter % $rowMaxItems == $rowMaxItems - 1) {
-                        // Open new row
-                        echo '</div>';
-                    }
-                    $columnCounter++;
+                    // if ($columnCounter % $rowMaxItems == $rowMaxItems - 1) {
+                    //     // Open new row
+                    //     echo '</div>';
+                    // }
+                    // $columnCounter++;
                 }
 
                 ?>
