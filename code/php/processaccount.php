@@ -52,7 +52,7 @@ try {
                             mysqli_stmt_execute($statement);
                             
                             if (mysqli_stmt_affected_rows($statement) > 0) {
-                                // Send email notifying password change
+                                // send email notifying password change
                                 $to = $email;
                                 $subject = "The Password Change of Your ATY Account";
                                 $message = "Your password for your ATY account has been changed.";
