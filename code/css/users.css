@@ -114,16 +114,12 @@ main #userlist .col-20 {
     width: 20%;
 }
 
-main #userlist .col-13 {
-    width: 13%;
+main #userlist .col-48 {
+    width: 48%;
 }
 
-main #userlist .col-62 {
-    width: 62%;
-}
-
-main #userlist .col-5 {
-    width: 5%;
+main #userlist .col-12 {
+    width: 12%;
 }
 
 main #userlist>tbody>tr:not(:last-child)>th,
