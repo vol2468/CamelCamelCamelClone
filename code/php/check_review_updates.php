@@ -1,6 +1,4 @@
 <?php
-session_start(); // Start a session for tracking the last updated timestamp
-
 // Get user ID
 $uid = $_GET['uid'];
 

@@ -32,6 +32,8 @@ if (isset($_SESSION["chpic"])) {
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/checkpricewatchupdates.js"></script>
 </head>
 
 <body>
@@ -108,6 +110,14 @@ if (isset($_SESSION["chpic"])) {
 
         include 'my_price_watch.php';
         ?>
+        
+        <!-- to make $uid and $pid accessible in review.js -->
+        <script>
+            var uid = <?php echo json_encode($uid); ?>;
+            var pid = <?php echo json_encode($pid); ?>;
+            var usertype = <?php echo json_encode($usertype); ?>
+        </script>
+
         <div id="menu-bar">
             <a href="account.php">Account Profile</a>
             <a href="pricewatch.php">Your Price Watches</a>
