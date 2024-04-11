@@ -44,7 +44,7 @@ try {
                     mysqli_stmt_store_result($statement);
 
                     if (mysqli_stmt_num_rows($statement) < 1) {
-                        $_SESSION["chpic"] = "Current password is wrong";
+                        $_SESSION["error1"] = "Current password is wrong";
                         header("Location: account.php");
                         exit();
                     } else {
@@ -56,7 +56,7 @@ try {
                             mysqli_stmt_execute($statement);
                             
                             if (mysqli_stmt_affected_rows($statement) > 0) {
-                                // Send email notifying password change
+                                // send email notifying password change
                                 $to = $email;
                                 $subject = "The Password Change of Your ATY Account";
                                 $message = "Your password for your ATY account has been changed.";
@@ -74,7 +74,7 @@ try {
                                 $mail -> SMTPSecure = "ssl";
                                 $mail -> Port = 465;
 
-                                $mail -> setFrom("atycorp2024@gmail.com");
+                                $mail -> setFrom("atycorp2024@gmail.com", "ATY Corp.");
                                 $mail -> addAddress($to);
                                 $mail -> isHTML(true);
 
@@ -87,14 +87,14 @@ try {
                                 header("Location: account.php");
                                 exit();
                             } else {
-                                $_SESSION["chpic"] = "Failed to change";
+                                $_SESSION["error"] = "Password provided is the same / Failed to change the password";
                                 header("Location: account.php");
                                 exit();
                             }
                         }
                     }
                 } else {
-                    $_SESSION["chpic"] = "Failed to prepare statement";
+                    $_SESSION["error"] = "Failed to prepare statement.";
                     header("Location: account.php");
                     exit();
                 }
@@ -107,10 +107,14 @@ try {
 
 
         } else {
-            echo "<p>Empty fields exist. Please try again.<p>";
+            $_SESSION["error"] = "Empty fields exist. Please try again.";
+            header("Location: account.php");
+            exit();
         }
     } else {
-        echo "<p>The request method should be POST. Cannnot process the data.<p>";
+        $_SESSION["error"] = "The request method should be POST. Cannnot process the data.";
+        header("Location: account.php");
+        exit();
     }
 
     

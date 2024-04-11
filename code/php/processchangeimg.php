@@ -90,41 +90,35 @@ try {
             }
 
             // insert image into the database
-            $filePath = "../uploads/user_img/".$_FILES["change-pic"]["name"];	// obtain the image from the uploads directory
+            $filePath = "../uploads/user_img/".$_FILES["change-pic"]["name"];
             $imagedata = file_get_contents($filePath);
-                            //store the contents of the files in memory in preparation for upload
+
             $sql = "UPDATE image SET file = ? WHERE imgid = ?";
 
-            $stmt = mysqli_stmt_init($connection);		 //init prepared statement object
-            mysqli_stmt_prepare($stmt, $sql);			 // register the query
+            $stmt = mysqli_stmt_init($connection);
+            mysqli_stmt_prepare($stmt, $sql);
             $null = NULL;
             mysqli_stmt_bind_param($stmt, "bi", $null, $imgid);
-                            // bind the variable data into the prepared statement. You could replace $null with $data here and it also works. 
-                            // you can review the details of this function on php.net. The second argument defines the type of
-                            // data being bound followed by the variable list. In the case of the blob, you cannot bind it directly 
-                            // so NULL is used as a placeholder. Notice that the parametner $imageFileType (which you created previously)
-                            // is also stored in the table. This is important as the file type is needed when the file is retrieved from the database.
             mysqli_stmt_send_long_data($stmt, 0, $imagedata);
-                            // This sends the binary data to the third variable location in the prepared statement (starting from 0).
+
             $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
-                            // run the statement
+
             if ($result) {
                 echo "Image changed successfully";
                 header("Location: account.php");
                 exit();
             } else {
-                // echo "Failed to change image: ".mysqli_error($connection);
-                $_SESSION["chpic"] = "Failed to change image";
+                $_SESSION["chpic"] = "Failed to change the image";
                 header("Location: account.php");
                 exit();
             }
-            mysqli_stmt_close($stmt); 					// and dispose of the statement.
-
-            // close the statement and connection
+            mysqli_stmt_close($stmt);
             mysqli_close($connection);
         }
 	} else {
-		echo "<p>The request method should be POST. Cannnot process the data.<p>";
+        $_SESSION["chpic"] = "The request method should be POST. Cannnot process the data.";
+        header("Location: account.php");
+        exit();
 	}
 
 } catch (Exception $e) {

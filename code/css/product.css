@@ -299,6 +299,15 @@ main #submit {
 		padding: 0;
 	}
 
+	main #comment {
+		width: 90%;
+	}
+
+	main #submit {
+		width: 50%;
+		font-size: small;
+	}
+
 }
 
 @media (min-width: 600px) and (max-width: 700px) {
@@ -318,6 +327,14 @@ main #submit {
 
 	main #pimg {
 		float: none;
+	}
+
+	main #comment {
+		width: 90%;
+	}
+
+	main #submit {
+		width: 50%;
 	}
 
 }

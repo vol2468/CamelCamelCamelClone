@@ -3,6 +3,9 @@
 
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
 // redirect to main.php if the user already logged in
@@ -94,32 +97,26 @@ try {
 						exit();
 					} else {
                         // insert image into the database
-						$filePath = "../uploads/user_img/".$_FILES["profile-pic"]["name"];	// obtain the image from the uploads directory
+						$filePath = "../uploads/user_img/".$_FILES["profile-pic"]["name"];
 						$imagedata = file_get_contents($filePath);
-										//store the contents of the files in memory in preparation for upload
+
 						$sql = "INSERT INTO image (file) VALUES (?)";
 
-						$stmt = mysqli_stmt_init($connection);		 //init prepared statement object
-						mysqli_stmt_prepare($stmt, $sql);			 // register the query
+						$stmt = mysqli_stmt_init($connection);
+						mysqli_stmt_prepare($stmt, $sql);
 						$null = NULL;
 						mysqli_stmt_bind_param($stmt, "b", $null);
-										// bind the variable data into the prepared statement. You could replace $null with $data here and it also works. 
-										// you can review the details of this function on php.net. The second argument defines the type of
-										// data being bound followed by the variable list. In the case of the blob, you cannot bind it directly 
-										// so NULL is used as a placeholder. Notice that the parametner $imageFileType (which you created previously)
-										// is also stored in the table. This is important as the file type is needed when the file is retrieved from the database.
 						mysqli_stmt_send_long_data($stmt, 0, $imagedata);
-										// This sends the binary data to the third variable location in the prepared statement (starting from 0).
+
 						$result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
-										// run the statement
+
 						if ($result) {
 							echo "Image inserted successfully";
                             $imgid = mysqli_insert_id($connection);
 						} else {
 							echo "Failed to insert image: " . mysqli_error($connection);
 						}
-						mysqli_stmt_close($stmt); 					// and dispose of the statement.
-
+						mysqli_stmt_close($stmt);
 
 						// insert the user using a prepared statement
 						$sql = "INSERT INTO user (uname, email, password, imgid, usertype) VALUES (?, ?, ?, ?, ?)";
@@ -131,6 +128,36 @@ try {
 							if (mysqli_stmt_affected_rows($statement) > 0) {
 								$uid = mysqli_insert_id($connection);
 								echo "<p>An account for the user $uname has been created</p>";
+
+
+								// send an email notification of account creation
+								$to = $email;
+                                $subject = "ATY Account Created";
+                                $message = "Thank you for registering with an ATY account. Explore the best deals on Amazon's most affordable products.";
+
+                                require "phpmailer/src/Exception.php";
+                                require "phpmailer/src/PHPMailer.php";
+                                require "phpmailer/src/SMTP.php";
+
+                                $mail = new PHPMailer(true);
+                                $mail -> isSMTP();
+                                $mail -> Host = "smtp.gmail.com";
+                                $mail -> SMTPAuth = true;
+                                $mail -> Username = "atycorp2024@gmail.com";
+                                $mail -> Password = "vmlyrmweakdkkwpa";
+                                $mail -> SMTPSecure = "ssl";
+                                $mail -> Port = 465;
+
+                                $mail -> setFrom("atycorp2024@gmail.com", "ATY Corp.");
+                                $mail -> addAddress($to);
+                                $mail -> isHTML(true);
+
+                                $mail -> Subject = $subject;
+                                $mail -> Body = $message;
+
+                                $mail -> send();
+
+
                                 $_SESSION["uid"] = $uid;
 								$$_SESSION["usertype"] = $usertype;
                                 header("Location: main.php");

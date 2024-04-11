@@ -11,7 +11,6 @@
 
 <body>
     <footer>
-        <br>
         <div id="site-logo">
             <figure>
                 <a href="main.php" target="_top"><img src="../images/logo_black.png" alt="logo" width="150px"/></a>
@@ -19,7 +18,7 @@
         </div>
         <div id="contact-us">
             
-            <a href="contactus.php"><span><img src="../images/email-icon.png" alt="email" width="20px"></span>Contact Us</a>
+            <a href="contactus.php"><img src="../images/email-icon.png" alt="email" width="20px">Contact Us</a>
         </div>
         <div id="copyright">
             <p>Copyright &copy; 2024 ATY Corp. | All Rights Reserved</p>

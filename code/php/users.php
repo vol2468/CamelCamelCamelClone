@@ -46,8 +46,7 @@ if (!isset($_SESSION["uid"])) {
             <?php
                 if ($usertype === 1) {
                     echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href='#'>Products</a>";
-                    echo "<a href='users.php'>Users</a>";
+                    echo "<a href='#'>Users</a>";
                     echo "<a href='tickets.php'>Tickets</a>";
                 }
             ?>
@@ -91,9 +90,9 @@ if (!isset($_SESSION["uid"])) {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<tr>";
                                             echo "<td class='col-20'><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
-                                            echo "<td class='col-13'>" . $uname . "</td>";
-                                            echo "<td class='col-62'>" . $email . "</td>";
-                                            echo "<td class='col-5'><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                            echo "<td class='col-20'>" . $uname . "</td>";
+                                            echo "<td class='col-48'>" . $email . "</td>";
+                                            echo "<td class='col-12'><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
                                             echo "</tr>";
                                         }
                                         echo "</table>";
@@ -127,9 +126,9 @@ if (!isset($_SESSION["uid"])) {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<tr>";
                                             echo "<td class='col-20'><img src='data:image/jpeg;base64," . base64_encode($file) . "'></td>";
-                                            echo "<td lass='col-13'>" . $uname . "</td>";
-                                            echo "<td class='col-62'>" . $email . "</td>";
-                                            echo "<td class='col-5'><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
+                                            echo "<td lass='col-20'>" . $uname . "</td>";
+                                            echo "<td class='col-48'>" . $email . "</td>";
+                                            echo "<td class='col-12'><form action='deleteuser.php' method='post'><input type='hidden' name='uid' value='$userid'><input type='hidden' name='imgid' value='$imgid'><input id='delete' type='submit' value='Delete'></form></td>";
                                             echo "</tr>";
                                         }
                                         echo "</table>";
