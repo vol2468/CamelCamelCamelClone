@@ -16,6 +16,7 @@ footer footer {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 footer #contact-us a {
@@ -24,20 +25,15 @@ footer #contact-us a {
     display: flex;
     align-items: center;
 }
+
 footer #contact-us a img {
     margin: 0.3em;
 }
 
-footer #site-logo {
-    margin: 0 10em 0 10em;
-}
-
 footer #contact-us {
     font-family: "DM Sans";
-    margin: 0 5em 0 5em;
 }
 
 footer #copyright {
     font-family: "DM Sans";
-    margin: 0 10em 0 10em;
 }

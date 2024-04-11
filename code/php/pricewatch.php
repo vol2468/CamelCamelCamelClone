@@ -120,14 +120,16 @@ if (isset($_SESSION["chpic"])) {
 
         <div id="menu-bar">
             <a href="account.php">Account Profile</a>
-            <a href="pricewatch.php">Your Price Watches</a>
+            <a href="#">Your Price Watches</a>
             <?php
+
             if ($usertype === 1) {
                 echo "<a href='dashboard.php'>Dashboard</a>";
                 echo "<a href='#'>Products</a>";
                 echo "<a href='users.php'>Users</a>";
                 echo "<a href='#'>Tickets</a>";
             }
+
             ?>
             <a href="logout.php" id="logout">Sign out</a>
         </div>

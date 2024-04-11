@@ -49,8 +49,7 @@ if (!isset($_SESSION["uid"])) {
             <a href="pricewatch.php">Your Price Watches</a>
             <?php
                 if ($usertype === 1) {
-                    echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href=''>Products</a>";
+                    echo "<a href='#'>Dashboard</a>";
                     echo "<a href='users.php'>Users</a>";
                     echo "<a href='tickets.php'>Tickets</a>";
                 }
@@ -63,15 +62,17 @@ if (!isset($_SESSION["uid"])) {
                     <div class="box user-box">
                         <i class="fas fa-users"></i>
                         <p class="legend">Total Users</p>
-                        <p class="count" id="user-count">/p>
+                        <p class="count" id="user-count"></p>
                     </div>
                 </a>
 
-                <div class="box ticket-box">
-                    <i class="fas fa-ticket-alt"></i>
-                    <p class="legend">Unresolved Tickets</p>
-                    <p class="count" id="ticket-count">3</p><!-- TODO: make this dynamic -->
-                </div>
+                <a href="tickets.php" id="numu-of-tickets">
+                    <div class="box ticket-box">
+                        <i class="fas fa-ticket-alt"></i>
+                        <p class="legend">Unresolved Tickets</p>
+                        <p class="count" id="ticket-count"></p>
+                    </div>
+                </a>
             </div>
             <div id="analytics">
                 <!-- TODO: Make this selector dynamic -->

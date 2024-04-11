@@ -15,6 +15,10 @@ if (isset($_SESSION["status"])) {
     $status = $_SESSION["status"];
 }
 
+if (isset($_SESSION["error"])) {
+    $error = $_SESSION["error"];
+}
+
 if (isset($_SESSION["chpic"])) {
     $chpic = $_SESSION["chpic"];
 }
@@ -76,23 +80,18 @@ if (isset($_SESSION["chpic"])) {
 
                         // retrive image from the database
                         $sql = "SELECT file FROM image where imgid = ?";
-                        // build the prepared statement SELECTing on the userID for the user
+
                         $stmt = mysqli_stmt_init($connection);
+
                         // init prepared statement object
                         mysqli_stmt_prepare($stmt, $sql);
-                        // bind the query to the statement
                         mysqli_stmt_bind_param($stmt, "i", $imgid);
-                        // bind in the variable data (ie userID)
+
                         $result = mysqli_stmt_execute($stmt) or die(mysqli_stmt_error($stmt));
-                        // Run the query. run spot run!
-                        mysqli_stmt_bind_result($stmt, $image); //bind in results
-                        // Binds the columns in the resultset to variables
+
+                        mysqli_stmt_bind_result($stmt, $image);
                         mysqli_stmt_fetch($stmt);
-                        // Fetches the blob and places it in the variable $image for use as well
-                        // as the image type (which is stored in $type)
                         mysqli_stmt_close($stmt);
-                        // release the statement
-                        // echo '<img src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
                     }
 
                 } else {
@@ -115,7 +114,6 @@ if (isset($_SESSION["chpic"])) {
             <?php
                 if ($usertype === 1) {
                     echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href='#'>Products</a>";
                     echo "<a href='users.php'>Users</a>";
                     echo "<a href='tickets.php'>Tickets</a>";
                 }
@@ -127,10 +125,10 @@ if (isset($_SESSION["chpic"])) {
             <div id="account-info">
                 <form method="post" action="processaccount.php" id="setting-form">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" value=<?php echo $uname; ?> placeholder=<?php echo $uname; ?>>
+                    <input type="text" id="name" name="name" value="<?php echo $uname; ?>" placeholder="<?php echo $uname; ?>">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value=<?php echo $email; ?> placeholder=<?php echo $email; ?>>
-                    <input type='hidden' name='email-address' value=<?php echo $email; ?> >
+                    <input type="email" id="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $email; ?>">
+                    <input type='hidden' name='email-address' value="<?php echo $email; ?>">
                     <div id="password">
                         <label for="curr-pass">Current Password</label>
                         <input type="password" id="curr-pass" name="curr-pass" class="required">
@@ -145,10 +143,21 @@ if (isset($_SESSION["chpic"])) {
                         </div>
                         </div>
                     </div>
-                    <p class="status" style="color:#38AB38">
-                        <?php echo $status;
-                        $_SESSION["status"] = null; ?>
-                    </p>
+                    <?php
+                        if (isset($_SESSION["status"])) {
+                            $status = $_SESSION["status"];
+                            echo "<p class='status' style='color:#38AB38'>";
+                            echo $status;
+                            $_SESSION["status"] = null;
+                            echo "</p>";
+                        } elseif (isset($_SESSION["error"])) {
+                            $error = $_SESSION["error"];
+                            echo "<p class='error' style='color:red'>";
+                            echo $error;
+                            $_SESSION["error"] = null;
+                            echo "</p>";
+                        }
+                    ?>
                     <input type="submit" id="save" name="save" value="Change password">
                 </form>
             </div>
@@ -160,11 +169,11 @@ if (isset($_SESSION["chpic"])) {
                 <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
                     <input type="file" id="change-pic" name="change-pic">
                     <input type="submit" id="ch-pic" value="Change picture">
+                    <p class="error" style="color:red">
+                        <?php echo $chpic;
+                        $_SESSION["chpic"] = null; ?>
+                    </p> 
                 </form>
-                <p class="error" style="color:red">
-                    <?php echo $chpic;
-                    $_SESSION["chpic"] = null; ?>
-                </p> 
             </div>
         </div>
 

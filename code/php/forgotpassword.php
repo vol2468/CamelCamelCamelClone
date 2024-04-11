@@ -13,6 +13,10 @@ if (isset($_SESSION["status"])) {
     $status = $_SESSION["status"];
 }
 
+if (isset($_SESSION["error"])) {
+    $error1 = $_SESSION["error"];
+}
+
 ?>
 <html>
     <head lang="en">
@@ -25,6 +29,7 @@ if (isset($_SESSION["status"])) {
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="../js/validatelogin.js"></script>
     </head>
     <body>
         <header>
@@ -38,8 +43,22 @@ if (isset($_SESSION["status"])) {
                 <h1 class="welcome">RECOVER HERE</h1>
                 <p class="welcome">Please provide your email address to reset your password.</p>
                 <div id="forgot-info">
-                    <form method="post" action="processforgot.php" id="forgot-form">
-                        <p class="error" style="color:#38AB38"><?php echo $error; $_SESSION["status"] = null; ?></p><br>
+                    <form method="post" action="processforgot.php" id="signin-form">
+                        <?php
+                            if (isset($_SESSION["status"])) {
+                                $status = $_SESSION["status"];
+                                echo "<p class='status' style='color:#38AB38'>";
+                                echo $status;
+                                $_SESSION["status"] = null;
+                                echo "</p>";
+                            } elseif (isset($_SESSION["error"])) {
+                                $error = $_SESSION["error"];
+                                echo "<p class='error' style='color:red'>";
+                                echo $error;
+                                $_SESSION["error"] = null;
+                                echo "</p>";
+                            }
+                        ?>
                         <div class="input">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
