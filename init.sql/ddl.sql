@@ -143,15 +143,15 @@ INSERT INTO category(cid, cname)
 
 INSERT INTO user (uname, email, password, imgid, usertype)
     VALUES 
-    ('Taii Hirano', 'taiihirano@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 1, 1), -- p@55w0rd
-    ('Yuki Isomura', 'yukiiso@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 2, 1), -- p@55w0rd
-    ('Adams Chen', 'adamschen@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c508b0f0ea73162b7552dda3c149b6c045d', 3, 1), -- p@55w0rd
+    ('Taii Hirano', 'taiihirano@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c50', 1, 1), -- p@55w0rd
+    ('Yuki Isomura', 'yukiiso@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c50', 2, 1), -- p@55w0rd
+    ('Adams Chen', 'adamschen@student.ubc.ca', '39f13d60b3f6fbe0ba1636b0a9283c50', 3, 1), -- p@55w0rd
     ('Arnold Anderson', 'a.anderson@gmail.com', '0c1153dd5438e00de45c356ee749a97b', 4, 0), -- 360Arnold!
     ('Emily Johnson', 'emily.johnson@example.com', 'd5b8f606d8e99c4919e5e1de000cd179', 5, 0), -- 360Emily!
     ('Alexander Smith', 'alexander.smith@example.com', 'da7cd3e63724aa038f5113ab7a62a18b', 6, 0), -- 360Alexander!
     ('Sophia Mariani', 'sophia.mariani@example.com', 'fefdafe5d00f26befba8b27d0afd3db5', 7, 0), -- 360Sophia!
     ('Benjamin Williams', 'benjamin.williams@example.com', '780d8054bbdfb14659e05c1b1cf82a1f', 8, 0), -- 360Benjamin!
-    ('Olivia Garcia', 'olivia.garcia@example.com', '41637d2fc32127f2b42d86ec7a621d84', 9, 0), -- 360Olivia!
+    ('Olivia Garcia', 'olivia.garcia@example.com', 'e52f5403e24d6701e6a62b3eb066b842', 9, 0), -- 360Olivia!
     ('Lucas Kim', 'lucas.kim@example.com', '54ed848ae58249d1e18496fd9278c43e', 10, 0); -- 360Lucas!
 
 INSERT INTO product (pname, cid, imgid, amazonlink)
