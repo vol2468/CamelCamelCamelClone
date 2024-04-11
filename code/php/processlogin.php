@@ -18,6 +18,8 @@ try {
         if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["password"])) {
             $email = $_POST["email"];
             $passwd = $_POST["password"];
+
+            // hasing password
             $hashedPswd = md5($passwd);
 
             // database connection

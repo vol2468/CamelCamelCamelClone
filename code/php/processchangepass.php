@@ -14,6 +14,9 @@ try {
             $newpassword = $_POST["new-pass"];
             $uid = $_POST["uid"];
 
+            // hashing password
+            $hashedNewPswd = md5($newpassword);
+
             // database connection
             include "connect.php";
 
@@ -34,7 +37,7 @@ try {
                         $sql = "UPDATE user SET password = ? WHERE uid = ?";
                     
                         if ($statement = mysqli_prepare($connection, $sql)) {
-                            mysqli_stmt_bind_param($statement, "si", $newpassword, $uid);
+                            mysqli_stmt_bind_param($statement, "si", $hashedNewPswd, $uid);
                             mysqli_stmt_execute($statement);
 
                             if (mysqli_stmt_affected_rows($statement) > 0) {

@@ -25,6 +25,10 @@ try {
             $newpassword = $_POST["new-pass"];
             $email = $_POST["email-address"];
 
+            // hashing passwords
+            $hashedPswd = md5($passwd);
+            $hashedNewPswd = md5($newpassword);
+
             // database connection
             include "connect.php";
 
@@ -35,7 +39,7 @@ try {
                 // check if the uid and password are valid using prepared statement
                 $sql = "SELECT * FROM user WHERE uid = ? AND password = ?";
                 if ($statement = mysqli_prepare($connection, $sql)) {
-                    mysqli_stmt_bind_param($statement, "is", $uid, $passwd);
+                    mysqli_stmt_bind_param($statement, "is", $uid, $hashedPswd);
                     mysqli_stmt_execute($statement);
                     mysqli_stmt_store_result($statement);
 
@@ -48,7 +52,7 @@ try {
                         $sql = "UPDATE user SET password = ? WHERE uid = ?";
                     
                         if ($statement = mysqli_prepare($connection, $sql)) {
-                            mysqli_stmt_bind_param($statement, "si", $newpassword, $uid);
+                            mysqli_stmt_bind_param($statement, "si", $hashedNewPswd, $uid);
                             mysqli_stmt_execute($statement);
                             
                             if (mysqli_stmt_affected_rows($statement) > 0) {
