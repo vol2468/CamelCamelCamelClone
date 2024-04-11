@@ -19,6 +19,9 @@ try {
             $email = $_POST["email"];
             $passwd = $_POST["password"];
 
+            // hasing password
+            $hashedPswd = md5($passwd);
+
             // database connection
             include "connect.php";
 
@@ -29,7 +32,7 @@ try {
                 // check if the email and password are valid in the database using a prepared statement
                 $sql = "SELECT * FROM user WHERE email = ? AND password = ?";
                 if ($statement = mysqli_prepare($connection, $sql)) {
-                    mysqli_stmt_bind_param($statement, "ss", $email, $passwd);
+                    mysqli_stmt_bind_param($statement, "ss", $email, $hashedPswd);
                     mysqli_stmt_execute($statement);
                     mysqli_stmt_store_result($statement);
 

@@ -32,6 +32,8 @@ if (isset($_SESSION["chpic"])) {
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/checkpricewatchupdates.js"></script>
 </head>
 
 <body>
@@ -106,63 +108,58 @@ if (isset($_SESSION["chpic"])) {
             echo 'Error Message: ' . $e->getMessage();
         }
 
+        include 'my_price_watch.php';
         ?>
+        
+        <!-- to make $uid and $pid accessible in review.js -->
+        <script>
+            var uid = <?php echo json_encode($uid); ?>;
+            var pid = <?php echo json_encode($pid); ?>;
+            var usertype = <?php echo json_encode($usertype); ?>
+        </script>
+
         <div id="menu-bar">
             <a href="account.php">Account Profile</a>
             <a href="#">Your Price Watches</a>
             <?php
-                if ($usertype === 1) {
-                    echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href='users.php'>Users</a>";
-                    echo "<a href='tickets.php'>Tickets</a>";
-                }
+
+            if ($usertype === 1) {
+                echo "<a href='dashboard.php'>Dashboard</a>";
+                echo "<a href='#'>Products</a>";
+                echo "<a href='users.php'>Users</a>";
+                echo "<a href='#'>Tickets</a>";
+            }
+
             ?>
             <a href="logout.php" id="logout">Sign out</a>
         </div>
         <div id="price-watch">
             <h2>Your Price Watches</h2>
             <div id="products">
-                <!-- 3 cards / row -->
-                <div class="row">
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                    <div class="card">
-                        <a href="product.php?pid=2"><img src="../images/sock.png"/></a>
-                        <h3>Balega Silver Compression Fit Performance No Show Athletic Running Socks for Men and Women (1 Pair), White/ Grey, X-Large</h3>
-                        <p class="price">$12.76</p>
-                        <p><button><a href="product.php?pid=2">See Product Detail</a></button></p>
-                    </div>
-                </div>
+                <?php
+                $columnCounter = 0;
+                $rowMaxItems = 4;
+                // printout price watch item cards
+                for ($i = 0; $i < count($priceWatchItems); $i++) {
+                    // if ($columnCounter % $rowMaxItems == 0) {
+                    //     // Open new row
+                    //     echo '<div class="row">';
+                    // }
+                    echo '<div class="card">';
+                    echo '<a href="product.php?pid=' . $priceWatchItems[$i] . '"><img src="data:image/jpg;base64,' . base64_encode($priceWatchItemImages[$i]) . '" style="width: 100%;"/></a>';
+                    echo '<h3>' . $priceWatchItemNames[$i] . '</h3>';
+                    echo '<p class="price">$' . $priceWatchItemPrices[$i] . '</p>';
+                    // echo '<h3 class="price-drop">Price drop: $'.$priceWatchDifferences[$i].'</h3>';
+                    echo '<p><button><a href="product.php?pid=' . $priceWatchItems[$i] . '">See Product Detail</a></button></p>';
+                    echo '</div>';
+                    // if ($columnCounter % $rowMaxItems == $rowMaxItems - 1) {
+                    //     // Open new row
+                    //     echo '</div>';
+                    // }
+                    // $columnCounter++;
+                }
+
+                ?>
             </div>
         </div>
 

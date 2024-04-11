@@ -36,6 +36,9 @@ try {
 			$passwd = $_POST["password"];
             $usertype = 0;
 
+			// hasing password
+            $hashedPswd = md5($passwd);
+
 			// database connection
             include "connect.php";
 			
@@ -119,7 +122,7 @@ try {
 						$sql = "INSERT INTO user (uname, email, password, imgid, usertype) VALUES (?, ?, ?, ?, ?)";
 					
 						if ($statement = mysqli_prepare($connection, $sql)) {
-							mysqli_stmt_bind_param($statement, "sssii", $uname, $email, $passwd, $imgid, $usertype);
+							mysqli_stmt_bind_param($statement, "sssii", $uname, $email, $hashedPswd, $imgid, $usertype);
 							mysqli_stmt_execute($statement);
 
 							if (mysqli_stmt_affected_rows($statement) > 0) {

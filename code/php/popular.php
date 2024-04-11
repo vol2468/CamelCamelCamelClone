@@ -87,21 +87,21 @@ if (isset($_SESSION["uid"])) {
 
                 // printout popular item cards
                 for ($i=0; $i < count($popularItems); $i++) { 
-                    if($columnCounter%$rowMaxItems == 0){
-                        // Open new row
-                        echo '<div class="row">';
-                    }
+                    // if($columnCounter%$rowMaxItems == 0){
+                    //     // Open new row
+                    //     echo '<div class="row">';
+                    // }
                     echo '<div class="card">';
                     echo '<a href="product.php?pid='.$priceDropItems[$i].'"><img src="data:image/jpg;base64,'.base64_encode($popularItemImages[$i]).'" style="width: 100%;"/></a>';
                     echo '<h3>'.$popularItemNames[$i].'</h3>';
                     echo '<p class="price">$'.$popularItemPrices[$i].'</p>';
                     echo '<p><button><a href="product.php?pid='.$popularItems[$i].'">See Product Detail</a></button></p>';
                     echo '</div>';
-                    if($columnCounter%$rowMaxItems == $rowMaxItems-1){
-                        // Open new row
-                        echo '</div>';
-                    }
-                    $columnCounter++;
+                    // if($columnCounter%$rowMaxItems == $rowMaxItems-1){
+                    //     // Open new row
+                    //     echo '</div>';
+                    // }
+                    // $columnCounter++;
                 }
             ?>
         </div>

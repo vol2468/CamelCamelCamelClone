@@ -82,6 +82,7 @@ if (isset($_SESSION["chpic"])) {
 
                         $stmt = mysqli_stmt_init($connection);
 
+                        // init prepared statement object
                         mysqli_stmt_prepare($stmt, $sql);
                         mysqli_stmt_bind_param($stmt, "i", $imgid);
 
