@@ -20,6 +20,33 @@ $(document).ready(function () {
         }
     });
 
+    // Delete review
+    $(document).on('submit', 'form.delete-btn-form', function (event) {
+    
+        if (confirm("Are you sure you want to delete this review?")) {
+            event.preventDefault();
+            
+            // Get the hidden value
+            const d_uid = $(this).find('input[name="delete-uid"]').val();
+            const d_uidAsInt = parseInt(d_uid, 10); // Convert to integer 
+
+            $.ajax({
+                url: 'delete_review.php',
+                type: 'POST',
+                data: 'd_uid=' + d_uidAsInt + '&pid=' + pid,
+                success: function (count) {
+                    loadReviews(); // Refresh reviews 
+                    $('.reviews-title-container i').html("(" + count + ")");
+                },
+                error: function () {
+                    console.error("Failed to delete review");
+                }
+            });
+        } else {
+            console.log("Action canceled.");
+        }
+    });
+
     // Submit review
     $('#add-review').submit(function (event) {
         event.preventDefault();
@@ -47,7 +74,7 @@ $(document).ready(function () {
         $.ajax({
             url: 'get_reviews.php',
             type: 'GET',
-            data: 'pid=' + pid,
+            data: 'pid=' + pid + "&uid=" + uid + "&usertype=" + usertype,
             success: function (data) {
                 $('#reviews-container').html(data);
 
@@ -72,7 +99,7 @@ $(document).ready(function () {
         $.ajax({
             url: 'filter_reviews.php',
             type: 'GET',
-            data: 'pid=' + pid + "&rating=" + ratingAsInt,
+            data: 'pid=' + pid + "&uid=" + uid + "&rating=" + ratingAsInt,
             success: function (data) {
                 $('#reviews-container').html(data);
 

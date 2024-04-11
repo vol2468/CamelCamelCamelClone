@@ -203,6 +203,7 @@ main .review {
 	margin: 0 15px 15px 0;
 	/* Keep spacing between reviews */
 	box-sizing: border-box;
+	align-items: center;
 }
 
 #reviews-container .review:nth-child(n+5) {
@@ -216,6 +217,22 @@ main .review {
 	background-color: white;
 	height: 3em;
 	width: 12em;
+}
+
+.placeholder-btn {
+	visibility: hidden;
+}
+
+.delete-review-btn {
+	border: none;
+	background-color: white;
+}
+
+.delete-btn-form {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	float: right;
 }
 
 

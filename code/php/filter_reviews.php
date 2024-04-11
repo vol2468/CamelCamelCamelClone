@@ -2,23 +2,24 @@
 // Database connection setup
 include_once ("db_config.php");
 
-// Get product ID & Rating
+// Get product ID , user ID & Rating
 $pid = $_GET['pid'];
+$uid = $_GET['uid'];
 $rating = $_GET['rating'];
 
 // Prepare and execute SQL query
 // If rating is "All Ratings"
 if ($rating == 0) {
-    $sql = "SELECT review.comment, review.rate, CAST(review.DATE AS DATE) AS date_only, user.uname FROM review 
-        JOIN user ON review.uid = user.uid 
-        WHERE review.pid = ?";
+    $sql = "SELECT * FROM review 
+            JOIN user ON review.uid = user.uid 
+            WHERE review.pid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $pid);
 // rating is an actual number
 } else {
-    $sql = "SELECT review.comment, review.rate, CAST(review.DATE AS DATE) AS date_only, user.uname FROM review 
-        JOIN user ON review.uid = user.uid 
-        WHERE review.pid = ? AND review.rate = ?";
+    $sql = "SELECT * FROM review 
+            JOIN user ON review.uid = user.uid 
+            WHERE review.pid = ? AND review.rate = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $pid, $rating);
 }
@@ -36,6 +37,10 @@ if (!$result) {
 $reviewsHtml = "";
 while ($row = $result->fetch_assoc()) {
     $reviewsHtml .= "<div class='review'>";
+    $reviewsHtml .= "<div class='star-btn-container'>";
+    if ($row['uid'] == $uid) {
+        $reviewsHtml .= "<button class='placeholder-btn'></button>";
+    }
     $reviewsHtml .= "<div class='star'>";
     for ($i = 0; $i < $row['rate']; $i++) {
         $reviewsHtml .= "★";  // Filled star
@@ -44,9 +49,13 @@ while ($row = $result->fetch_assoc()) {
         $reviewsHtml .= "☆";  // Empty star 
     }
     $reviewsHtml .= "</div>";
+    if ($row['uid'] == $uid) {
+        $reviewsHtml .= "<button class='delete-review-btn'><i class='fa-regular fa-trash-can'></i></button>";
+    }
+    $reviewsHtml .= "</div>";
     $reviewsHtml .= "<p><strong>" . $row['uname'] . "</strong></p>";
     $reviewsHtml .= "<p>" . $row['comment'] . "</p>";
-    $reviewsHtml .= "<p><small>Posted on " . $row['date_only'] . "</small></p>";
+    $reviewsHtml .= "<p><small>Posted on " . date("Y-m-d", strtotime($row['date'])) . "</small></p>";
     $reviewsHtml .= "</div>";
 }
 

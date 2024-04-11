@@ -8,6 +8,7 @@ if (!isset($_SESSION["uid"])) {
     header("Location: login.php");
 } else {
     $uid = $_SESSION["uid"];
+    $usertype = $_SESSION["usertype"];
 }
 
 ?>
@@ -181,6 +182,7 @@ if (!isset($_SESSION["uid"])) {
         <script>
             var uid = <?php echo json_encode($uid); ?>;
             var pid = <?php echo json_encode($pid); ?>;
+            var usertype = <?php echo  json_encode($usertype); ?>
         </script>
 
         <!-- Product info section -->

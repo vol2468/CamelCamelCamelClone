@@ -77,7 +77,7 @@ if (isset($_SESSION["chpic"])) {
                         $sql = "SELECT file FROM image where imgid = ?";
                         // build the prepared statement SELECTing on the userID for the user
                         $stmt = mysqli_stmt_init($connection);
-                        //init prepared statement object
+                        // init prepared statement object
                         mysqli_stmt_prepare($stmt, $sql);
                         // bind the query to the statement
                         mysqli_stmt_bind_param($stmt, "i", $imgid);
