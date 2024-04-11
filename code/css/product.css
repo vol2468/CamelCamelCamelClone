@@ -125,6 +125,7 @@ main .gray {
 .reviews-header-container {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 3em 0 3em;
 }
 
 .reviews-title-container {
@@ -172,13 +173,6 @@ main #reviews-container {
 	justify-content: center;
 }
 
-main .review {
-	border: 1px solid #ddd;
-	padding: 20px;
-	margin-bottom: 15px;
-	border-radius: 15px;
-}
-
 main .review strong {
 	font-weight: bold;
 }
@@ -204,6 +198,9 @@ main .review {
 	/* Keep spacing between reviews */
 	box-sizing: border-box;
 	align-items: center;
+	border: 1px solid #ddd;
+	padding: 20px;
+	border-radius: 15px;
 }
 
 #reviews-container .review:nth-child(n+5) {

@@ -25,7 +25,7 @@ function populateDropdown() {
 
 function checkForUpdates() {
     $.ajax({
-        url: 'check_for_updates.php',
+        url: 'check_category_updates.php',
         type: 'GET',
         success: function(needsUpdate) {
             if (needsUpdate) {
