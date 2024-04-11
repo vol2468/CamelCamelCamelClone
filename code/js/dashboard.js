@@ -3,6 +3,7 @@ var chart;
 $(document).ready(function () {
     
     loadNumUsers(); // Load number of users
+    loadNumTickets(); // Load number of tickets
     initializeChart();
     updateChart();
 
@@ -17,6 +18,19 @@ function loadNumUsers() {
         },
         error: function () {
             console.error("Failed to load number of users.");
+        }
+    });
+}
+
+function loadNumTickets() {
+    $.ajax({
+        url: 'get_number_of_tickets.php',
+        type: 'GET',
+        success: function (data) {
+            $('#ticket-count').html(data);
+        },
+        error: function () {
+            console.error("Failed to load number of tickets.");
         }
     });
 }

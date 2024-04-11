@@ -44,13 +44,13 @@ try {
                                 header("Location: login.php");
                                 exit();
                             } else {
-                                $_SESSION["status"] = "Failed to change the password.";
+                                $_SESSION["error"] = "Failed to change the password. Please try other password.";
                                 header("Location: $redirect_url");
                                 exit();
                             }
                                 
                         } else {
-                            $_SESSION["status"] = "Failed to prepare statement";
+                            $_SESSION["error"] = "Failed to prepare statement";
                             header("Location: $redirect_url");
                             exit();
                         }
@@ -61,12 +61,12 @@ try {
 
 
                     } else {
-                        $_SESSION["status"] = "Email address is wrong.";
+                        $_SESSION["error"] = "Email address is wrong.";
                         header("Location: $redirect_url");
                         exit();
                     }
                 } else {
-                    $_SESSION["status"] = "Failed to prepare statement";
+                    $_SESSION["error"] = "Failed to prepare statement";
                     header("Location: $redirect_url");
                     exit();
                 }
@@ -78,12 +78,12 @@ try {
             }
 
         } else {
-            $_SESSION["status"] = "Empty fields exist. Please try again.";
+            $_SESSION["error"] = "Empty fields exist. Please try again.";
             header("Location: $redirect_url");
             exit();
         }
     } else {
-        $_SESSION["status"] = "The request method should be POST. Cannnot process the data.";
+        $_SESSION["error"] = "The request method should be POST. Cannnot process the data.";
         header("Location: $redirect_url");
         exit();
     }

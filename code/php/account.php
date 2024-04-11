@@ -15,6 +15,10 @@ if (isset($_SESSION["status"])) {
     $status = $_SESSION["status"];
 }
 
+if (isset($_SESSION["error"])) {
+    $error = $_SESSION["error"];
+}
+
 if (isset($_SESSION["chpic"])) {
     $chpic = $_SESSION["chpic"];
 }
@@ -108,7 +112,6 @@ if (isset($_SESSION["chpic"])) {
             <?php
                 if ($usertype === 1) {
                     echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href='#'>Products</a>";
                     echo "<a href='users.php'>Users</a>";
                     echo "<a href='tickets.php'>Tickets</a>";
                 }
@@ -138,10 +141,21 @@ if (isset($_SESSION["chpic"])) {
                         </div>
                         </div>
                     </div>
-                    <p class="status" style="color:#38AB38">
-                        <?php echo $status;
-                        $_SESSION["status"] = null; ?>
-                    </p>
+                    <?php
+                        if (isset($_SESSION["status"])) {
+                            $status = $_SESSION["status"];
+                            echo "<p class='status' style='color:#38AB38'>";
+                            echo $status;
+                            $_SESSION["status"] = null;
+                            echo "</p>";
+                        } elseif (isset($_SESSION["error"])) {
+                            $error = $_SESSION["error"];
+                            echo "<p class='error' style='color:red'>";
+                            echo $error;
+                            $_SESSION["error"] = null;
+                            echo "</p>";
+                        }
+                    ?>
                     <input type="submit" id="save" name="save" value="Change password">
                 </form>
             </div>
@@ -153,11 +167,11 @@ if (isset($_SESSION["chpic"])) {
                 <form id="pic-form" enctype="multipart/form-data" method="post" action="processchangeimg.php">
                     <input type="file" id="change-pic" name="change-pic">
                     <input type="submit" id="ch-pic" value="Change picture">
+                    <p class="error" style="color:red">
+                        <?php echo $chpic;
+                        $_SESSION["chpic"] = null; ?>
+                    </p> 
                 </form>
-                <p class="error" style="color:red">
-                    <?php echo $chpic;
-                    $_SESSION["chpic"] = null; ?>
-                </p> 
             </div>
         </div>
 

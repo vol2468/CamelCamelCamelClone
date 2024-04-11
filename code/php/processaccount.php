@@ -40,7 +40,7 @@ try {
                     mysqli_stmt_store_result($statement);
 
                     if (mysqli_stmt_num_rows($statement) < 1) {
-                        $_SESSION["chpic"] = "Current password is wrong";
+                        $_SESSION["error1"] = "Current password is wrong";
                         header("Location: account.php");
                         exit();
                     } else {
@@ -83,14 +83,14 @@ try {
                                 header("Location: account.php");
                                 exit();
                             } else {
-                                $_SESSION["chpic"] = "Failed to change";
+                                $_SESSION["error"] = "Password provided is the same / Failed to change the password";
                                 header("Location: account.php");
                                 exit();
                             }
                         }
                     }
                 } else {
-                    $_SESSION["chpic"] = "Failed to prepare statement";
+                    $_SESSION["error"] = "Failed to prepare statement.";
                     header("Location: account.php");
                     exit();
                 }
@@ -103,10 +103,14 @@ try {
 
 
         } else {
-            echo "<p>Empty fields exist. Please try again.<p>";
+            $_SESSION["error"] = "Empty fields exist. Please try again.";
+            header("Location: account.php");
+            exit();
         }
     } else {
-        echo "<p>The request method should be POST. Cannnot process the data.<p>";
+        $_SESSION["error"] = "The request method should be POST. Cannnot process the data.";
+        header("Location: account.php");
+        exit();
     }
 
     
