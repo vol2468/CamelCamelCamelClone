@@ -63,6 +63,7 @@ CREATE TABLE review (
     date        TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     rate        INT NOT NULL,  
     comment     VARCHAR(300) NOT NULL, 
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     PRIMARY KEY (uid, pid), 
     FOREIGN KEY (uid) REFERENCES user(uid)
         ON UPDATE CASCADE ON DELETE NO ACTION, 
