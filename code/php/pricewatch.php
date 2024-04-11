@@ -108,7 +108,6 @@ if (isset($_SESSION["chpic"])) {
             echo 'Error Message: ' . $e->getMessage();
         }
 
-        include 'my_price_watch.php';
         ?>
         
         <!-- to make $uid and $pid accessible in review.js -->
@@ -135,6 +134,9 @@ if (isset($_SESSION["chpic"])) {
         </div>
         <div id="price-watch">
             <h2>Your Price Watches</h2>
+            <?php
+                include 'my_price_watch.php';
+            ?>
             <div id="products">
                 <?php
                 $columnCounter = 0;
