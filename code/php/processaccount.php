@@ -70,7 +70,7 @@ try {
                                 $mail -> SMTPSecure = "ssl";
                                 $mail -> Port = 465;
 
-                                $mail -> setFrom("atycorp2024@gmail.com");
+                                $mail -> setFrom("atycorp2024@gmail.com", "ATY Corp.");
                                 $mail -> addAddress($to);
                                 $mail -> isHTML(true);
 

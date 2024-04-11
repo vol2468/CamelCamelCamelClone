@@ -13,6 +13,7 @@ try {
             $email = $_POST["email"];
             $newpassword = $_POST["new-pass"];
             $uid = $_POST["uid"];
+            $redirect_url = "resetpassword.php?uid=".$uid;
 
             // database connection
             include "connect.php";
@@ -38,19 +39,19 @@ try {
                             mysqli_stmt_execute($statement);
 
                             if (mysqli_stmt_affected_rows($statement) > 0) {
-                                // echo "User’s password has been updated.";
-                                $_SESSION["status"] = "User’s password has been updated";
-                                header("Location: account.php");
+                                // echo "User's password has been updated.";
+                                $_SESSION["status"] = "User's password has been updated";
+                                header("Location: login.php");
                                 exit();
                             } else {
                                 $_SESSION["status"] = "Failed to change the password.";
-                                header("Location: resetpassword.php");
+                                header("Location: $redirect_url");
                                 exit();
                             }
                                 
                         } else {
                             $_SESSION["status"] = "Failed to prepare statement";
-                            header("Location: resetpassword.php");
+                            header("Location: $redirect_url");
                             exit();
                         }
 
@@ -61,12 +62,12 @@ try {
 
                     } else {
                         $_SESSION["status"] = "Email address is wrong.";
-                        header("Location: resetpassword.php");
+                        header("Location: $redirect_url");
                         exit();
                     }
                 } else {
                     $_SESSION["status"] = "Failed to prepare statement";
-                    header("Location: resetpassword.php");
+                    header("Location: $redirect_url");
                     exit();
                 }
 
@@ -78,12 +79,12 @@ try {
 
         } else {
             $_SESSION["status"] = "Empty fields exist. Please try again.";
-            header("Location: resetpassword.php");
+            header("Location: $redirect_url");
             exit();
         }
     } else {
         $_SESSION["status"] = "The request method should be POST. Cannnot process the data.";
-        header("Location: resetpassword.php");
+        header("Location: $redirect_url");
         exit();
     }
 
