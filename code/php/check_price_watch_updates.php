@@ -32,7 +32,7 @@ foreach ($productIDs as $productID) {
     // echo $productID . "\n";
     // echo "Curr Time: ". $currentTime . "\n";
     // Query for individual product review
-    $sql = "SELECT MAX(updated_at) as last_updated FROM review WHERE pid = ?";
+    $sql = "SELECT MAX(date) as last_updated FROM review WHERE pid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $productID);
     $stmt->execute();
