@@ -215,7 +215,7 @@ if (!isset($_SESSION["uid"])) {
                 <div id="amazon">
                     <button id="view-amazon"><a href="
                     <?php echo $amazonlink; ?>
-                    ">View on Amazon</a></button>
+                    " target="_blank">View on Amazon</a></button>
                 </div>
             </div>
         </div>
