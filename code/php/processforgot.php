@@ -37,7 +37,7 @@ try {
                         if (mysqli_stmt_fetch($statement)) {
 
                             // modify the reset link when testing
-                            $reset_link = "http://cosc360.ok.ubc.ca/yukiiso/COSC360Project/code/php/resetpassword.php?uid=$uid";
+                            $reset_link = "http://cosc360.ok.ubc.ca/yukiiso/COSC360Project/code/php/resetpassword.php?uid=".$uid;
                             // $reset_link = "http://localhost/COSC360Project/code/php/resetpassword.php?uid=$uid";
                             $to = $email;
                             $subject = "The Password Reset Link of Your ATY Account";
