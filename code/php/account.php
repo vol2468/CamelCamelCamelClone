@@ -113,9 +113,7 @@ if (isset($_SESSION["chpic"])) {
             <a href="pricewatch.php">Your Price Watches</a>
             <?php
                 if ($usertype === 1) {
-                    echo "<a href='dashboard.php'>Dashboard</a>";
-                    echo "<a href='users.php'>Users</a>";
-                    echo "<a href='tickets.php'>Tickets</a>";
+                    include_once ("admin_sidebar.php");
                 }
             ?>
             <a href="logout.php" id="logout">Sign out</a>

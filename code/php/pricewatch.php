@@ -123,10 +123,7 @@ if (isset($_SESSION["chpic"])) {
             <?php
 
             if ($usertype === 1) {
-                echo "<a href='dashboard.php'>Dashboard</a>";
-                echo "<a href='#'>Products</a>";
-                echo "<a href='users.php'>Users</a>";
-                echo "<a href='#'>Tickets</a>";
+                include_once ("admin_sidebar.php");
             }
 
             ?>
