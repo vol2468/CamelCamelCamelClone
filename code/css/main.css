@@ -99,3 +99,10 @@ main button a {
 	text-decoration: none;
 	color: white;
 }
+
+main #header-container {
+	font-family: "Actor";
+	font-size: 1em;
+	display: flex;
+	flex-wrap: wrap;
+}
