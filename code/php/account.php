@@ -143,21 +143,23 @@ if (isset($_SESSION["chpic"])) {
                         </div>
                         </div>
                     </div>
-                    <?php
-                        if (isset($_SESSION["status"])) {
-                            $status = $_SESSION["status"];
-                            echo "<p class='status' style='color:#38AB38'>";
-                            echo $status;
-                            $_SESSION["status"] = null;
-                            echo "</p>";
-                        } elseif (isset($_SESSION["error"])) {
-                            $error = $_SESSION["error"];
-                            echo "<p class='error' style='color:red'>";
-                            echo $error;
-                            $_SESSION["error"] = null;
-                            echo "</p>";
-                        }
-                    ?>
+                    <div id="error-msg">
+                        <?php
+                            if (isset($_SESSION["status"])) {
+                                $status = $_SESSION["status"];
+                                echo "<p class='status' style='color:#38AB38'>";
+                                echo $status;
+                                $_SESSION["status"] = null;
+                                echo "</p>";
+                            } elseif (isset($_SESSION["error"])) {
+                                $error = $_SESSION["error"];
+                                echo "<p class='error' style='color:red'>";
+                                echo $error;
+                                $_SESSION["error"] = null;
+                                echo "</p>";
+                            }
+                        ?>
+                    </div>
                     <input type="submit" id="save" name="save" value="Change password">
                 </form>
             </div>

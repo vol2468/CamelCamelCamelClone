@@ -154,6 +154,16 @@ main .status {
     margin-bottom: 1em;
 }
 
+main #error-msg {
+    display: flex;
+    justify-content: center;
+}
+
+main .error, main .status {
+    width: 80%;
+    text-align: center;
+}
+
 main #save {
     background-color: #38AB38;
     padding-top: 0.8em;

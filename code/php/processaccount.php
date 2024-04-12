@@ -25,6 +25,16 @@ try {
             $newpassword = $_POST["new-pass"];
             $email = $_POST["email-address"];
 
+            // check the password combination
+			$pattern = "/^(?=.*[@!?])(?=.*\d).{8,}$/";
+
+			if (!preg_match($pattern, $newpassword)) {
+				// password does not meet the criteria
+				$_SESSION["error"] = "Password must be at least 8 characters long and contain at least one special character (@, !, or ?) and one digit.";
+				header("Location: account.php");
+				exit();
+			}
+
             // hashing passwords
             $hashedPswd = md5($passwd);
             $hashedNewPswd = md5($newpassword);
@@ -44,7 +54,7 @@ try {
                     mysqli_stmt_store_result($statement);
 
                     if (mysqli_stmt_num_rows($statement) < 1) {
-                        $_SESSION["error1"] = "Current password is wrong";
+                        $_SESSION["error"] = "Current password is wrong";
                         header("Location: account.php");
                         exit();
                     } else {

@@ -91,6 +91,16 @@ main #log {
     color: #38AB38;
 }
 
+main #error-msg {
+    display: flex;
+    justify-content: center;
+}
+
+main .error {
+    width: 80%;
+    text-align: center;
+}
+
 /* Responsive design for mobile */
 @media screen and (max-width: 800px) {
     main {

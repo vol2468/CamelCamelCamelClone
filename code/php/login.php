@@ -51,20 +51,15 @@ if (isset($_SESSION["status"])) {
                         <div class="input">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" class="required" /> 
-                            <p class="error-message"></p>
                         </div>
                         <div class="input">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password" placeholder="Enter your password" class="required" /> 
-                            <p class="error-message"></p>
                         </div>
                         <p id="forgot"><a href="forgotpassword.php">Forgot Password?</a></p>
                         <div class="input">
                             <input type="submit" id="submit" value="Sign in"/>
                         </div>
-                        <!-- <div class="input">
-                            <input id="google" type="submit" id="submit" value="Sign in with Google"/>
-                        </div> -->
                         <p>Don't have an account? <span><a id="sig" href="register.php">Sign up for free!</a></span></p>
                     </form>
                 </div>
