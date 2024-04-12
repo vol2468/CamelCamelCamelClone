@@ -193,6 +193,9 @@ if (!isset($_SESSION["uid"])) {
                 <h1 id="pname">
                     <?php echo $pname; ?>
                 </h1>
+                <div id="add-to-pwatch">
+                    <button id="add-to-pwatch-btn" type="button">Add to Price Watch</button>
+                </div>
                 <p id="category">Category:
                     <?php echo $cname; ?>
                 </p>
@@ -212,7 +215,7 @@ if (!isset($_SESSION["uid"])) {
                 <div id="amazon">
                     <button id="view-amazon"><a href="
                     <?php echo $amazonlink; ?>
-                    ">View on Amazon</a></button>
+                    " target="_blank">View on Amazon</a></button>
                 </div>
             </div>
         </div>
@@ -253,9 +256,6 @@ if (!isset($_SESSION["uid"])) {
         <h2 id="analytics-title">Amazon Price History</h2>
         <div id="price-analytics">
             <canvas id="price-history" data-pid="<?php echo $pid; ?>"></canvas><br>
-            <div id="add-to-pwatch">
-                <button id="add-to-pwatch-btn" type="button">Add to Price Watch</button>
-            </div>
         </div>
         <br>
     </main>
