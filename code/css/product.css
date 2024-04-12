@@ -85,6 +85,7 @@ main #view-amazon {
 	padding: 0.5em;
 	margin-top: 1em;
 	width: 60%;
+	min-width: 9em;
 	background-color: black;
 	border: 1px solid black;
 	border-radius: 2em;
@@ -204,12 +205,12 @@ main .review {
 	border-radius: 15px;
 }
 
-#reviews-container .review:nth-child(n+5) {
+main #reviews-container .review:nth-child(n+5) {
 	display: none;
 	/* Show only the first 3 items intially */
 }
 
-#load-more-reviews-btn {
+main #load-more-reviews-btn {
 	border: 1px solid #ddd;
 	border-radius: 30px;
 	background-color: white;
@@ -217,16 +218,16 @@ main .review {
 	width: 12em;
 }
 
-.placeholder-btn {
+main .placeholder-btn {
 	visibility: hidden;
 }
 
-.delete-review-btn {
+main .delete-review-btn {
 	border: none;
 	background-color: white;
 }
 
-.delete-btn-form {
+main .delete-btn-form {
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -261,17 +262,23 @@ main #submit {
 
 /* styling for analytics section */
 
-#price-analytics {
+main #price-analytics {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-#add-to-pwatch-btn {
+main #add-to-pwatch {
+	display: flex;
+	justify-content: end;
+}
+
+main #add-to-pwatch-btn {
 	padding: 0.5em;
-	margin-top: 1em;
-	width: 40%;
-	min-width: 15em;
+	margin-bottom: 1em;
+	width: 20%;
+	min-width: 10em;
+	font-size: small;
 	background-color: black;
 	border: 1px solid black;
 	border-radius: 2em;
