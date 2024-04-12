@@ -36,6 +36,16 @@ try {
 			$passwd = $_POST["password"];
             $usertype = 0;
 
+			// check the password combination
+			$pattern = "/^(?=.*[@!?])(?=.*\d).{8,}$/";
+
+			if (!preg_match($pattern, $passwd)) {
+				// Password does not meet the criteria
+				$_SESSION["exist"] = "Password must be at least 8 characters long and contain at least one special character (@, !, or ?) and one digit.";
+				header("Location: register.php");
+				exit();
+			}
+			
 			// hasing password
             $hashedPswd = md5($passwd);
 

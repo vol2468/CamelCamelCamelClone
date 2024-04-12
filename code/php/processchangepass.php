@@ -15,6 +15,16 @@ try {
             $uid = $_POST["uid"];
             $redirect_url = "resetpassword.php?uid=".$uid;
 
+            // check the password combination
+			$pattern = "/^(?=.*[@!?])(?=.*\d).{8,}$/";
+
+			if (!preg_match($pattern, $newpassword)) {
+				// password does not meet the criteria
+				$_SESSION["error"] = "Password must be at least 8 characters long and contain at least one special character (@, !, or ?) and one digit.";
+				header("Location: $redirect_url");
+				exit();
+			}
+
             // hashing password
             $hashedNewPswd = md5($newpassword);
 
