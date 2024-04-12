@@ -280,6 +280,9 @@ INSERT INTO review (uid, pid, date, rate, comment)
 
 INSERT INTO watchList (uid, pid, threshold)
     VALUES 
+    (1, 66, 18.00),
+    (1, 67, 18.00),
+    (1, 70, 18.00),
     (4, 1, 18.00), 
     (5, 1, 18.00), 
     (6, 1, 18.00), 
