@@ -1,5 +1,11 @@
 # COSC 360 Project Camelcamelcamel Clone
 
+## Final Product
+
+See details: [Camelcamelcame Clone Documentation](https://github.com/vol2468/CamelCamelCamelClone/blob/main/Camelcamelcamel%20Clone%20Documentation.pdf)
+
+Website at a glance: <https://youtu.be/mC4Gelal0L8>
+
 ## Milestones 1: Proposal
 
 ### Team members
