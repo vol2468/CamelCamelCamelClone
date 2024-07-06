@@ -6,6 +6,8 @@ See details: [Camelcamelcame Clone Documentation](https://github.com/vol2468/Cam
 
 Website at a glance: <https://youtu.be/mC4Gelal0L8>
 
+![main page](images/final_main.png)
+
 ## Milestones 1: Proposal
 
 ### Team members
